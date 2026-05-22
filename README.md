@@ -1,7 +1,5 @@
 # WitchSpring-R-Archipelago
 Repository for my attempt at the WitchSpring R Archipelago randomizer!<br>
-**Disclaimer** I had a friend helping me with the mod and they even helped fix up my portion that I wrote before they offered. They are no longer helping out. I am not a dev by any means and my coding knowledge I know isn't up to par with many of our fine people from the Archipelago community. So if there is anyone else who knows more and is willing to help out, or take over, then please don't hesitate! This also means that I will take some time to work out any bugs or anything that crop up when it comes to the client/mod side of things. I mostly handled item/location data before they joined in.<br>
-<br>
 Logic currently works through Chapter 1 and partially through Chapter 2. In theory any chapter goal setting should function, untested and Chapter 8 is questionable if it even exists in the coding or not. But I do not currently recommend going past Chapter 2 for stability. 
 
 ## Installation
@@ -19,8 +17,8 @@ Logic currently works through Chapter 1 and partially through Chapter 2. In theo
 4. Start a new game
 
 ## What is randomized?
-Current logic only fully functional up until the Chapter 2 splash screen. Semi-functional throughout Chapter 2. 
-Magic circles, spellbooks, items, equipment and blessings are all in the item pool. <br>
-You still receive regular blessings at the normal part of the story, so you will end up with duplicate blessings for use, they do not share a timer, enjoy the extra power!<br>
-Overworld item checks give you a check for the multiworld on the first pickup, every subsequent pickup is the vanilla item.<br>
-Chests are randomized, and should not be granting their vanilla reward.<br>
+- Current logic only fully functional up until the Chapter 2 splash screen. Semi-functional throughout Chapter 2. 
+- Magic circles, spellbooks, items, equipment and blessings are all in the item pool. <br>
+- You still receive regular blessings at the normal part of the story, so you will end up with duplicate blessings for use, they do not share a timer, enjoy the extra power!<br>
+- Overworld item checks give you a check for the multiworld on the first pickup, every subsequent pickup is the vanilla item.<br>
+- Chests are randomized, and should not be granting their vanilla reward.<br>
