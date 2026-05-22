@@ -1,5 +1,5 @@
 # WitchSpring-R-Archipelago
-Repository for my attempt at the WitchSpring R Archipelago randomizer!<br>
+Repository for my attempt at the WitchSpring R [Archipelago](https://archipelago.gg/) randomizer!<br>
 Logic currently works through Chapter 1 and partially through Chapter 2. In theory any chapter goal setting should function, untested and Chapter 8 is questionable if it even exists in the coding or not. But I do not currently recommend going past Chapter 2 for stability. 
 
 ## Installation
