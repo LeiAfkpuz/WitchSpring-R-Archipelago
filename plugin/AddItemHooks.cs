@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using HarmonyLib;
+using WS1RCLASS;
+
+namespace WitchSpringRTestPlugin
+{
+    [HarmonyPatch(typeof(DataSet), nameof(DataSet.AddItem))]
+    public static class AddItemHook
+    {
+        private static readonly HashSet<long> sentEventLocations = new();
+
+        public static bool Prefix(string _id, int _count, GetItemType getType)
+        {
+            try
+            {
+                if (ItemGranting.IsGrantingFromArchipelago)
+                    return true;
+
+                if (getType == GetItemType.CHEST)
+                {
+                    Plugin.LogRef.LogWarning($"Blocked vanilla chest reward: {_id} x{_count}");
+                    return false;
+                }
+                if (getType != GetItemType.EVENT)
+                    return true;
+                Plugin.LogRef.LogWarning(
+                    $"Game AddItem hook fired: {_id} x{_count} type={getType} " +
+                    $"event={EventContext.CurrentEventId} " +
+                    $"method={EventContext.CurrentMethodId} " +
+                    $"command={EventContext.CurrentCommand}"
+                );
+
+                foreach (EventRewardCheck check in Data.EventRewardChecks)
+                {
+                    if (sentEventLocations.Contains(check.LocationId))
+                        continue;
+
+                    if (check.EventId != EventContext.CurrentEventId)
+                        continue;
+
+                    if (check.MethodIndex != EventContext.CurrentMethodId)
+                        continue;
+
+                    if (check.VanillaItem != _id)
+                        continue;
+
+                    if (check.VanillaQuantity != _count)
+                        continue;
+
+                    sentEventLocations.Add(check.LocationId);
+
+                    Plugin.LogRef.LogWarning(
+                        $"Sent AP event check: {check.DisplayName} / {check.LocationId}"
+                    );
+
+                    BridgeClient.WriteCheckedLocation(check.LocationId);
+
+                    return false; // BLOCK vanilla reward
+                }
+
+                return true; // allow normal reward
+            }
+            catch (Exception ex)
+            {
+                Plugin.LogRef.LogError($"AddItemHook error: {ex}");
+                return true;
+            }
+        }
+    }
+}
