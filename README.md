@@ -3,7 +3,7 @@ Repository for my attempt at the WitchSpring R [Archipelago](https://archipelago
 Logic currently works through Chapter 1 and partially through Chapter 2. In theory any chapter goal setting should function, untested and Chapter 8 is questionable if it even exists in the coding or not. But I do not currently recommend going past Chapter 2 for stability. 
 
 ## Installation
-1. Install [BepInEx Unity IL2CPP](https://builds.bepinex.dev/projects/bepinex_be) into the WitchSpring R game folder<br>
+1. Install [BepInEx Unity IL2CPP](https://builds.bepinex.dev/projects/bepinex_be) into the [WitchSpring R](https://store.steampowered.com/app/1958220/WitchSpring_R/) game folder<br>
    ( Tested with [BepInEx 6.0.0-be.755](https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip) ) 
 2. Launch the game once for the folders to be created
 3. Place the WitchSpringRArchipelago.dll into the new BepInEx/plugins folder / Or replace the plugins folder with the one from the .zip
