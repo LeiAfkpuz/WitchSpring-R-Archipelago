@@ -24,3 +24,9 @@ Logic currently works through Chapter 1 and partially through Chapter 2. In theo
 - You still receive regular blessings at the normal part of the story, so you will end up with duplicate blessings for use, they do not share a timer, enjoy the extra power!<br>
 - Overworld item checks give you a check for the multiworld on the first pickup, every subsequent pickup is the vanilla item.<br>
 - Chests are randomized, and should not be granting their vanilla reward.<br>
+
+## Known Bugs
+- Game may hard-lock if you attempt to initiate a convo when they are expecting you to have a certain item. IE; If you are supposed to have the Prototype Steam Engine and initiate the conversation to hand it over, the game will lock up forcing you to Alt+F4
+- There are items in the pool that aren't real or not usable. They will show up in your inventory with a placeholder icon. Some of these can be used, but most of these will just take up a spot in your inventory.
+- Blessings and special abilities will be unusable until you fight the Mid-Rank Warrior near Pieberry's House
+- You will have duplicate Blessings. The ones received from the multiworld will not have the turn timer shown, but will be usable when their specific timer is allowed. The ones received from cutscenes will have the normal turn timer shown. Both will function independantly of each other - I had issues replacing the granting during the cutscene with another item as it would just lock up the cutscene. 
