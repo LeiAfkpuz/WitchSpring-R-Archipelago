@@ -43,6 +43,14 @@ namespace WitchSpringRTestPlugin
         public string DisplayName = "";
     }
 
+    public class BattleRewardCheck
+    {
+        public string VanillaItem = "";
+        public int VanillaQuantity = 1;
+        public long LocationId;
+        public string DisplayName = "";
+    }
+
     //public class ChapterCheck
     //{
     //   public Chapters Chapter;
@@ -52,7 +60,16 @@ namespace WitchSpringRTestPlugin
 
     public static class Data
     {
-
+        public static readonly BattleRewardCheck[] BattleRewardChecks =
+        {
+            new BattleRewardCheck
+            {
+                VanillaItem = "BoarBossTooth",
+                VanillaQuantity = 1,
+                LocationId = 200500,
+                DisplayName = "Boar Captain Defeated",
+            },
+        };
         //Tried many different moments here and I keep hardlocking the game in cutscenes forcing an Alt+F4. Will revisit in the future maybe.
         public static readonly EventGate[] EventGates = 
         {
@@ -121,6 +138,105 @@ namespace WitchSpringRTestPlugin
                 VanillaQuantity = 1,
                 LocationId = 200155,
                 DisplayName = "event_214 - Thunder Slab",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_264",
+                MethodIndex = 61,
+                VanillaItem = "Shield_Wood",
+                VanillaQuantity = 1,
+                LocationId = 200163,
+                DisplayName = "event_264 - Wooden Shield",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_264",
+                MethodIndex = 62,
+                VanillaItem = "Shoes_Leather",
+                VanillaQuantity = 1,
+                LocationId = 200164,
+                DisplayName = "event_264 - Leather Shoes",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_92",
+                MethodIndex = 7,
+                VanillaItem = "Gold",
+                VanillaQuantity = 1000,
+                LocationId = 200173,
+                DisplayName = "Event 92 - Item 1",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_96",
+                MethodIndex = 23,
+                VanillaItem = "GoodCookie",
+                VanillaQuantity = 1,
+                LocationId = 200165,
+                DisplayName = "event_96 - Heartfelt Cookie",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_96",
+                MethodIndex = 25,
+                VanillaItem = "WarmBread",
+                VanillaQuantity = 5,
+                LocationId = 200166,
+                DisplayName = "event_96 - Warm Pie",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_101",
+                MethodIndex = 34,
+                VanillaItem = "AnnaBread",
+                VanillaQuantity = 3,
+                LocationId = 200167,
+                DisplayName = "event_101 - Artisan Pie",
+            },
+            //new EventRewardCheck
+            //{ THE GAME STILL FREEZES IF YOU DON'T HAVE THE ITEM SO LET'S LEAVE THIS VANILLA FOR NOW
+            //    EventId = "event_216",
+            //    MethodIndex = 34,
+            //    VanillaItem = "ConfuseStone",
+            //    VanillaQuantity = 1,
+            //    LocationId = 200168,
+            //    DisplayName = "event_216 - Chaos Stone",
+            //},
+            new EventRewardCheck
+            {
+                EventId = "event_108",
+                MethodIndex = 23,
+                VanillaItem = "OrangeConfusingStone",
+                VanillaQuantity = 1,
+                LocationId = 200169,
+                DisplayName = "event_108 - Chaos Stone Earrings",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_217",
+                MethodIndex = 98,
+                VanillaItem = "Key_MineUnderDarkStone",
+                VanillaQuantity = 1,
+                LocationId = 200170,
+                DisplayName = "event_217 - Lalaque Mine Key",
+            },
+            //new EventRewardCheck
+            //{ I WOULD LIKE TO ADD THIS AS A CHECK, BUT REQUIRES TESTING TO MAKE SURE IT DOESN'T HARDLOCK
+            //    EventId = "event_139",
+            //    MethodIndex = 83,
+            //    VanillaItem = "SeraDressLaquePeach"
+            //    VanillaQuantity = 1,
+            //    LocationId = 200171,
+            //    DisplayName = "event_139 - Sera Dress",
+            //},
+            new EventRewardCheck
+            {
+                EventId = "event_453",
+                MethodIndex = 73,
+                VanillaItem = "Key_ShipPrison",
+                VanillaQuantity = 1,
+                LocationId = 200172,
+                DisplayName = "event_453 - Shipwreck Brig Key",
             },
         };
 

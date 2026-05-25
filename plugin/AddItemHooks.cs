@@ -9,6 +9,7 @@ namespace WitchSpringRTestPlugin
     public static class AddItemHook
     {
         private static readonly HashSet<long> sentEventLocations = new();
+        private static readonly HashSet<long> sentBattleLocations = new();
 
         public static bool Prefix(string _id, int _count, GetItemType getType)
         {
@@ -20,6 +21,22 @@ namespace WitchSpringRTestPlugin
                 if (getType == GetItemType.CHEST)
                 {
                     Plugin.LogRef.LogWarning($"Blocked vanilla chest reward: {_id} x{_count}");
+                    return false;
+                }
+                foreach (BattleRewardCheck check in Data.BattleRewardChecks)
+                {
+                    if (sentBattleLocations.Contains(check.LocationId))
+                        continue;
+                    if (check.VanillaItem != _id)
+                        continue;
+                    if (check.VanillaQuantity != _count)
+                        continue;
+                    
+                    sentBattleLocations.Add(check.LocationId);
+                    Plugin.LogRef.LogWarning(
+                        $"Sent AP battle reward check: {check.DisplayName} / {check.LocationId} " + $"blocked vanilal reward: {_id} x{_count} type={getType}"
+                    );
+                    BridgeClient.WriteCheckedLocation(check.LocationId);
                     return false;
                 }
                 if (getType != GetItemType.EVENT)

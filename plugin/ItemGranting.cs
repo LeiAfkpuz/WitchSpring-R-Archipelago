@@ -117,9 +117,9 @@ namespace WitchSpringRTestPlugin
 
                 int currentCount = dataSet.GetItemCount(gameItemId);
 
-                Plugin.LogRef.LogWarning(
-                    $"Inventory check: {gameItemId} has {currentCount}, needs {quantity}"
-                );
+                //Plugin.LogRef.LogWarning(
+                //    $"Inventory check: {gameItemId} has {currentCount}, needs {quantity}"
+                //);
 
                 return currentCount >= quantity;
             }

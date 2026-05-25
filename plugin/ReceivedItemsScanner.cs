@@ -29,13 +29,18 @@ namespace WitchSpringRTestPlugin
             if (parsedItems.Count == 0)
                 return;
 
+            int processedIndex = BridgeClient.ReadProcessedReceivedIndex();
+
             foreach (ReceivedApItem item in parsedItems)
             {
-                if (ItemGranting.PlayerAlreadyHasItem(item.ItemName))
+                //if (ItemGranting.PlayerAlreadyHasItem(item.ItemName))
+                //    continue;
+
+                if (item.Index <= processedIndex)
                     continue;
 
                 Plugin.LogRef.LogWarning(
-                    $"[AP] Received item missing from save, granting: #{item.Index} {item.ItemName}"
+                    $"[AP] Processing received item #{item.Index} {item.ItemName}"
                 );
 
                 bool granted = ItemGranting.GrantItem(item.ItemName);
@@ -48,6 +53,8 @@ namespace WitchSpringRTestPlugin
 
                     return;
                 }
+                BridgeClient.WriteProcessedReceivedIndex(item.Index);
+                processedIndex = item.Index;
             }
         }
 
@@ -83,7 +90,7 @@ namespace WitchSpringRTestPlugin
             return scene == "Forest_BlackWitch"
                 || scene == "House_Pieberry"
                 || scene == "Temple_Arua"
-                || scene == "House_LalaqueVillageSet"
+                || scene == "House_LalauqeVillageSet"
                 || scene == "Temple_Arua_Room1"
                 || scene == "House_Anna"
                 || scene == "Village_Lalaque_North"
@@ -94,14 +101,27 @@ namespace WitchSpringRTestPlugin
                 || scene == "Cave_Lalaque_Mine_CannaArea_4"
                 || scene == "Cave_Lalaque_Mine_CannaArea_Store"
                 || scene == "Cave_Pudding"
-                || scene == "Cave_Pudding2"
+                || scene == "Cave_Pudding_2"
+                || scene == "Cave_Pudding_3"
                 || scene == "Swamp_1"
                 || scene == "Cave_Golem_BackMountain"
                 || scene == "Cave_Golem_BackMountain_Fire"
                 || scene == "Cave_Golem_BackMountain_Fox"
                 || scene == "Cave_Golem_BackMountain_Fire_2"
                 || scene == "Cave_Golem_BackMountain_Fire_Cow"
-                || scene == "Island_Arua";
+                || scene == "Island_Arua"
+                || scene == "Forest_Boar"
+                || scene == "Road_NorthHill"
+                || scene == "Forest_Lalaque"
+                || scene == "Forest_Lalaque_WestSouth"
+                || scene == "Forest_Lalaque_EastSouth"
+                || scene == "Village_Lalaque"
+                || scene == "Village_Lalaque_North"
+                || scene == "Village_Lalaque_South"
+                || scene == "Forest_Lalaque_Maets"
+                || scene == "Forest_Lalaque_South"
+                || scene == "Forest_Lalaque_NorthWest"
+                || scene == "Forest_Lalaque_NorthEast";
         }
     }
 }
