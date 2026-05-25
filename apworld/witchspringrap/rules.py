@@ -20,81 +20,45 @@ if TYPE_CHECKING:
 def has(world, item_name: str):
     return lambda state: state.has(item_name, world.player)
 
+def safe_set_location_rule(world, location_name: str, rule):
+    try:
+        set_rule(world.get_location(location_name), rule)
+    except KeyError:
+        pass
+
+def safe_set_entrance_rule(world, entrance_name: str, rule):
+    try:
+        set_rule(world.get_entrance(entrance_name), rule)
+    except KeyError:
+        pass
+
 def set_all_rules(world) -> None:
     set_location_rules(world)
     set_completion_condition(world)
 
 def set_location_rules(world) -> None:
-    set_rule(
-        world.get_location("Arua Blessing"),
-        #HAS_LIGHTNING_SPELLBOOK
-        has(world, "Lightning Magic Spellbook")
-    )
 
+    safe_set_location_rule(world, "Arua Blessing", has(world, "Lightning Magic Spellbook"))
+    safe_set_location_rule(world, "Reached Chapter 2", has(world, "Fire Magic Spellbook"))
+    safe_set_location_rule(world, "Event 92 - Item 1", has(world, "Boar Captain's Tooth"))
+    safe_set_location_rule(world, "Event 108 - Chaos Stone Earrings", has(world, "Chaos Stone"))
+    safe_set_location_rule(world, "Event 217 - Lalaque Mine Key", has(world, "Chaos Stone"))
+    safe_set_location_rule(world, "Reached Chapter 3", lambda state: state.has("Chapter 2", world.player) and state.has("Lalaque Mine Key", world.player))
+    safe_set_location_rule(world, "Reached Chapter 4", has(world, "Chapter 3"))
+    safe_set_location_rule(world, "Reached Chapter 5", has(world, "Chapter 4"))
+    safe_set_location_rule(world, "Reached Chapter 6", has(world, "Chapter 5"))
+    safe_set_location_rule(world, "Reached Chapter 7", has(world, "Chapter 6"))
+    safe_set_location_rule(world, "Reached Chapter 8", has(world, "Chapter 7"))
+    safe_set_location_rule(world, "Reached Chapter 9", has(world, "Chapter 8"))
     #set_rule(
         #world.get_location("event_78 - Fire Spellbook"),
         #HAS_MIND_CONTROL
         #has(world, "Mind Control Circle")
     #)
+    safe_set_entrance_rule(world, "South Island to Shipwreck", has(world, "Chapter 3"))
+    safe_set_entrance_rule(world, "Black Witch Forest to North Merchant Road", has(world, "Chapter 2"))
+    safe_set_entrance_rule(world, "North Merchant Road to Lalaque Forest", has(world, "Boar Captain's Tooth"))
 
-    set_rule(
-        world.get_entrance("South Island to Shipwreck"),
-        #HAS_INSIGNIA
-        has(world, "Chapter 3")
-    )
-
-    set_rule(
-        world.get_entrance("Black Witch Forest to North Merchant Road"),
-        #HAS_INSIGNIA
-        has(world, "Chapter 2")
-    )
-
-    set_rule(
-        world.get_entrance("North Merchant Road to Lalaque Forest"),
-        has(world, "Boar Captain's Tooth")
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 2"),
-            has(world, "Fire Magic Spellbook")
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 3"),
-        lambda state:
-            state.has("Chapter 2", world.player)
-            and state.has("Lalaque Mine Key", world.player)
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 4"),
-        has(world, "Chapter 3")
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 5"),
-        has(world, "Chapter 4")
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 6"),
-        has(world, "Chapter 5")
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 7"),
-        has(world, "Chapter 6")
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 8"),
-        has(world, "Chapter 7")
-    )
-
-    set_rule(
-        world.get_location("Reached Chapter 9"),
-        has(world, "Chapter 8")
-    )
 
 def set_completion_condition(world) -> None:
     goal_choice = int(world.options.goal_choice.value)

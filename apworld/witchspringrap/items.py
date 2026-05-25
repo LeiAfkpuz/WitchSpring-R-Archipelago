@@ -898,11 +898,12 @@ item_table = {
         game_id="LavaCore",
     ),
 
-    #"Chaos Stone": WSRItemData(
-    #    code=100138,
-    #    classification=ItemClassification.filler,
-    #    game_id="ConfuseStone",
-    #),
+    "Chaos Stone": WSRItemData(
+        code=100138,
+        classification=ItemClassification.progression,
+        game_id="ConfuseStone",
+        pool_count=1,
+    ),
 
     "Barrier Stone": WSRItemData(
         code=100139,
@@ -2617,6 +2618,54 @@ item_table = {
         game_id="",
         pool_count=0,
     ),
+
+}
+
+item_required_chapter = {
+    "Chapter 2": 2,
+    "Chapter 3": 3,
+    "Chapter 4": 4,
+    "Chapter 5": 5,
+    "Chapter 6": 6,
+    "Chapter 7": 7,
+    "Chapter 8": 8,
+    "Chapter 9": 9,
+
+    "Fire Magic Spellbook": 1,
+    "Lightning Magic Spellbook": 1,
+    "3-Orb Flame Circle": 1,
+    "3-Fork Lightning Circle": 1,
+    "Arua Arrow Blessing": 1,
+    "Arua Thunder Blessing": 2,
+    "4-Orb Flame Circle": 2,
+    "Boar Captain's Tooth": 2,
+    "Lalaque Mine Key": 2,
+    "Rusty Commander's Cabin Key": 3,
+    "Shipwreck Hold Key": 3,
+    "Shipwreck Brig Key": 3,
+    "Shipwreck Cannonball": 3,
+    "Crew List": 3,
+    "Shipwreck Diary": 3,
+    "Miro's Headband": 3,
+    "Aimhard's Necklace": 3,
+    "Soul Sword": 3,
+    "Aimhard Blessing": 3,
+    "Commander's Insignia": 3,
+    "Bundle of Teleportation Talismans": 3,
+    "Matt's Garden Passage Key": 4,
+    "Elision Blessing": 4,
+    "Secret Trader Key": 5,
+    "Great Key": 5,
+    "Red Gem": 5,
+    "Prototype Steam Engine": 5,
+    "Matt's Letter": 5,
+    "Frozen Sword Handle": 6,
+    "Frozen Key": 6,
+    "Ice Magic Spellbook": 6,
+    "Ice Witch Scarf": 6,
+    "Frozen Heart": 6,
+    "Durok Blessing": 6,
+    "Dispelling Stone": 6,
 
 }
 

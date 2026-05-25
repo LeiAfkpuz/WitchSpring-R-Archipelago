@@ -30,6 +30,8 @@ class WSRRegionName(str, Enum):
     BLACKHILL_GOLEM_CAVE_FIRE_2 = "Blackhill Golvem Cave Volcano Road"
     BLACKHILL_GOLEM_CAVE_FIRE_3 = "Blackhill Golvem Cave Volcano Road"
     PUDDING_CAVE_3 = "Pudding Cave - Royal Pudding"
+    BOAR_PLAIN = "Boar Plain"
+
 
 starting_region = WSRRegionName.HOME
 
@@ -54,6 +56,22 @@ region_connections = {
     ],
     WSRRegionName.BLACKHILL_GOLEM_CAVE: [
         WSRRegionName.BLACK_WITCH_FOREST,
+        WSRRegionName.BLACKHILL_GOLEM_CAVE_FOX,
+        WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE,
+    ],
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FOX: [
+        WSRRegionName.BLACKHILL_GOLEM_CAVE,
+    ],
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE: [
+        WSRRegionName.BLACKHILL_GOLEM_CAVE,
+        WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_2,
+    ],
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_2: [
+        WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE,
+        WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_3,
+    ],
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_3: [
+        WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_2,
     ],
     WSRRegionName.PUDDING_CAVE: [
         WSRRegionName.BLACK_WITCH_FOREST,
@@ -64,7 +82,7 @@ region_connections = {
     ],
     WSRRegionName.NORTH_MERCHANT_ROAD: [
         WSRRegionName.LALAQUE_FOREST,
-        WSRRegionName.LAOBA_MOUNTAIN,
+        WSRRegionName.BOAR_PLAIN,
         WSRRegionName.BLACK_WITCH_FOREST,
     ],
     WSRRegionName.LALAQUE_FOREST: [
@@ -78,4 +96,43 @@ region_connections = {
     WSRRegionName.LALAQUE_MINE: [
         WSRRegionName.LALAQUE_MINE,
     ],
+    WSRRegionName.BOAR_PLAIN: [
+        WSRRegionName.NORTH_MERCHANT_ROAD,
+        WSRRegionName.LAOBA_MOUNTAIN,
+    ],
+}
+
+region_required_chapter = {
+    WSRRegionName.HOME: 1,
+    WSRRegionName.BLACK_WITCH_FOREST: 1,
+    WSRRegionName.PUDDING_CAVE: 1,
+    WSRRegionName.SWAMP: 1,
+    WSRRegionName.BLACKHILL_GOLEM_CAVE: 1,
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FOX: 1,
+    WSRRegionName.ARUA_TEMPLE: 1,
+    WSRRegionName.PUDDING_CAVE_2: 1,
+    WSRRegionName.SOUTH_ISLAND: 1,
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE: 1,
+
+
+    WSRRegionName.NORTH_MERCHANT_ROAD: 2,
+    WSRRegionName.LALAQUE_FOREST: 2,
+    WSRRegionName.LALAQUE_MINE: 2,
+    WSRRegionName.LALAQUE_VILLAGE: 2,
+    WSRRegionName.BOAR_PLAIN: 2,
+
+    WSRRegionName.LAOBA_MOUNTAIN: 3,
+    WSRRegionName.SHIPWRECK: 3,
+    WSRRegionName.AIMHARD_TEMPLE: 3,
+
+    WSRRegionName.ELYSION_TEMPLE: 4,
+    WSRRegionName.ELYSION_PLAIN: 4,
+    WSRRegionName.DARKSTONE_CAVE: 4,
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_2: 4,
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_3: 4,
+
+    WSRRegionName.DEATH_SQUAD: 5,
+
+    WSRRegionName.SNOW_FIELD: 6,
+    WSRRegionName.DUROK_TEMPLE: 6,
 }

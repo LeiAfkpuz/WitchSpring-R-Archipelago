@@ -47,13 +47,21 @@ class WSRWorld(World):
         }
 
     def create_regions(self) -> None:
+        goal_chapter = int(self.options.goal_choice.value)
         #Create all regions
         for region_name in regions.WSRRegionName:
+            required_chapter = regions.region_required_chapter.get(region_name, 9)
+            if required_chapter >= goal_chapter:
+                continue
+
             region = Region(region_name.value, self.player, self.multiworld)
             self.multiworld.regions.append(region)
         
         #Add locations to regions
         for location_name, location_data in locations.location_table.items():
+            if not self.should_include_location(location_name, location_data):
+                continue
+
             region = self.multiworld.get_region(location_data.region.value, self.player)
             location = locations.WSRLocation(
                 self.player,
@@ -63,20 +71,28 @@ class WSRWorld(World):
             )
             region.locations.append(location)
         
-        self.multiworld.get_location("Reached Chapter 2", self.player).place_locked_item(self.create_item("Chapter 2"))
-        self.multiworld.get_location("Reached Chapter 3", self.player).place_locked_item(self.create_item("Chapter 3"))
-        self.multiworld.get_location("Reached Chapter 4", self.player).place_locked_item(self.create_item("Chapter 4"))
-        self.multiworld.get_location("Reached Chapter 5", self.player).place_locked_item(self.create_item("Chapter 5"))
-        self.multiworld.get_location("Reached Chapter 6", self.player).place_locked_item(self.create_item("Chapter 6"))
-        self.multiworld.get_location("Reached Chapter 7", self.player).place_locked_item(self.create_item("Chapter 7"))
-        self.multiworld.get_location("Reached Chapter 8", self.player).place_locked_item(self.create_item("Chapter 8"))
-        self.multiworld.get_location("Reached Chapter 9", self.player).place_locked_item(self.create_item("Chapter 9"))
+        for chapter in range(2, goal_chapter + 1):
+            self.multiworld.get_location(f"Reached Chapter {chapter}", self.player).place_locked_item(self.create_item(f"Chapter {chapter}"))
+        #self.multiworld.get_location("Reached Chapter 2", self.player).place_locked_item(self.create_item("Chapter 2"))
+        #self.multiworld.get_location("Reached Chapter 3", self.player).place_locked_item(self.create_item("Chapter 3"))
+        #self.multiworld.get_location("Reached Chapter 4", self.player).place_locked_item(self.create_item("Chapter 4"))
+        #self.multiworld.get_location("Reached Chapter 5", self.player).place_locked_item(self.create_item("Chapter 5"))
+        #self.multiworld.get_location("Reached Chapter 6", self.player).place_locked_item(self.create_item("Chapter 6"))
+        #self.multiworld.get_location("Reached Chapter 7", self.player).place_locked_item(self.create_item("Chapter 7"))
+        #self.multiworld.get_location("Reached Chapter 8", self.player).place_locked_item(self.create_item("Chapter 8"))
+        #self.multiworld.get_location("Reached Chapter 9", self.player).place_locked_item(self.create_item("Chapter 9"))
         
         #Connect regions
         for start_region, end_regions in regions.region_connections.items():
+            if regions.region_required_chapter.get(start_region, 9) >= goal_chapter:
+                continue
+
             start = self.multiworld.get_region(start_region.value, self.player)
 
             for end_region in end_regions:
+                if regions.region_required_chapter.get(end_region, 9) >= goal_chapter:
+                    continue
+
                 end = self.multiworld.get_region(end_region.value, self.player)
 
                 entrance = Entrance(
@@ -90,11 +106,31 @@ class WSRWorld(World):
     def set_rules(self) -> None:
         rules.set_all_rules(self)
 
+    def should_include_location(self, location_name: str, location_data) -> bool:
+        goal_chapter = int(self.options.goal_choice.value)
+
+        if location_name.startswith("Reached Chapter "):
+            chapter = int(location_name.replace("Reached Chapter ", ""))
+            return chapter <= goal_chapter
+        
+        required_chapter = regions.region_required_chapter.get(location_data.region, 9)
+        return required_chapter < goal_chapter
+
+    def should_include_item(self, item_name: str) -> bool:
+        goal_chapter = int(self.options.goal_choice.value)
+        required_chapter = items.item_required_chapter.get(item_name)
+
+        if required_chapter is None:
+            return True
+        return required_chapter < goal_chapter
+
     def create_item(self, name: str):
         data = items.item_table[name]
         return items.WSRItem(name, data.classification, data.code, self.player)
     
     def create_items(self) -> None:
         for item_name, data in items.item_table.items():
+            if not self.should_include_item(item_name):
+                continue
             for _ in range(data.pool_count):
                 self.multiworld.itempool.append(self.create_item(item_name))
