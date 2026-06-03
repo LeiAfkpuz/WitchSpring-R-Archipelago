@@ -1061,11 +1061,11 @@ item_table = {
         game_id="ShieldStone",
     ),
 
-    "Blue Shieldstone": WSRItemData(
-        code=100164,
-        classification=ItemClassification.useful,
-        game_id="ShieldStoneTween",
-    ),
+    #"Blue Shieldstone": WSRItemData(
+    #    code=100164,
+    #    classification=ItemClassification.useful,
+    #    game_id="ShieldStoneTween",
+    #),
 
     "Carico Horn": WSRItemData(
         code=100165,

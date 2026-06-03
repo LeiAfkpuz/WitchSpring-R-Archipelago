@@ -40,9 +40,9 @@ def set_location_rules(world) -> None:
 
     safe_set_location_rule(world, "Arua Blessing", has(world, "Lightning Magic Spellbook"))
     safe_set_location_rule(world, "Reached Chapter 2", has(world, "Fire Magic Spellbook"))
-    safe_set_location_rule(world, "Event 92 - Item 1", has(world, "Boar Captain's Tooth"))
-    safe_set_location_rule(world, "Event 108 - Chaos Stone Earrings", has(world, "Chaos Stone"))
-    safe_set_location_rule(world, "Event 217 - Lalaque Mine Key", has(world, "Chaos Stone"))
+    safe_set_location_rule(world, "Ralph - Boar Captains Tooth Reward", has(world, "Boar Captain's Tooth"))
+    safe_set_location_rule(world, "Anna's House - Chaos Stone Earrings", has(world, "Chaos Stone"))
+    safe_set_location_rule(world, "Anna's House - Lalaque Mine Key", has(world, "Chaos Stone"))
     safe_set_location_rule(world, "Reached Chapter 3", lambda state: state.has("Chapter 2", world.player) and state.has("Lalaque Mine Key", world.player))
     safe_set_location_rule(world, "Reached Chapter 4", has(world, "Chapter 3"))
     safe_set_location_rule(world, "Reached Chapter 5", has(world, "Chapter 4"))

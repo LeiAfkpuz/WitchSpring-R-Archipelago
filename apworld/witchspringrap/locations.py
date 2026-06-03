@@ -1670,7 +1670,7 @@ location_table = {
         vanilla_quantity=5,
         repeat_behavior="none",
     ),
-    "Event 9 - Item 1": WSRLocationData(
+    "Tutorial Ambush - Item 1": WSRLocationData(
         code=200150,
         region=WSRRegionName.BLACK_WITCH_FOREST,
         group=LocationGroup.EVENT,
@@ -1681,7 +1681,7 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
-    "Event 9 - Item 2": WSRLocationData(
+    "Tutorial Ambush - Item 2": WSRLocationData(
         code=200151,
         region=WSRRegionName.BLACK_WITCH_FOREST,
         group=LocationGroup.EVENT,
@@ -1692,7 +1692,7 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),    
-    "Event 9 - Item 3": WSRLocationData(
+    "Tutorial Ambush - Item 3": WSRLocationData(
         code=200152,
         region=WSRRegionName.BLACK_WITCH_FOREST,
         group=LocationGroup.EVENT,
@@ -1725,7 +1725,7 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
-    "event_214 - Thunder Slab": WSRLocationData(
+    "Arua Temple Chest - Thunder Slab": WSRLocationData(
         code=200155,
         region=WSRRegionName.ARUA_TEMPLE,
         group=LocationGroup.EVENT,
@@ -1807,7 +1807,7 @@ location_table = {
         vanilla_quantity=2,
         repeat_behavior="vanilla_after_first",
     ),
-    "Event 264 - Item 1": WSRLocationData(
+    "Boar Plains - Wagon Protection 1": WSRLocationData(
         code=200163,
         region=WSRRegionName.BOAR_PLAIN,
         group=LocationGroup.EVENT,
@@ -1818,7 +1818,7 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
-    "Event 264 - Item 2": WSRLocationData(
+    "Boar Plains - Wagon Protection 2": WSRLocationData(
         code=200164,
         region=WSRRegionName.BOAR_PLAIN,
         group=LocationGroup.EVENT,
@@ -1829,7 +1829,7 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
-    "Event 92 - Item 1": WSRLocationData(
+    "Ralph - Boar Captain's Tooth Reward": WSRLocationData(
         code=200173,
         region=WSRRegionName.NORTH_MERCHANT_ROAD,
         group=LocationGroup.EVENT,
@@ -1840,7 +1840,7 @@ location_table = {
         vanilla_quantity=1000,
         repeat_behavior="none",
     ),
-    "Event 96 - Item 1": WSRLocationData(
+    "Alfredo Ch2 - Item 1": WSRLocationData(
         code=200165,
         region=WSRRegionName.LALAQUE_FOREST,
         group=LocationGroup.EVENT,
@@ -1851,7 +1851,7 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
-    "Event 96 - Item 2": WSRLocationData(
+    "Alfredo Ch2 - Item 2": WSRLocationData(
         code=200166,
         region=WSRRegionName.LALAQUE_FOREST,
         group=LocationGroup.EVENT,
@@ -1862,7 +1862,7 @@ location_table = {
         vanilla_quantity=5,
         repeat_behavior="none",
     ),
-    "Event 101 - Item 1": WSRLocationData(
+    "Anna's House - Item 1": WSRLocationData(
         code=200167,
         region=WSRRegionName.LALAQUE_VILLAGE,
         group=LocationGroup.EVENT,
@@ -1885,7 +1885,7 @@ location_table = {
     #    vanilla_quantity=1,
     #    repeat_behavior="none",
     #),
-    "Event 108 - Chaos Stone Earrings": WSRLocationData(
+    "Anna's House - Chaos Stone Earrings": WSRLocationData(
         code=200169,
         region=WSRRegionName.LALAQUE_VILLAGE,
         group=LocationGroup.EVENT,
@@ -1896,7 +1896,7 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
-    "Event 217 - Lalaque Mine Key": WSRLocationData(
+    "Anna's House - Lalaque Mine Key": WSRLocationData(
         code=200170,
         region=WSRRegionName.LALAQUE_VILLAGE,
         group=LocationGroup.EVENT,
