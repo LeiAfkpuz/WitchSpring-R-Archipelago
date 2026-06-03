@@ -2,13 +2,13 @@
 Repository for my attempt at the WitchSpring R [Archipelago](https://archipelago.gg/) randomizer!<br>
 **Disclaimer** I had a friend helping me with the mod and they even helped fix up my portion that I wrote before they offered. They are no longer helping out. I am not a dev by any means and my coding knowledge I know isn't up to par with many of our fine people from the Archipelago community. So if there is anyone else who knows more and is willing to help out, or take over, then please don't hesitate! This also means that I will take some time to work out any bugs or anything that crop up when it comes to the client/mod side of things. I mostly handled item/location data before they joined in.<br>
 <br>
-Logic currently works through Chapter 1 and partially through Chapter 2. In theory any chapter goal setting should function, untested and Chapter 8 is questionable if it even exists in the coding or not. But I do not currently recommend going past Chapter 2 for stability. 
+Logic currently works through Chapter 2. In theory any chapter goal setting should function, untested and Chapter 8 is questionable if it even exists in the coding or not. But I do not currently recommend going past Chapter 3 for stability. 
 
 ## Installation
-1. Install [BepInEx Unity IL2CPP](https://builds.bepinex.dev/projects/bepinex_be) into the [WitchSpring R](https://store.steampowered.com/app/1958220/WitchSpring_R/) game folder<br>
+1. Install [BepInEx Unity IL2CPP](https://builds.bepinex.dev/projects/bepinex_be) x64 into the [WitchSpring R](https://store.steampowered.com/app/1958220/WitchSpring_R/) game folder<br>
    ( Tested with [BepInEx 6.0.0-be.755](https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip) ) 
 2. Launch the game once for the folders to be created
-3. Place the WitchSpringRArchipelago.dll into the new BepInEx/plugins folder / Or replace the plugins folder with the one from the .zip
+3. Place the WitchSpringRArchipelago.dll found inside the WSR_Plugin.zip into the new BepInEx/plugins folder / Or replace the plugins folder with the one from WSR_Plugin.zip
 4. Install the .apworld - by default you should be able to double click this for your Archipelago setup to automatically place it. Otherwise, it goes into the custom worlds folder.
 
 ## Connecting to the game   
@@ -31,6 +31,5 @@ Logic currently works through Chapter 1 and partially through Chapter 2. In theo
 - Blessings and special abilities will be unusable until you fight the Mid-Rank Warrior near Pieberry's House
 - You will have duplicate Blessings. The ones received from the multiworld will not have the turn timer shown, but will be usable when their specific timer is allowed. The ones received from cutscenes will have the normal turn timer shown. Both will function independantly of each other - I had issues replacing the granting during the cutscene with another item as it would just lock up the cutscene.
 - Not every map will allow you to receive items sent to you. If you noticed you did not receive items, please go back to Black Witch Forest and hopefully it should be corrected! Pieberry's House does not count, and you can not receive items while in Pieberry's House.
-- Using a Blue Shieldstone may hardlock the game. Do not use it will be removing it from the multiworld next patch
 
 For the time being, if your game crashes or you have to force close due to a softlock, you may lose items that were sent since your last save. It's not the perfect system but if you navigate to; %LOCALAPPDATA%\Archipelago\WitchspringR\Sessions\ find the most recent session, and there will be a processed_received_index.txt - just change it to an earlier number and next time you launch it will attempt to resend back up to where you are. Or if you straight up delete this file, next launch it'll re-create it and resend everything you've received up to that point. Not a perfect system, and I'm going to try to find a better way to handle this.
