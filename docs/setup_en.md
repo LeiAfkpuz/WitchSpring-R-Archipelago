@@ -1,8 +1,8 @@
 ## Installation
-1. Install [BepInEx Unity IL2CPP](https://builds.bepinex.dev/projects/bepinex_be) into the [WitchSpring R](https://store.steampowered.com/app/1958220/WitchSpring_R/) game folder<br>
+1. Install [BepInEx Unity IL2CPP](https://builds.bepinex.dev/projects/bepinex_be) x64 into the [WitchSpring R](https://store.steampowered.com/app/1958220/WitchSpring_R/) game folder<br>
    ( Tested with [BepInEx 6.0.0-be.755](https://builds.bepinex.dev/projects/bepinex_be/755/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.755%2B3fab71a.zip) ) 
 2. Launch the game once for the folders to be created
-3. Place the WitchSpringRArchipelago.dll into the new BepInEx/plugins folder / Or replace the plugins folder with the one from the .zip
+3. Place the WitchSpringRArchipelago.dll found inside WSR_Plugin.zip into the new BepInEx/plugins folder / Or replace the plugins folder with the one from WSR_Plugin.zip
 4. Install the .apworld - by default you should be able to double click this for your Archipelago setup to automatically place it. Otherwise, it goes into the custom worlds folder.
 
 ## Connecting to the game   
