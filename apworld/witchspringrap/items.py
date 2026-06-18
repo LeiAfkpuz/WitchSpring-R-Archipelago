@@ -104,19 +104,24 @@ item_table = {
         pool_count= 1,
     ),
 
-    "3-Orb Flame Circle": WSRItemData(
-        code=100014,
-        classification=ItemClassification.progression,
-        game_id="MAGICCIRCLE_Fire_3",
-        pool_count= 1,
-    ),
+    # Removed from pool: you start the game already owning the 3-Orb Flame Circle, so
+    # receiving a duplicate from the multiworld is pointless / can foul the craft chain.
+    #"3-Orb Flame Circle": WSRItemData(
+    #    code=100014,
+    #    classification=ItemClassification.progression,
+    #    game_id="MAGICCIRCLE_Fire_3",
+    #    pool_count= 1,
+    #),
 
-    "4-Orb Flame Circle": WSRItemData(
-        code=100015,
-        classification=ItemClassification.progression,
-        game_id="MAGICCIRCLE_Fire_4",
-        pool_count= 1,
-    ),
+    # Removed from pool: the 4-Orb Flame Circle is crafted via an in-game quest that won't
+    # advance if you already own one (can't craft a duplicate). Receiving it from the
+    # multiworld soft-locks that quest, so it stays a vanilla craft only.
+    #"4-Orb Flame Circle": WSRItemData(
+    #    code=100015,
+    #    classification=ItemClassification.progression,
+    #    game_id="MAGICCIRCLE_Fire_4",
+    #    pool_count= 1,
+    #),
 
     "Raw Rabbit Meat": WSRItemData(
         code=100016,
@@ -143,12 +148,12 @@ item_table = {
         pool_count= 1,
     ),
 
-    #"Mind Control Circle": WSRItemData(
-    #    code=100020,
-    #    classification=ItemClassification.progression,
-    #    game_id="MAGICCIRCLE_MindControl",
-    #    pool_count= 1,
-    #),
+    "Mind Control Circle": WSRItemData(
+        code=100020,
+        classification=ItemClassification.progression,
+        game_id="MAGICCIRCLE_MindControl",
+        pool_count= 1,
+    ),
 
     "Small Blue Magic Stones": WSRItemData(
         code=100021,
@@ -459,12 +464,14 @@ item_table = {
         pool_count= 1,
     ),
 
-    "4-Pillar Ice Circle": WSRItemData(
-        code=100069,
-        classification=ItemClassification.useful,
-        game_id="MAGICCIRCLE_Ice_4",
-        pool_count= 1,
-    ),
+    # Removed from pool: crafted via an in-game quest that won't advance if you already own
+    # one (can't craft a duplicate), so receiving it from the multiworld soft-locks the quest.
+    #"4-Pillar Ice Circle": WSRItemData(
+    #    code=100069,
+    #    classification=ItemClassification.useful,
+    #    game_id="MAGICCIRCLE_Ice_4",
+    #    pool_count= 1,
+    #),
 
     "5-Pillar Ice Circle": WSRItemData(
         code=100070,
@@ -610,7 +617,7 @@ item_table = {
 
     "Aged Lalaque Berry": WSRItemData(
         code=100093,
-        classification=ItemClassification.useful,
+        classification=ItemClassification.progression,  # gates the swim-only South Island islet + Royal Pudding (Eison swim mount)
         game_id="LalaqueAppleDark",
     ),
 
@@ -1020,12 +1027,15 @@ item_table = {
         pool_count= 1,
     ),
 
-    "Shipwreck Cannonball": WSRItemData(
-        code=100158,
-        classification=ItemClassification.progression,
-        game_id="ShipCannonBomb",
-        pool_count= 1,
-    ),
+    # Removed from pool: the Cannonball only opens the Shipwreck Armory, reached right
+    # after (and behind) the Hold Key - so it's redundant with the Hold Key as a gate.
+    # Left as a vanilla pickup; the Armory is gated on the Hold Key instead.
+    #"Shipwreck Cannonball": WSRItemData(
+    #    code=100158,
+    #    classification=ItemClassification.progression,
+    #    game_id="ShipCannonBomb",
+    #    pool_count= 1,
+    #),
 
     "Lalaque Mine Key": WSRItemData(
         code=100159,
@@ -1034,12 +1044,15 @@ item_table = {
         pool_count= 1,
     ),
 
-    "Matt's Garden Passage Key": WSRItemData(
-        code=100160,
-        classification=ItemClassification.progression,
-        game_id="Key_CannaHouseIronDoor",
-        pool_count= 1,
-    ),
+    # TRAP ITEM - left out of the AP pool on purpose. This key is given inside the Canna
+    # map and is required to EXIT it; randomizing it (blocking the vanilla grant) would trap
+    # the player there until they happened to receive it. Keep the vanilla grant, don't pool it.
+    #"Matt's Garden Passage Key": WSRItemData(
+    #    code=100160,
+    #    classification=ItemClassification.progression,
+    #    game_id="Key_CannaHouseIronDoor",
+    #    pool_count= 1,
+    #),
 
     "Low-Rank Warrior's Sword": WSRItemData(
         code=100161,
@@ -1355,12 +1368,12 @@ item_table = {
         pool_count= 1,
     ),
 
-    "Ancient Weapon Recipe": WSRItemData(
-        code=100209,
-        classification=ItemClassification.useful,
-        game_id="Book_AcientWeapon",
-        pool_count= 1,
-    ),
+    #"Ancient Weapon Recipe": WSRItemData(
+    #    code=100209,
+    #    classification=ItemClassification.useful,
+    #    game_id="Book_AcientWeapon",
+    #    pool_count= 1,
+    #),
 
     "Soul Sword": WSRItemData(
         code=100210,
@@ -1445,9 +1458,11 @@ item_table = {
         game_id="IceNail",
     ),
 
+    # Farmable (repeatable boss drop) crafting material; the spell it makes is itself in
+    # the pool, so it isn't required for completion -> filler, not progression.
     "Frozen Heart": WSRItemData(
         code=100223,
-        classification=ItemClassification.progression,
+        classification=ItemClassification.filler,
         game_id="IceHeart",
     ),
 
@@ -1887,14 +1902,17 @@ item_table = {
         pool_count= 1,
     ),
 
-    "Red Gem": WSRItemData(
-        code=100289,
-        classification=ItemClassification.progression,
-        game_id="RedJewel",
-        pool_count= 1,
-    ),
+    # Removed from pool: obtained ~5 min before the Secret Trader Key with nothing in
+    # between, and it's handed to RedBeard shortly after - so it stays a vanilla item.
+    # Its pickup is still a multiworld check (non-blocking) - see locations.py / Data.cs.
+    #"Red Gem": WSRItemData(
+    #    code=100289,
+    #    classification=ItemClassification.progression,
+    #    game_id="RedJewel",
+    #    pool_count= 1,
+    #),
 
-    "Protoype Steam Engine": WSRItemData(
+    "Prototype Steam Engine": WSRItemData(
         code=100290,
         classification=ItemClassification.progression,
         game_id="FirstSteamEngine",
@@ -2065,7 +2083,7 @@ item_table = {
         pool_count= 1,
     ),
 
-    "Weapon Stimulant": WSRItemData(
+    "Improved Weapon Stimulant": WSRItemData(
         code=100315,
         classification=ItemClassification.useful,
         game_id="WeaponCooler2",
@@ -2145,12 +2163,15 @@ item_table = {
         game_id="WarriorPotionMP",
     ),
 
-    "Great Key": WSRItemData(
-        code=100327,
-        classification=ItemClassification.progression,
-        game_id="Key_Big",
-        pool_count= 1,
-    ),
+    # Removed from pool: the Great Key is a non-blocking field pickup in Vavelia Village
+    # (you always get the vanilla key), and it opens exactly one chest in the same village -
+    # so that chest is always openable and needs no gate. The pickup stays a check.
+    #"Great Key": WSRItemData(
+    #    code=100327,
+    #    classification=ItemClassification.progression,
+    #    game_id="Key_Big",
+    #    pool_count= 1,
+    #),
 
     "Kreytes Berry": WSRItemData(
         code=100328,
@@ -2177,7 +2198,7 @@ item_table = {
         pool_count= 1,
     ),
 
-    "Red Shieldstone": WSRItemData(
+    "Improved Red Shieldstone": WSRItemData(
         code=100332,
         classification=ItemClassification.useful,
         game_id="ShieldStoneRed2",
@@ -2600,12 +2621,14 @@ item_table = {
         game_id="",
         pool_count=0,
     ),
-    "Chapter 8": WSRItemData(
-        code=100399,
-        classification=ItemClassification.progression,
-        game_id="",
-        pool_count=0,
-    ),
+    # Chapter 8 does NOT exist in WitchSpring R (chapters go ...7 -> 9). Removed so the
+    # goal-9 spine doesn't dead-end on a chapter that never triggers in-game.
+    #"Chapter 8": WSRItemData(
+    #    code=100399,
+    #    classification=ItemClassification.progression,
+    #    game_id="",
+    #    pool_count=0,
+    #),
     "Chapter 7": WSRItemData(
         code=100400,
         classification=ItemClassification.progression,
@@ -2628,22 +2651,22 @@ item_required_chapter = {
     "Chapter 5": 5,
     "Chapter 6": 6,
     "Chapter 7": 7,
-    "Chapter 8": 8,
+    #"Chapter 8": 8,  # Chapter 8 doesn't exist in-game
     "Chapter 9": 9,
 
     "Fire Magic Spellbook": 1,
     "Lightning Magic Spellbook": 1,
-    "3-Orb Flame Circle": 1,
+    #"3-Orb Flame Circle": 1,  # removed from pool (starting item - see items above)
     "3-Fork Lightning Circle": 1,
     "Arua Arrow Blessing": 1,
     "Arua Thunder Blessing": 2,
-    "4-Orb Flame Circle": 2,
+    #"4-Orb Flame Circle": 2,  # removed from pool (craftable quest item - see items above)
     "Boar Captain's Tooth": 2,
     "Lalaque Mine Key": 2,
     "Rusty Commander's Cabin Key": 3,
     "Shipwreck Hold Key": 3,
     "Shipwreck Brig Key": 3,
-    "Shipwreck Cannonball": 3,
+    #"Shipwreck Cannonball": 3,  # removed from pool (redundant with Hold Key)
     "Crew List": 3,
     "Shipwreck Diary": 3,
     "Miro's Headband": 3,
@@ -2652,11 +2675,11 @@ item_required_chapter = {
     "Aimhard Blessing": 3,
     "Commander's Insignia": 3,
     "Bundle of Teleportation Talismans": 3,
-    "Matt's Garden Passage Key": 4,
+    #"Matt's Garden Passage Key": 4,  # removed from pool (trap item - see items above)
     "Elision Blessing": 4,
     "Secret Trader Key": 5,
-    "Great Key": 5,
-    "Red Gem": 5,
+    #"Great Key": 5,  # removed from pool (non-blocking field pickup, see item above)
+    #"Red Gem": 5,  # removed from pool (non-blocking check kept instead)
     "Prototype Steam Engine": 5,
     "Matt's Letter": 5,
     "Frozen Sword Handle": 6,

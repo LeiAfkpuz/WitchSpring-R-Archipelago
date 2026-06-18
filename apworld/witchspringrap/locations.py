@@ -29,6 +29,13 @@ class WSRLocationData:
     vanilla_item: str = ""
     vanilla_quantity: int = 1
     repeat_behavior: str = "none"
+    # Optional per-location chapter floor. Use when a check lives in an early region
+    # but only fires later in the story (e.g. a cutscene that requires a later chapter).
+    # should_include_location takes max(region_required_chapter, min_chapter).
+    min_chapter: int | None = None
+    # Missable / one-time checks that can be permanently lost. Marked EXCLUDED so the
+    # fill only places filler here and a player can never be required to grab it.
+    excluded: bool = False
     
 
 location_table = {
@@ -1438,6 +1445,7 @@ location_table = {
         vanilla_item="LeafBall",
         vanilla_quantity=1,
         repeat_behavior="none",
+        min_chapter=2,  # swim-only islet; logic-gated on Aged Lalaque Berry (Eison swim mount, Ch2)
     ),
 
     "South Island - Chest 2": WSRLocationData(
@@ -1736,14 +1744,17 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
+    # Ch1 Arua's Arrow blessing - granted at the Black Witch Forest battle after the Arua
+    # Temple / Aslan sequence (event_84 m14). Gated on Lightning Magic Spellbook, which is
+    # granted in Arua Temple before that fight, so it can't be reached out of order.
     "Arua Blessing": WSRLocationData(
         code=200156,
-        region=WSRRegionName.ARUA_TEMPLE,
+        region=WSRRegionName.BLACK_WITCH_FOREST,
         group=LocationGroup.BLESSING,
-        scene="Temple_Arua",
-        game_id="event_226",
-        method_index=105,
-        vanilla_item="Bless_AruaThunder",
+        scene="Forest_BlackWitch",
+        game_id="event_84",
+        method_index=14,
+        vanilla_item="Bless_Arua",
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
@@ -1930,12 +1941,82 @@ location_table = {
         vanilla_quantity=1,
         repeat_behavior="none",
     ),
+    "Pudding Cave - Alfredo's Mind Control Circle": WSRLocationData(
+        code=200174,
+        region=WSRRegionName.PUDDING_CAVE,
+        group=LocationGroup.EVENT,
+        scene="Cave_Pudding",
+        game_id="event_14",
+        method_index=138,
+        vanilla_item="MAGICCIRCLE_MindControl",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+    ),
+    "Death Squad - Ice Witch Scarf": WSRLocationData(
+        code=200175,
+        region=WSRRegionName.DEATH_SQUAD,
+        group=LocationGroup.EVENT,
+        scene="Cave_BoarMountain",
+        game_id="event_308",
+        method_index=121,
+        vanilla_item="IceScarf",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+    ),
+    "Shipwreck - Hold Key": WSRLocationData(
+        code=200176,
+        region=WSRRegionName.SHIPWRECK,
+        group=LocationGroup.EVENT,
+        scene="ShipWrecked_Enter",
+        game_id="event_154",
+        method_index=33,
+        vanilla_item="Key_ShipStoreKey",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+    ),
+    "Death Squad - Matt's Letter": WSRLocationData(
+        code=200177,
+        region=WSRRegionName.DEATH_SQUAD,
+        group=LocationGroup.EVENT,
+        scene="Cave_BoarMountain",
+        game_id="event_340",
+        method_index=38,
+        vanilla_item="GolemBlueprintInfo",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+    ),
+    "Death Squad - Secret Trader Key": WSRLocationData(
+        code=200178,
+        region=WSRRegionName.DEATH_SQUAD,
+        group=LocationGroup.EVENT,
+        scene="Cave_BoarMountain",
+        game_id="event_282",
+        method_index=72,
+        vanilla_item="Key_RedBeard",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+    ),
+    # Non-blocking check (BlockVanilla=false in Data.cs): the player keeps the vanilla
+    # Red Gem to hand to RedBeard later, but picking it up still sends a multiworld check.
+    # Ralph hands it over in a cutscene at Kanna's House (he briefly relocates there).
+    "Kanna's House - Red Gem": WSRLocationData(
+        code=200179,
+        region=WSRRegionName.KANNA_HOUSE,
+        group=LocationGroup.EVENT,
+        scene="House_Canna",
+        game_id="event_274",
+        method_index=186,
+        vanilla_item="RedJewel",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=5,
+    ),
     "Reached Chapter 2": WSRLocationData(
         code=201002,
         region=WSRRegionName.HOME,
         group=LocationGroup.EVENT,
         scene="Home",
-        game_id="Chaper 2",
+        game_id="Chapter 2",
     ),
     "Reached Chapter 3": WSRLocationData(
         code=201003,
@@ -1972,13 +2053,14 @@ location_table = {
         scene="Home",
         game_id="Chapter 7",
     ),
-    "Reached Chapter 8": WSRLocationData(
-        code=201008,
-        region=WSRRegionName.HOME,
-        group=LocationGroup.EVENT,
-        scene="Home",
-        game_id="Chapter 8",
-    ),
+    # Chapter 8 doesn't exist in WitchSpring R (7 -> 9); no such "Reached Chapter 8".
+    #"Reached Chapter 8": WSRLocationData(
+    #    code=201008,
+    #    region=WSRRegionName.HOME,
+    #    group=LocationGroup.EVENT,
+    #    scene="Home",
+    #    game_id="Chapter 8",
+    #),
     "Reached Chapter 9": WSRLocationData(
         code=201009,
         region=WSRRegionName.HOME,
@@ -1995,6 +2077,316 @@ location_table = {
         vanilla_item="BoarBossTooth",
         vanilla_quantity=1,
         repeat_behavior="none",
+    ),
+    "Shipwreck - Armory - Commander's Cabin Key": WSRLocationData(
+        code=200501,
+        region=WSRRegionName.SHIPWRECK,
+        group=LocationGroup.EVENT,
+        scene="ShipWrecked_Cannon",
+        game_id="ShipwreckArmoryEnemies",
+        vanilla_item="Key_WreckedCaptainRoom",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+    ),
+
+    # ----- Event-reward checks generated from the Chapter triage worksheet -----
+    # (build_event_checks.py, INCLUDE=Y batch). See Events Full Dump/out/REPORT.txt.
+    "Red Beard – Frozen Key": WSRLocationData(
+        code=201010,
+        region=WSRRegionName.REDBEARD_CAVE,
+        group=LocationGroup.EVENT,
+        scene="Cave_RedBeard_New",
+        game_id="event_640",
+        method_index=184,
+        vanilla_item="Key_Ice",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+    ),
+
+    "Luna – Blue Moonstone Staff": WSRLocationData(
+        code=201011,
+        region=WSRRegionName.LUNA_HOUSE,
+        group=LocationGroup.EVENT,
+        scene="House_Luna_New",
+        game_id="event_649",
+        method_index=5,
+        vanilla_item="BlueMoonStick",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=7,
+    ),
+
+    "Ludina Blade": WSRLocationData(
+        code=201012,
+        region=WSRRegionName.FROZEN_ALTAR,
+        group=LocationGroup.EVENT,
+        scene="SnowLand_Cave2_New",
+        game_id="event_654",
+        method_index=80,
+        vanilla_item="Sword_Ice2",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=6,
+    ),
+
+    "Melina – Bedo's Headband": WSRLocationData(
+        code=201013,
+        region=WSRRegionName.VAVELIA_VILLAGE,
+        group=LocationGroup.EVENT,
+        scene="Cave_UnderTemple_Jude",
+        game_id="event_616",
+        method_index=46,
+        vanilla_item="BedosHeadband",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=6,
+        excluded=True,
+    ),
+
+    "Luna – Ice Magic Spellbook": WSRLocationData(
+        code=201014,
+        region=WSRRegionName.SNOW_FIELD,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry_New",
+        game_id="event_325",
+        method_index=48,
+        vanilla_item="Book_Level_Ice",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=6,
+    ),
+
+    "Balt – Life Stone": WSRLocationData(
+        code=201015,
+        region=WSRRegionName.ELYSION_PLAIN,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry_New",
+        game_id="event_456",
+        method_index=27,
+        vanilla_item="LifeStone",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=5,
+    ),
+
+    "Royal Pudding Party 1": WSRLocationData(
+        code=201016,
+        region=WSRRegionName.PUDDING_CAVE_3,
+        group=LocationGroup.EVENT,
+        scene="Prologue",
+        game_id="event_398",
+        method_index=32,
+        vanilla_item="KingPudding",
+        vanilla_quantity=2,
+        repeat_behavior="none",
+        min_chapter=4,
+    ),
+
+    "Royal Pudding Party 2": WSRLocationData(
+        code=201017,
+        region=WSRRegionName.PUDDING_CAVE_3,
+        group=LocationGroup.EVENT,
+        scene="Prologue",
+        game_id="event_398",
+        method_index=33,
+        vanilla_item="QueenPudding",
+        vanilla_quantity=2,
+        repeat_behavior="none",
+        min_chapter=4,
+    ),
+
+    "Blast – Sun Sword": WSRLocationData(
+        code=201018,
+        region=WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_3,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry_New",
+        game_id="event_397",
+        method_index=22,
+        vanilla_item="Sword_Fire",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=6,
+    ),
+
+    "Kanna – Peanut Shark": WSRLocationData(
+        code=201019,
+        region=WSRRegionName.LALAQUE_FOREST,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry_New",
+        game_id="event_254",
+        method_index=78,
+        vanilla_item="BirdSharkSign",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=3,
+    ),
+
+    "Livya – Commander's Insignia": WSRLocationData(
+        code=201020,
+        region=WSRRegionName.SOUTH_ISLAND,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry_New",
+        game_id="event_153",
+        method_index=79,
+        vanilla_item="LivyaMark",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=3,
+    ),
+
+    "Sarah – Sera's Dress": WSRLocationData(
+        code=201021,
+        region=WSRRegionName.LALAQUE_FOREST,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry_New",
+        game_id="event_280",
+        method_index=12,
+        vanilla_item="SeraDressLakeSky",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=2,
+    ),
+
+    "Ralph – Gem Payment": WSRLocationData(
+        code=201022,
+        region=WSRRegionName.NORTH_MERCHANT_ROAD,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry",
+        game_id="event_85",
+        method_index=32,
+        vanilla_item="Gold",
+        vanilla_quantity=5000,
+        repeat_behavior="none",
+        min_chapter=2,
+    ),
+
+    "Kanna's House – Chaos Stone": WSRLocationData(
+        code=201023,
+        region=WSRRegionName.KANNA_HOUSE,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry_New",
+        game_id="event_216",
+        method_index=34,
+        vanilla_item="ConfuseStone",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=2,
+    ),
+
+    "Ralph - Boar Captain's Tooth Reward 2": WSRLocationData(
+        code=201024,
+        region=WSRRegionName.NORTH_MERCHANT_ROAD,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry",
+        game_id="event_92",
+        method_index=17,
+        vanilla_item="CreichLeaf",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=2,
+    ),
+
+    "Weapon Upgrade Materials 1": WSRLocationData(
+        code=201025,
+        region=WSRRegionName.BLACK_WITCH_FOREST,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry",
+        game_id="event_80",
+        method_index=6,
+        vanilla_item="Leaf_MiniGolem",
+        vanilla_quantity=12,
+        repeat_behavior="none",
+    ),
+
+    "Weapon Upgrade Materials 2": WSRLocationData(
+        code=201026,
+        region=WSRRegionName.BLACK_WITCH_FOREST,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry",
+        game_id="event_80",
+        method_index=7,
+        vanilla_item="DryLeaf",
+        vanilla_quantity=12,
+        repeat_behavior="none",
+    ),
+
+    "Weapon Upgrade Materials 3": WSRLocationData(
+        code=201027,
+        region=WSRRegionName.BLACK_WITCH_FOREST,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry",
+        game_id="event_81",
+        method_index=3,
+        vanilla_item="DryBread",
+        vanilla_quantity=5,
+        repeat_behavior="none",
+    ),
+
+    "Weapon Upgrade Materials 4": WSRLocationData(
+        code=201028,
+        region=WSRRegionName.BLACK_WITCH_FOREST,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry",
+        game_id="event_81",
+        method_index=5,
+        vanilla_item="Item_LeafPudding",
+        vanilla_quantity=2,
+        repeat_behavior="none",
+    ),
+
+    "Weapon Upgrade Materials 5": WSRLocationData(
+        code=201029,
+        region=WSRRegionName.BLACK_WITCH_FOREST,
+        group=LocationGroup.EVENT,
+        scene="Home_Pieberry",
+        game_id="event_81",
+        method_index=7,
+        vanilla_item="IronPart",
+        vanilla_quantity=2,
+        repeat_behavior="none",
+    ),
+
+    # ----- Blessing checks (NewBless events; fired by the EventOperator.DoEvent hook) -----
+    # Vanilla blessing is kept for now (BlockVanilla=false in Data.cs BlessRewardChecks).
+    "Aimhard's Blessing": WSRLocationData(
+        code=201030,
+        region=WSRRegionName.AIMHARD_TEMPLE,
+        group=LocationGroup.BLESSING,
+        scene="Temple_Aimhard_Spring",
+        game_id="event_178",
+        method_index=96,
+        vanilla_item="Bless_Aimhard",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=3,
+    ),
+
+    "Elysion Blessing": WSRLocationData(
+        code=201031,
+        region=WSRRegionName.ELYSION_TEMPLE,
+        group=LocationGroup.BLESSING,
+        scene="Temple_Elicion_Spring",
+        game_id="event_200",
+        method_index=260,
+        vanilla_item="Bless_Elicion",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=4,
+    ),
+
+    # Reaching Durok Temple already requires Ice Magic Spellbook + Ch6 + Ice Witch Scarf
+    # via the region entrances, so no extra location rule is needed beyond min_chapter.
+    "Durok's Blessing": WSRLocationData(
+        code=201032,
+        region=WSRRegionName.DUROK_TEMPLE,
+        group=LocationGroup.BLESSING,
+        scene="Temple_Durok",
+        game_id="event_334",
+        method_index=25,
+        vanilla_item="Bless_Durok",
+        vanilla_quantity=1,
+        repeat_behavior="none",
+        min_chapter=6,
     ),
 }
 

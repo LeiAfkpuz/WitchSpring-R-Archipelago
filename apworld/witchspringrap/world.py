@@ -1,15 +1,28 @@
+import typing
 from collections.abc import Mapping
 from typing import Any
 from .options import GoalChoice
 from dataclasses import dataclass
 from Options import PerGameCommonOptions
 
-from BaseClasses import Region, Entrance, Tutorial
+import settings
+from BaseClasses import Region, Entrance, Tutorial, LocationProgressType
 from . import items, locations, regions, rules
 
 from worlds.AutoWorld import World, WebWorld
 
 #from . import options as wsr_options
+
+class WSRSettings(settings.Group):
+    class GamePath(settings.UserFolderPath):
+        """
+        Path to your WitchSpring R install folder (the folder that contains the game exe
+        and the BepInEx folder). The client and the game mod exchange items through an
+        "Archipelago" subfolder created inside it.
+        """
+        description = "WitchSpring R install folder"
+
+    game_path: GamePath = GamePath("C:/Program Files (x86)/Steam/steamapps/common/WitchSpring R")
 
 class WSRWeb(WebWorld):
     game = "Witchspring R"
@@ -35,16 +48,33 @@ class WSRWorld(World):
 
     game = "Witchspring R"
 
+    settings: typing.ClassVar[WSRSettings]
     origin_region_name = regions.WSRRegionName.HOME.value
     options_dataclass = GoalChoice
     options_dataclass = WSROptions
     item_name_to_id = items.item_name_to_id
     location_name_to_id = locations.location_name_to_id
 
+    # Universal Tracker support: lets UT track this game without the player's yaml.
+    # UT generates with default options, then interpret_slot_data hands it the real
+    # slot data and triggers a regeneration where generate_early applies the real goal.
+    ut_can_gen_without_yaml = True
+
     def fill_slot_data(self) -> dict[str, Any]:
         return{
             "goal_choice": int(self.options.goal_choice.value),
         }
+
+    @staticmethod
+    def interpret_slot_data(slot_data: dict[str, Any]) -> dict[str, Any]:
+        return slot_data
+
+    def generate_early(self) -> None:
+        re_gen_passthrough = getattr(self.multiworld, "re_gen_passthrough", {})
+        if re_gen_passthrough and self.game in re_gen_passthrough:
+            slot_data = re_gen_passthrough[self.game]
+            if "goal_choice" in slot_data:
+                self.options.goal_choice.value = int(slot_data["goal_choice"])
 
     def create_regions(self) -> None:
         goal_chapter = int(self.options.goal_choice.value)
@@ -69,9 +99,13 @@ class WSRWorld(World):
                 location_data.code,
                 region,
             )
+            if getattr(location_data, "excluded", False):
+                location.progress_type = LocationProgressType.EXCLUDED
             region.locations.append(location)
         
         for chapter in range(2, goal_chapter + 1):
+            if chapter == 8:
+                continue  # Chapter 8 doesn't exist in WitchSpring R (7 -> 9)
             self.multiworld.get_location(f"Reached Chapter {chapter}", self.player).place_locked_item(self.create_item(f"Chapter {chapter}"))
         #self.multiworld.get_location("Reached Chapter 2", self.player).place_locked_item(self.create_item("Chapter 2"))
         #self.multiworld.get_location("Reached Chapter 3", self.player).place_locked_item(self.create_item("Chapter 3"))
@@ -114,6 +148,9 @@ class WSRWorld(World):
             return chapter <= goal_chapter
         
         required_chapter = regions.region_required_chapter.get(location_data.region, 9)
+        min_chapter = getattr(location_data, "min_chapter", None)
+        if min_chapter is not None:
+            required_chapter = max(required_chapter, min_chapter)
         return required_chapter < goal_chapter
 
     def should_include_item(self, item_name: str) -> bool:

@@ -2,16 +2,20 @@ import asyncio
 import json
 from pathlib import Path
 from NetUtils import ClientStatus
-from CommonClient import CommonContext, server_loop, gui_enabled, get_base_parser
-import os
+from CommonClient import CommonContext, server_loop, gui_enabled, get_base_parser, logger
 
 GAME_NAME = "Witchspring R"
-BRIDGE_DIR = Path(os.getenv("LOCALAPPDATA", Path.home())) / "Archipelago" / "WitchspringR" / "Bridge"
-RECEIVED_ITEMS_FILE = BRIDGE_DIR / "received_items.json"
-CHECKED_LOCATIONS_FILE = BRIDGE_DIR / "checked_locations.json"
-SESSION_FILE = BRIDGE_DIR / "bridge_session.json"
-PROCESSED_INDEX_FILE = BRIDGE_DIR / "processed_received_index.txt"
-ACTIVE_SESSION_FILE = (Path(os.getenv("LOCALAPPDATA", Path.home())) / "Archipelago" / "WitchspringR" / "active_session.json")
+
+def get_game_install_dir() -> "Path | None":
+    """The WitchSpring R install folder, from host.yaml (witchspringrap_options -> game_path)."""
+    from .world import WSRWorld
+    try:
+        game_dir = Path(str(WSRWorld.settings.game_path))
+    except Exception:
+        return None
+    if not game_dir.is_dir():
+        return None
+    return game_dir
 
 class WSRContext(CommonContext):
     game = GAME_NAME
@@ -21,8 +25,11 @@ class WSRContext(CommonContext):
         super().__init__(server_address, password)
         self.wsr_seed_name = "UnknownSeed"
         self.received_item_count = 0
-        BRIDGE_DIR.mkdir(parents=True, exist_ok=True)
         self.goal_choice = 2
+        self.bridge_ready = False
+        self.bridge_root = None
+        self.bridge_dir = None
+        self.bridge_loop_task = None
 
     async def server_auth(self, password_requested: bool = False):
         if password_requested and not self.password:
@@ -39,33 +46,43 @@ class WSRContext(CommonContext):
             self.wsr_seed_name = str(args.get("seed_name", "Unknown Seed"))
 
         if cmd == "Connected":
-            self.bridge_dir = self.get_session_bridge_dir()
-            self.update_bridge_paths()
-            self.write_active_session_file()
             self.goal_choice = int(args.get("slot_data", {}).get("goal_choice", 2))
-            self.reset_bridge_if_new_session()
-            self.write_received_items()
-            #self.set_notify(self.checked_locations)
-            asyncio.create_task(self.check_bridge_loop())
-            
+            if self.setup_bridge():
+                self.write_received_items()
+                if self.bridge_loop_task is None or self.bridge_loop_task.done():
+                    self.bridge_loop_task = asyncio.create_task(self.check_bridge_loop())
 
         elif cmd == "ReceivedItems":
-            self.write_received_items()
+            if self.bridge_ready:
+                self.write_received_items()
             asyncio.create_task(self.check_goal())
-        
-    def get_session_bridge_dir(self):
+
+    def setup_bridge(self) -> bool:
+        game_dir = get_game_install_dir()
+
+        if game_dir is None:
+            logger.error(
+                "WitchSpring R install folder not found. Open your Archipelago host.yaml, set "
+                "'game_path' under 'witchspringrap_options' to the folder containing the game "
+                "(the one with the BepInEx folder in it), then reconnect to your slot."
+            )
+            self.bridge_ready = False
+            return False
+
+        self.bridge_root = game_dir / "Archipelago"
+        self.bridge_dir = self.bridge_root / "Sessions" / self.get_session_dir_name()
+        self.update_bridge_paths()
+        self.write_active_session_file()
+        self.reset_bridge_if_new_session()
+        self.bridge_ready = True
+        logger.info(f"[WSRBridge] Bridge folder: {self.bridge_dir}")
+        return True
+
+    def get_session_dir_name(self) -> str:
         safe_seed = "".join(c if c.isalnum() or c in "-_." else "_" for c in str(self.wsr_seed_name))
         safe_slot_name = "".join(c if c.isalnum() or c in "-_." else "_" for c in str(self.auth))
 
-        session_id = f"{safe_seed}__team{self.team}__slot{self.slot}__{safe_slot_name}"
-
-        return (
-            Path(os.getenv("LOCALAPPDATA", Path.home()))
-            / "Archipelago"
-            / "WitchspringR"
-            / "Sessions"
-            / session_id
-        )
+        return f"{safe_seed}__team{self.team}__slot{self.slot}__{safe_slot_name}"
 
     def write_received_items(self):
         items = []
@@ -88,9 +105,13 @@ class WSRContext(CommonContext):
         )
         
     def write_active_session_file(self):
-        ACTIVE_SESSION_FILE.parent.mkdir(parents=True, exist_ok=True)
+        active_session_file = self.bridge_root / "active_session.json"
+        active_session_file.parent.mkdir(parents=True, exist_ok=True)
 
         active_session = {
+            # The plugin joins session_dir onto its own <game>/Archipelago/Sessions root,
+            # so this file never needs to carry an absolute path between the two sides.
+            "session_dir": self.bridge_dir.name,
             "bridge_dir": str(self.bridge_dir),
             "seed_name": str(self.seed_name),
             "slot_name": str(self.auth),
@@ -98,7 +119,7 @@ class WSRContext(CommonContext):
             "slot": int(self.slot),
         }
 
-        ACTIVE_SESSION_FILE.write_text(
+        active_session_file.write_text(
             json.dumps(active_session, indent=2),
             encoding="utf-8"
         )
@@ -129,42 +150,27 @@ class WSRContext(CommonContext):
             location_names = data.get("checked_locations", [])
             location_ids = []
 
-            #for name in location_names:
-            #    location_id = self.location_names.lookup_name_to_id.get(name)
-            #    if location_id is not None and location_id not in self.checked_locations:
-            #        location_ids.append(location_id)
-            #for name in location_names:
-            #    try:
-            #        location_id = self.location_names[name]
-            #    except KeyError:
-            #        print(f"Unknown location name in checked_locations.json: {name}")
-            #        continue
-
-            #    if location_id not in self.locations_checked:
-            #        location_ids.append(location_id)
             for entry in location_names:
                 if isinstance(entry, int):
                     location_id = entry
                 else:
                     print(f"Skipping non-ID location for now: {entry}")
                     continue
-                if location_id not in self.locations_checked:
+                if location_id not in self.locations_checked and location_id not in self.checked_locations:
                     location_ids.append(location_id)
 
-
             if location_ids:
+                # checked_locations.json is a permanent ledger - the game plugin only
+                # ever adds to it and we never clear it, so a check written there can
+                # survive a game crash, a client crash, or both. The server ignores
+                # duplicate checks, and CommonContext resends locations_checked after
+                # a reconnect, so over-sending is always safe.
+                self.locations_checked.update(location_ids)
                 await self.send_msgs([{
                     "cmd": "LocationChecks",
-                    "locations": location_ids,
+                    "locations": list(self.locations_checked),
                 }])
-                self.checked_locations_file.write_text(
-                    json.dumps({"checked_locations": []}, indent=2),
-                    encoding="utf-8"
-                )
 
-                self.checked_locations.update(location_ids)
-
-    import json
     def reset_bridge_if_new_session(self):
         self.bridge_dir.mkdir(parents=True, exist_ok=True)
 

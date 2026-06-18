@@ -26,11 +26,16 @@ class WSRRegionName(str, Enum):
     NORTH_MERCHANT_ROAD = "North Merchant Road"
     VAVELIA_ROAD = "Vavelia Road"
     BLACKHILL_GOLEM_CAVE_FOX = "Blackhill Golem Cave Fox"
-    BLACKHILL_GOLEM_CAVE_FIRE = "Blackhill Golvem Cave Volcano Road"
-    BLACKHILL_GOLEM_CAVE_FIRE_2 = "Blackhill Golvem Cave Volcano Road"
-    BLACKHILL_GOLEM_CAVE_FIRE_3 = "Blackhill Golvem Cave Volcano Road"
+    BLACKHILL_GOLEM_CAVE_FIRE = "Blackhill Golem Cave Volcano Road"
+    BLACKHILL_GOLEM_CAVE_FIRE_2 = "Blackhill Golem Cave Volcano Road 2"
+    BLACKHILL_GOLEM_CAVE_FIRE_3 = "Blackhill Golem Cave Volcano Road 3"
     PUDDING_CAVE_3 = "Pudding Cave - Royal Pudding"
     BOAR_PLAIN = "Boar Plain"
+    REDBEARD_CAVE = "RedBeard's Cave"
+    KANNA_HOUSE = "Kanna's House"
+    LUNA_HOUSE = "Luna's House"
+    ICE_CAVE = "Ice Cave"
+    FROZEN_ALTAR = "Frozen Altar"
 
 
 starting_region = WSRRegionName.HOME
@@ -58,6 +63,7 @@ region_connections = {
         WSRRegionName.BLACK_WITCH_FOREST,
         WSRRegionName.BLACKHILL_GOLEM_CAVE_FOX,
         WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE,
+        WSRRegionName.ELYSION_PLAIN,
     ],
     WSRRegionName.BLACKHILL_GOLEM_CAVE_FOX: [
         WSRRegionName.BLACKHILL_GOLEM_CAVE,
@@ -79,6 +85,10 @@ region_connections = {
     ],
     WSRRegionName.PUDDING_CAVE_2: [
         WSRRegionName.PUDDING_CAVE,
+        WSRRegionName.PUDDING_CAVE_3,
+    ],
+    WSRRegionName.PUDDING_CAVE_3: [
+        WSRRegionName.PUDDING_CAVE_2,
     ],
     WSRRegionName.NORTH_MERCHANT_ROAD: [
         WSRRegionName.LALAQUE_FOREST,
@@ -89,16 +99,78 @@ region_connections = {
         WSRRegionName.LALAQUE_MINE,
         WSRRegionName.LALAQUE_VILLAGE,
         WSRRegionName.NORTH_MERCHANT_ROAD,
+        WSRRegionName.LIONS_PLAIN,
+        WSRRegionName.KANNA_HOUSE,
     ],
     WSRRegionName.LALAQUE_VILLAGE: [
         WSRRegionName.LALAQUE_FOREST,
     ],
     WSRRegionName.LALAQUE_MINE: [
-        WSRRegionName.LALAQUE_MINE,
+        WSRRegionName.LALAQUE_FOREST,
+    ],
+    WSRRegionName.LIONS_PLAIN: [
+        WSRRegionName.LALAQUE_FOREST,
+        WSRRegionName.AIMHARD_TEMPLE,
+    ],
+    WSRRegionName.AIMHARD_TEMPLE: [
+        WSRRegionName.LIONS_PLAIN,
     ],
     WSRRegionName.BOAR_PLAIN: [
         WSRRegionName.NORTH_MERCHANT_ROAD,
         WSRRegionName.LAOBA_MOUNTAIN,
+        WSRRegionName.DEATH_SQUAD,
+        WSRRegionName.SNOW_FIELD,
+    ],
+    WSRRegionName.LAOBA_MOUNTAIN: [
+        WSRRegionName.BOAR_PLAIN,
+        WSRRegionName.VAVELIA_ROAD,
+    ],
+    WSRRegionName.VAVELIA_ROAD: [
+        WSRRegionName.LAOBA_MOUNTAIN,
+        WSRRegionName.VAVELIA_VILLAGE,
+    ],
+    WSRRegionName.VAVELIA_VILLAGE: [
+        WSRRegionName.VAVELIA_ROAD,
+        WSRRegionName.REDBEARD_CAVE,
+    ],
+    WSRRegionName.ELYSION_PLAIN: [
+        WSRRegionName.BLACKHILL_GOLEM_CAVE,
+        WSRRegionName.DARKSTONE_CAVE,
+    ],
+    WSRRegionName.DARKSTONE_CAVE: [
+        WSRRegionName.ELYSION_PLAIN,
+        WSRRegionName.ELYSION_TEMPLE,
+    ],
+    WSRRegionName.ELYSION_TEMPLE: [
+        WSRRegionName.DARKSTONE_CAVE,
+    ],
+    WSRRegionName.DEATH_SQUAD: [
+        WSRRegionName.BOAR_PLAIN,
+    ],
+    WSRRegionName.SNOW_FIELD: [
+        WSRRegionName.BOAR_PLAIN,
+        WSRRegionName.DUROK_TEMPLE,
+        WSRRegionName.ICE_CAVE,
+        WSRRegionName.LUNA_HOUSE,
+    ],
+    WSRRegionName.DUROK_TEMPLE: [
+        WSRRegionName.SNOW_FIELD,
+    ],
+    WSRRegionName.REDBEARD_CAVE: [
+        WSRRegionName.VAVELIA_VILLAGE,
+    ],
+    WSRRegionName.KANNA_HOUSE: [
+        WSRRegionName.LALAQUE_FOREST,
+    ],
+    WSRRegionName.LUNA_HOUSE: [
+        WSRRegionName.SNOW_FIELD,
+    ],
+    WSRRegionName.ICE_CAVE: [
+        WSRRegionName.SNOW_FIELD,
+        WSRRegionName.FROZEN_ALTAR,
+    ],
+    WSRRegionName.FROZEN_ALTAR: [
+        WSRRegionName.ICE_CAVE,
     ],
 }
 
@@ -121,18 +193,28 @@ region_required_chapter = {
     WSRRegionName.LALAQUE_VILLAGE: 2,
     WSRRegionName.BOAR_PLAIN: 2,
 
-    WSRRegionName.LAOBA_MOUNTAIN: 3,
+    WSRRegionName.LAOBA_MOUNTAIN: 2,
     WSRRegionName.SHIPWRECK: 3,
     WSRRegionName.AIMHARD_TEMPLE: 3,
+    WSRRegionName.LIONS_PLAIN: 3,
 
     WSRRegionName.ELYSION_TEMPLE: 4,
     WSRRegionName.ELYSION_PLAIN: 4,
     WSRRegionName.DARKSTONE_CAVE: 4,
     WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_2: 4,
     WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_3: 4,
+    WSRRegionName.PUDDING_CAVE_3: 4,
 
     WSRRegionName.DEATH_SQUAD: 5,
+    WSRRegionName.VAVELIA_ROAD: 5,
+    WSRRegionName.VAVELIA_VILLAGE: 5,
+    WSRRegionName.KANNA_HOUSE: 2,      # off Lalaque Forest; holds ch2 (Chaos Stone) + ch5 (Red Gem) checks
+    WSRRegionName.REDBEARD_CAVE: 5,    # off Vavelia Village, gated by Secret Trader Key
 
     WSRRegionName.SNOW_FIELD: 6,
     WSRRegionName.DUROK_TEMPLE: 6,
+    WSRRegionName.ICE_CAVE: 6,
+    WSRRegionName.FROZEN_ALTAR: 6,
+
+    WSRRegionName.LUNA_HOUSE: 7,       # Blue Moonstone Staff is ch7 content
 }
