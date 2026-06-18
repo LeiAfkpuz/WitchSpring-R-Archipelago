@@ -2,7 +2,7 @@
 Repository for my attempt at the WitchSpring R [Archipelago](https://archipelago.gg/) randomizer!<br>
 **Disclaimer** I had a friend helping me with the mod and they even helped fix up my portion that I wrote before they offered. They are no longer helping out. I am not a dev by any means and my coding knowledge I know isn't up to par with many of our fine people from the Archipelago community. So if there is anyone else who knows more and is willing to help out, or take over, then please don't hesitate! This also means that I will take some time to work out any bugs or anything that crop up when it comes to the client/mod side of things. I mostly handled item/location data before they joined in.<br>
 <br>
-Logic currently works through Chapter 2. In theory any chapter goal setting should function, untested and Chapter 8 is questionable if it even exists in the coding or not. But I do not currently recommend going past Chapter 3 for stability. 
+All chapters should currently function. It is largely untested beyond Chapter 2(Chapter 3 Goal) at this moment so please, if you set any goal for Chapter 4+ expect some potential logic issues or other issues.
 
 ## Installation
 1. Install [BepInEx Unity IL2CPP](https://builds.bepinex.dev/projects/bepinex_be) x64 into the [WitchSpring R](https://store.steampowered.com/app/1958220/WitchSpring_R/) game folder<br>
@@ -10,6 +10,7 @@ Logic currently works through Chapter 2. In theory any chapter goal setting shou
 2. Launch the game once for the folders to be created
 3. Place the WitchSpringRArchipelago.dll found inside the WSR_Plugin.zip into the new BepInEx/plugins folder / Or replace the plugins folder with the one from WSR_Plugin.zip
 4. Install the .apworld - by default you should be able to double click this for your Archipelago setup to automatically place it. Otherwise, it goes into the custom worlds folder.
+5. If your game is NOT installed at the default Steam location (`C:\Program Files (x86)\Steam\steamapps\common\WitchSpring R`), the client will ask you to locate your WitchSpring R install folder (the one containing the BepInEx folder) the first time you connect to your slot - just point it at the right folder and you're done. If the picker doesn't appear or you cancelled it, you can set it manually instead: open your Archipelago `host.yaml` and set `game_path` under `witchspringrap_options`. The client and the mod talk to each other through an `Archipelago` folder created inside the game folder.
 
 ## Connecting to the game   
 1. Launch the WitchSpring R Client from Archipelago
@@ -19,7 +20,7 @@ Logic currently works through Chapter 2. In theory any chapter goal setting shou
 4. Start a new game
 
 ## What is randomized?
-- Current logic only fully functional up until the Chapter 2 splash screen. Semi-functional throughout Chapter 2. 
+- Current logic only tested up until the Chapter 3 splash screen. Semi-functional throughout Chapter 3 and beyond. 
 - Magic circles, spellbooks, items, equipment and blessings are all in the item pool. <br>
 - You still receive regular blessings at the normal part of the story, so you will end up with duplicate blessings for use, they do not share a timer, enjoy the extra power!<br>
 - Overworld item checks give you a check for the multiworld on the first pickup, every subsequent pickup is the vanilla item.<br>
@@ -32,4 +33,4 @@ Logic currently works through Chapter 2. In theory any chapter goal setting shou
 - You will have duplicate Blessings. The ones received from the multiworld will not have the turn timer shown, but will be usable when their specific timer is allowed. The ones received from cutscenes will have the normal turn timer shown. Both will function independantly of each other - I had issues replacing the granting during the cutscene with another item as it would just lock up the cutscene.
 - Not every map will allow you to receive items sent to you. If you noticed you did not receive items, please go back to Black Witch Forest and hopefully it should be corrected! Pieberry's House does not count, and you can not receive items while in Pieberry's House.
 
-For the time being, if your game crashes or you have to force close due to a softlock, you may lose items that were sent since your last save. It's not the perfect system but if you navigate to; %LOCALAPPDATA%\Archipelago\WitchspringR\Sessions\ find the most recent session, and there will be a processed_received_index.txt - just change it to an earlier number and next time you launch it will attempt to resend back up to where you are. Or if you straight up delete this file, next launch it'll re-create it and resend everything you've received up to that point. Not a perfect system, and I'm going to try to find a better way to handle this.
+Items received from the multiworld are now tracked inside your save file itself. If the game crashes, you Alt+F4 out of a softlock, or you load an older save, the mod detects that the loaded save is behind the delivery log and automatically re-delivers everything that save is missing - nothing is lost to the void anymore. (If something still looks missing, the old manual fallback also still works: delete processed_received_index.txt in your session folder under `Archipelago\Sessions\` inside the game folder, and everything re-delivers on next launch.) Note: the first time you load a save made on an older version of this mod, all items you've ever received will re-deliver once, so you may see some duplicates that one time.
