@@ -20,7 +20,7 @@ namespace WitchSpringRTestPlugin
 
                 if (getType == GetItemType.CHEST)
                 {
-                    Plugin.LogRef.LogWarning($"Blocked vanilla chest reward: {_id} x{_count}");
+                    Plugin.LogRef.LogDebug($"Blocked vanilla chest reward: {_id} x{_count}");
                     return false;
                 }
                 foreach (BattleRewardCheck check in Data.BattleRewardChecks)
@@ -33,7 +33,7 @@ namespace WitchSpringRTestPlugin
                         continue;
                     
                     sentBattleLocations.Add(check.LocationId);
-                    Plugin.LogRef.LogWarning(
+                    Plugin.LogRef.LogInfo(
                         $"Sent AP battle reward check: {check.DisplayName} / {check.LocationId} " + $"blocked vanilal reward: {_id} x{_count} type={getType}"
                     );
                     BridgeClient.WriteCheckedLocation(check.LocationId);
@@ -41,7 +41,7 @@ namespace WitchSpringRTestPlugin
                 }
                 if (getType != GetItemType.EVENT)
                     return true;
-                Plugin.LogRef.LogWarning(
+                Plugin.LogRef.LogDebug(
                     $"Game AddItem hook fired: {_id} x{_count} type={getType} " +
                     $"event={EventContext.CurrentEventId} " +
                     $"method={EventContext.CurrentMethodId} " +
@@ -67,13 +67,15 @@ namespace WitchSpringRTestPlugin
 
                     sentEventLocations.Add(check.LocationId);
 
-                    Plugin.LogRef.LogWarning(
+                    Plugin.LogRef.LogInfo(
                         $"Sent AP event check: {check.DisplayName} / {check.LocationId}"
                     );
 
                     BridgeClient.WriteCheckedLocation(check.LocationId);
 
-                    return false; // BLOCK vanilla reward
+                    if (check.BlockVanilla)
+                        return false; // block vanilla reward (normal check)
+                    return true; // non-blocking check: keep the vanilla item
                 }
 
                 return true; // allow normal reward

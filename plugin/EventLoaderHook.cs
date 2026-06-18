@@ -7,6 +7,8 @@ namespace WitchSpringRTestPlugin
     [HarmonyPatch(typeof(EventOperator), nameof(EventOperator.DoEvent))]
     public static class EventDoEventHook
     {
+        private static readonly System.Collections.Generic.HashSet<long> sentBlessLocations = new();
+
         public static bool Prefix(EventOperator __instance, string mathodInfo)
         {
             try
@@ -46,7 +48,35 @@ namespace WitchSpringRTestPlugin
                     }
                 }
 
-                Plugin.LogRef.LogWarning(
+                // Blessing checks: the NewBless event command (e.g. ":NewBless:Bless_Aimhard:")
+                // doesn't resolve a usable method index, so match the command string directly
+                // and parse the bless id from it. Our own received-blessing grants go through
+                // DataSet.AddSkill (not an event command), so they never reach here.
+                if (!string.IsNullOrEmpty(mathodInfo) && mathodInfo.Contains("NewBless"))
+                {
+                    string[] parts = mathodInfo.Split(':');
+                    string blessId = "";
+                    for (int i = 0; i < parts.Length - 1; i++)
+                    {
+                        if (parts[i] == "NewBless") { blessId = parts[i + 1]; break; }
+                    }
+
+                    foreach (EventRewardCheck bless in Data.BlessRewardChecks)
+                    {
+                        if (sentBlessLocations.Contains(bless.LocationId))
+                            continue;
+                        if (bless.VanillaItem != blessId)
+                            continue;
+
+                        sentBlessLocations.Add(bless.LocationId);
+                        Plugin.LogRef.LogInfo(
+                            $"Sent AP bless check: {bless.DisplayName} / {bless.LocationId}"
+                        );
+                        BridgeClient.WriteCheckedLocation(bless.LocationId);
+                    }
+                }
+
+                Plugin.LogRef.LogDebug(
                     $"EVENT DOEVENT HOOK: event={eventId} method={methodIndex} command={mathodInfo}"
                 );
                 return true;

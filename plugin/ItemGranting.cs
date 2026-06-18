@@ -47,17 +47,38 @@ namespace WitchSpringRTestPlugin
                 {
                     return GrantBlessing(gameItemId);
                 }
+
+                int countBefore = dataSet.GetItemCount(gameItemId);
+
                 try
                 {
                     IsGrantingFromArchipelago = true;
                     dataSet.AddItem(gameItemId, quantity, GetItemType.NONE);
+                }
+                catch (Exception addEx)
+                {
+                    // AddItem can add the item to inventory and THEN throw on a
+                    // post-add step (the "got item" popup, or a companion/battle
+                    // effect tied to the item) that isn't valid when we inject the
+                    // item cold. If the item actually landed, count it as granted so
+                    // the queue advances and we don't re-add a copy every tick.
+                    int countAfter = dataSet.GetItemCount(gameItemId);
+                    if (countAfter > countBefore)
+                    {
+                        Plugin.LogRef.LogWarning(
+                            $"AddItem({gameItemId}) threw after adding (post-step failed); " +
+                            $"item is in inventory, treating as granted. {addEx.Message}"
+                        );
+                        return true;
+                    }
+                    throw; // nothing was added - a real failure, handled below
                 }
                 finally
                 {
                     IsGrantingFromArchipelago = false;
                 }
 
-                Plugin.LogRef.LogWarning($"Granted game item: AddItem:{gameItemId}:{quantity}");
+                Plugin.LogRef.LogInfo($"Granted game item: AddItem:{gameItemId}:{quantity}");
                 return true;
             }
             catch (Exception ex)
@@ -77,11 +98,21 @@ namespace WitchSpringRTestPlugin
                     Plugin.LogRef.LogWarning("GrantBlessing failed: DataSet not found");
                     return false;
                 }
-                Plugin.LogRef.LogWarning($"Granting Blessing: NewBless:{blessId}");
+                Plugin.LogRef.LogInfo($"Granting Blessing: NewBless:{blessId}");
 
-                dataSet.AddSkill(blessId);
+                // Flag so the AddSkill bless-check hook ignores our own grant (otherwise
+                // receiving a blessing from the multiworld would fire its location check).
+                try
+                {
+                    IsGrantingFromArchipelago = true;
+                    dataSet.AddSkill(blessId);
+                }
+                finally
+                {
+                    IsGrantingFromArchipelago = false;
+                }
 
-                Plugin.LogRef.LogWarning($"Granted blessing: {blessId}");
+                Plugin.LogRef.LogInfo($"Granted blessing: {blessId}");
                 return true;
             }
             catch (Exception ex)
@@ -150,7 +181,7 @@ namespace WitchSpringRTestPlugin
 
                     if (skillId == blessId)
                     {
-                        Plugin.LogRef.LogWarning($"Blessing check: already has {blessId}");
+                        Plugin.LogRef.LogDebug($"Blessing check: already has {blessId}");
                         return true;
                     }
                 }

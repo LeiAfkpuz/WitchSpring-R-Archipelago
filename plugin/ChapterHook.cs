@@ -14,7 +14,7 @@ namespace WitchSpringRTestPlugin
         {
             try
             {
-                Plugin.LogRef.LogWarning($"SetNewChapter hook fired: {num}");
+                Plugin.LogRef.LogDebug($"SetNewChapter hook fired: {num}");
 
                 foreach (ChapterEventCheck check in Data.ChapterEventChecks)
                 {
@@ -28,7 +28,7 @@ namespace WitchSpringRTestPlugin
 
                     BridgeClient.WriteCheckedLocation(check.LocationId);
 
-                    Plugin.LogRef.LogWarning($"Sent AP chapter event check: {check.DisplayName} / {check.LocationId}");
+                    Plugin.LogRef.LogInfo($"Sent AP chapter event check: {check.DisplayName} / {check.LocationId}");
                 }
             }
             catch(Exception ex)

@@ -6,7 +6,7 @@ using HarmonyLib;
 
 namespace WitchSpringRTestPlugin
 {
-    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.0.1")]
+    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.2.0")]
     public class Plugin : BasePlugin
     {
         internal static ManualLogSource LogRef;
@@ -43,6 +43,7 @@ namespace WitchSpringRTestPlugin
 
             nextScanTime = Time.time + 1f;
 
+            BridgeClient.FlushPendingChecks();
             //eventContextScanner.Scan();
             locationScanner.ScanFieldItems();
             receivedItemScanner.Scan();

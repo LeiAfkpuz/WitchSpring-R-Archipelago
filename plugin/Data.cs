@@ -25,6 +25,9 @@ namespace WitchSpringRTestPlugin
         public int VanillaQuantity = 1;
         public long LocationId;
         public string DisplayName = "";
+        // When false, the AP check is still sent but the vanilla item is NOT blocked -
+        // use for story-critical items the player must keep (e.g. items handed over later).
+        public bool BlockVanilla = true;
     }
 
     public class ChapterEventCheck
@@ -51,6 +54,13 @@ namespace WitchSpringRTestPlugin
         public string DisplayName = "";
     }
 
+    public class SwitchGate
+    {
+        public string EventId = "";
+        public string RequiredItem = "";
+        public string DisplayName = "";
+    }
+
     //public class ChapterCheck
     //{
     //   public Chapters Chapter;
@@ -69,9 +79,16 @@ namespace WitchSpringRTestPlugin
                 LocationId = 200500,
                 DisplayName = "Boar Captain Defeated",
             },
+            new BattleRewardCheck
+            {
+                VanillaItem = "Key_WreckedCaptainRoom",
+                VanillaQuantity = 1,
+                LocationId = 200501,
+                DisplayName = "Shipwreck - Armory - Commander's Cabin Key",
+            },
         };
         //Tried many different moments here and I keep hardlocking the game in cutscenes forcing an Alt+F4. Will revisit in the future maybe.
-        public static readonly EventGate[] EventGates = 
+        public static readonly EventGate[] EventGates =
         {
         //    new EventGate
         //    {
@@ -81,6 +98,31 @@ namespace WitchSpringRTestPlugin
         //        RequiredItem = "Mind Control Circle",
         //        DisplayName = "Black Witch Forest Mind Control Gate",
         //    },
+        };
+
+        // Blocks an event from STARTING (not mid-run) until the required AP item is
+        // received, by masking EventLoader.CheckSwitch -> false. Unlike EventGates
+        // (the old DoEvent prefix) this works with the game's own gating, so it does
+        // not hardlock a running cutscene. Empty = hook no-ops.
+        // NOTE: event_13 is "Boar Junior" (pet capture), NOT a Mind Control gate -
+        // the old EventGate above was mis-targeted. The real South Island gate is the
+        // BlackJoe chain: event_15 "Catching BlackJoe" (caught via mind control) ->
+        // event_82 "Riding BlackJoe to the South Island". Verify which one routes
+        // through CheckSwitch in-game, then add it here together with the matching
+        // apworld rule (South Island access requires Mind Control Circle).
+        public static readonly SwitchGate[] SwitchGates =
+        {
+            // event_13 = the Mind Control tutorial: capturing Boar_Junior. Boar_Junior
+            // is required to ride through the swamp to BlackJoe (event_15) and on to
+            // South Island, so gating it behind the AP Mind Control Circle gates the
+            // whole "sphere"/South Island branch. Matching apworld logic rule:
+            // "Black Witch Forest to South Island" requires Mind Control Circle.
+            new SwitchGate
+            {
+                EventId = "event_13",
+                RequiredItem = "Mind Control Circle",
+                DisplayName = "Boar_Junior / Mind Control tutorial (gates South Island)",
+            },
         };
         public static readonly EventRewardCheck[] EventRewardChecks = 
         {
@@ -238,6 +280,306 @@ namespace WitchSpringRTestPlugin
                 LocationId = 200172,
                 DisplayName = "event_453 - Shipwreck Brig Key",
             },
+            new EventRewardCheck
+            {
+                EventId = "event_14",
+                MethodIndex = 138,
+                VanillaItem = "MAGICCIRCLE_MindControl",
+                VanillaQuantity = 1,
+                LocationId = 200174,
+                DisplayName = "Pudding Cave - Alfredo's Mind Control Circle",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_308",
+                MethodIndex = 121,
+                VanillaItem = "IceScarf",
+                VanillaQuantity = 1,
+                LocationId = 200175,
+                DisplayName = "Death Squad - Ice Witch Scarf",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_154",
+                MethodIndex = 33,
+                VanillaItem = "Key_ShipStoreKey",
+                VanillaQuantity = 1,
+                LocationId = 200176,
+                DisplayName = "Shipwreck - Hold Key",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_340",
+                MethodIndex = 38,
+                VanillaItem = "GolemBlueprintInfo",
+                VanillaQuantity = 1,
+                LocationId = 200177,
+                DisplayName = "Death Squad - Matt's Letter",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_282",
+                MethodIndex = 72,
+                VanillaItem = "Key_RedBeard",
+                VanillaQuantity = 1,
+                LocationId = 200178,
+                DisplayName = "Death Squad - Secret Trader Key",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_274",
+                MethodIndex = 186,
+                VanillaItem = "RedJewel",
+                VanillaQuantity = 1,
+                LocationId = 200179,
+                DisplayName = "Kanna's House - Red Gem",
+                BlockVanilla = false, // keep the vanilla Red Gem (handed to RedBeard later)
+            },
+            // (event_226 Arua Thunder Blessing moved to BlessRewardChecks - it's a NewBless
+            //  command, which the AddItem hook never sees.)
+
+            // ----- Event-reward checks generated from the Chapter triage worksheet -----
+            // (build_event_checks.py, INCLUDE=Y batch). See Events Full Dump/out/REPORT.txt.
+            new EventRewardCheck
+            {
+                EventId = "event_640",
+                MethodIndex = 184,
+                VanillaItem = "Key_Ice",
+                VanillaQuantity = 1,
+                LocationId = 201010,
+                DisplayName = "Red Beard - Frozen Key",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_649",
+                MethodIndex = 5,
+                VanillaItem = "BlueMoonStick",
+                VanillaQuantity = 1,
+                LocationId = 201011,
+                DisplayName = "Luna - Blue Moonstone Staff",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_654",
+                MethodIndex = 80,
+                VanillaItem = "Sword_Ice2",
+                VanillaQuantity = 1,
+                LocationId = 201012,
+                DisplayName = "Ludina Blade",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_616",
+                MethodIndex = 46,
+                VanillaItem = "BedosHeadband",
+                VanillaQuantity = 1,
+                LocationId = 201013,
+                DisplayName = "Melina - Bedo's Headband",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_325",
+                MethodIndex = 48,
+                VanillaItem = "Book_Level_Ice",
+                VanillaQuantity = 1,
+                LocationId = 201014,
+                DisplayName = "Luna - Ice Magic Spellbook",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_456",
+                MethodIndex = 27,
+                VanillaItem = "LifeStone",
+                VanillaQuantity = 1,
+                LocationId = 201015,
+                DisplayName = "Balt - Life Stone",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_398",
+                MethodIndex = 32,
+                VanillaItem = "KingPudding",
+                VanillaQuantity = 2,
+                LocationId = 201016,
+                DisplayName = "Royal Pudding Party 1",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_398",
+                MethodIndex = 33,
+                VanillaItem = "QueenPudding",
+                VanillaQuantity = 2,
+                LocationId = 201017,
+                DisplayName = "Royal Pudding Party 2",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_397",
+                MethodIndex = 22,
+                VanillaItem = "Sword_Fire",
+                VanillaQuantity = 1,
+                LocationId = 201018,
+                DisplayName = "Blast - Sun Sword",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_254",
+                MethodIndex = 78,
+                VanillaItem = "BirdSharkSign",
+                VanillaQuantity = 1,
+                LocationId = 201019,
+                DisplayName = "Kanna - Peanut Shark",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_153",
+                MethodIndex = 79,
+                VanillaItem = "LivyaMark",
+                VanillaQuantity = 1,
+                LocationId = 201020,
+                DisplayName = "Livya - Commander's Insignia",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_280",
+                MethodIndex = 12,
+                VanillaItem = "SeraDressLakeSky",
+                VanillaQuantity = 1,
+                LocationId = 201021,
+                DisplayName = "Sarah - Sera's Dress",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_85",
+                MethodIndex = 32,
+                VanillaItem = "Gold",
+                VanillaQuantity = 5000,
+                LocationId = 201022,
+                DisplayName = "Ralph - Gem Payment",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_216",
+                MethodIndex = 34,
+                VanillaItem = "ConfuseStone",
+                VanillaQuantity = 1,
+                LocationId = 201023,
+                DisplayName = "Kanna's House - Chaos Stone",
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_92",
+                MethodIndex = 17,
+                VanillaItem = "CreichLeaf",
+                VanillaQuantity = 1,
+                LocationId = 201024,
+                DisplayName = "Ralph - Boar Captain's Tooth Reward 2",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_80",
+                MethodIndex = 6,
+                VanillaItem = "Leaf_MiniGolem",
+                VanillaQuantity = 12,
+                LocationId = 201025,
+                DisplayName = "Weapon Upgrade Materials 1",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_80",
+                MethodIndex = 7,
+                VanillaItem = "DryLeaf",
+                VanillaQuantity = 12,
+                LocationId = 201026,
+                DisplayName = "Weapon Upgrade Materials 2",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_81",
+                MethodIndex = 3,
+                VanillaItem = "DryBread",
+                VanillaQuantity = 5,
+                LocationId = 201027,
+                DisplayName = "Weapon Upgrade Materials 3",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_81",
+                MethodIndex = 5,
+                VanillaItem = "Item_LeafPudding",
+                VanillaQuantity = 2,
+                LocationId = 201028,
+                DisplayName = "Weapon Upgrade Materials 4",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_81",
+                MethodIndex = 7,
+                VanillaItem = "IronPart",
+                VanillaQuantity = 2,
+                LocationId = 201029,
+                DisplayName = "Weapon Upgrade Materials 5",
+                BlockVanilla = false,
+            }
+        };
+
+        // Blessings are granted via the NewBless event command (DataSet.AddSkill), NOT
+        // DataSet.AddItem, so the AddItem hook never sees them. These are matched in the
+        // EventOperator.DoEvent hook by (EventId, MethodIndex). BlockVanilla is honored
+        // there too: false = send the check but let the vanilla blessing happen (current
+        // behavior); set true later to block the vanilla blessing.
+        public static readonly EventRewardCheck[] BlessRewardChecks =
+        {
+            new EventRewardCheck
+            {
+                EventId = "event_178",
+                MethodIndex = 96,
+                VanillaItem = "Bless_Aimhard",
+                VanillaQuantity = 1,
+                LocationId = 201030,
+                DisplayName = "Aimhard's Blessing",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_200",
+                MethodIndex = 260,
+                VanillaItem = "Bless_Elicion",
+                VanillaQuantity = 1,
+                LocationId = 201031,
+                DisplayName = "Elysion Blessing",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                // Ch1 Arua's Arrow blessing - granted at the battle after the Aslan cutscene
+                // (event_84 m14, command "battle:NewBless:Bless_Arua"), NOT the Ch3 Statue
+                // Trial (event_226/Bless_AruaThunder). Matched by VanillaItem (the bless id).
+                EventId = "event_84",
+                MethodIndex = 14,
+                VanillaItem = "Bless_Arua",
+                VanillaQuantity = 1,
+                LocationId = 200156,
+                DisplayName = "Arua Blessing",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                EventId = "event_334",
+                MethodIndex = 25,
+                VanillaItem = "Bless_Durok",
+                VanillaQuantity = 1,
+                LocationId = 201032,
+                DisplayName = "Durok's Blessing",
+                BlockVanilla = false,
+            },
         };
 
         public static readonly ChapterEventCheck[] ChapterEventChecks =
@@ -278,12 +620,7 @@ namespace WitchSpringRTestPlugin
                 LocationId = 201007,
                 DisplayName = "Reached Chapter 7",
             },
-            new ChapterEventCheck
-            {
-                ChapterNumber = 8,
-                LocationId = 201008,
-                DisplayName = "Reached Chapter 8",
-            },
+            // Chapter 8 doesn't exist in WitchSpring R (the game goes 7 -> 9).
             new ChapterEventCheck
             {
                 ChapterNumber = 9,
@@ -1449,12 +1786,12 @@ namespace WitchSpringRTestPlugin
                 GameItemId = "MAGICCIRCLE_Fire_1",
                 Quantity = 1,
             },
-            //new ItemGrant
-            //{
-            //    ApItemName = "Mind Control Circle",
-            //    GameItemId = "MAGICCIRCLE_MindControl",
-            //    Quantity = 1,
-            //},
+            new ItemGrant
+            {
+                ApItemName = "Mind Control Circle",
+                GameItemId = "MAGICCIRCLE_MindControl",
+                Quantity = 1,
+            },
             new ItemGrant
             {
                 ApItemName = "Small Blue Magic Stones",
@@ -3017,7 +3354,7 @@ namespace WitchSpringRTestPlugin
             },
             new ItemGrant
             {
-                ApItemName = "Protoype Steam Engine",
+                ApItemName = "Prototype Steam Engine",
                 GameItemId = "FirstSteamEngine",
                 Quantity = 1,
             },
@@ -3161,7 +3498,7 @@ namespace WitchSpringRTestPlugin
             },
             new ItemGrant
             {
-                ApItemName = "Weapon Stimulant",
+                ApItemName = "Improved Weapon Stimulant",
                 GameItemId = "WeaponCooler2",
                 Quantity = 1,
             },
@@ -3263,7 +3600,7 @@ namespace WitchSpringRTestPlugin
             },
             new ItemGrant
             {
-                ApItemName = "Red Shieldstone",
+                ApItemName = "Improved Red Shieldstone",
                 GameItemId = "ShieldStoneRed2",
                 Quantity = 1,
             },
