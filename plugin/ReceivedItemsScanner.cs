@@ -25,6 +25,7 @@ namespace WitchSpringRTestPlugin
         {
             public int Index;
             public string ItemName = "";
+            public string Message = "";
         }
 
         public void Scan()
@@ -122,6 +123,12 @@ namespace WitchSpringRTestPlugin
                     BridgeClient.RecordUndeliverableItem(item.Index, item.ItemName);
                     // fall through to mark it processed and continue the queue
                 }
+                else if (!string.IsNullOrEmpty(item.Message))
+                {
+                    // Only announce items we actually delivered (skipped ones already
+                    // logged an error above).
+                    UIMessage.Show(item.Message);
+                }
 
                 WriteIndexMarkerToSave(processedIndex, item.Index, sessionTag);
                 BridgeClient.WriteProcessedReceivedIndex(item.Index);
@@ -185,20 +192,32 @@ namespace WitchSpringRTestPlugin
 
             MatchCollection matches = Regex.Matches(
                 json,
-                "\"index\"\\s*:\\s*(\\d+)[\\s\\S]*?\"item\"\\s*:\\s*\"([^\"]+)\""
+                "\"index\"\\s*:\\s*(\\d+)[\\s\\S]*?\"item\"\\s*:\\s*\"([^\"]+)\"[\\s\\S]*?\"message\"\\s*:\\s*\"([^\"]+)\""
             );
+
+            // Fall back to the message-less shape so an older received_items.json still
+            // delivers items (just without the "Received X" popup).
+            if (matches.Count == 0)
+            {
+                matches = Regex.Matches(
+                    json,
+                    "\"index\"\\s*:\\s*(\\d+)[\\s\\S]*?\"item\"\\s*:\\s*\"([^\"]+)\""
+                );
+            }
 
             foreach (Match match in matches)
             {
                 int index = int.Parse(match.Groups[1].Value);
                 string itemName = match.Groups[2].Value.Trim();
+                string message = match.Groups.Count > 3 ? match.Groups[3].Value.Trim() : "";
 
                 if (!string.IsNullOrEmpty(itemName))
                 {
                     parsedItems.Add(new ReceivedApItem
                     {
                         Index = index,
-                        ItemName = itemName
+                        ItemName = itemName,
+                        Message = message
                     });
                 }
             }

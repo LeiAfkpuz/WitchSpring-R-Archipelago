@@ -6,7 +6,7 @@ using HarmonyLib;
 
 namespace WitchSpringRTestPlugin
 {
-    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.2.0")]
+    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.3.0")]
     public class Plugin : BasePlugin
     {
         internal static ManualLogSource LogRef;
@@ -48,6 +48,9 @@ namespace WitchSpringRTestPlugin
             locationScanner.ScanFieldItems();
             receivedItemScanner.Scan();
             //progressionScanner.Scan();
+            BattleDumper.TryDumpBestiaryOnce();
+            BattleDumper.TryDumpQuestsOnce();
+            BattleDumper.ScanQuests();
             
         }
     }

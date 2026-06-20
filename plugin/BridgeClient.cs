@@ -48,6 +48,9 @@ namespace WitchSpringRTestPlugin
         public static string CheckedLocationsPath =>
             Path.Combine(BridgeDir, "checked_locations.json");
 
+        public static string ScoutedLocationsPath =>
+            Path.Combine(BridgeDir, "scouted_locations.json");
+
         public static string ProcessedReceivedIndexPath =>
             Path.Combine(BridgeDir, "processed_received_index.txt");
 
@@ -112,12 +115,63 @@ namespace WitchSpringRTestPlugin
         // briefly locked by the client, disk hiccup, ...) they are retried every
         // scanner tick instead of being lost.
         private static readonly HashSet<long> pendingChecks = new HashSet<long>();
+        // Show the "Sent X to Player" popup once per location per game session.
+        private static readonly HashSet<long> shownCheckMessages = new HashSet<long>();
 
         public static void WriteCheckedLocation(long locationId)
         {
             pendingChecks.Add(locationId);
             Plugin.Log.LogInfo($"Sent AP location check: {locationId}");
+
+            // Pop "Sent <item> to <player>" using the scouted name the client wrote.
+            // Falls back silently if the scout data isn't available yet.
+            if (shownCheckMessages.Add(locationId))
+            {
+                string message = GetScoutMessage(locationId);
+                if (!string.IsNullOrEmpty(message))
+                    UIMessage.Show(message);
+            }
+
             FlushPendingChecks();
+        }
+
+        private static string cachedScoutJson = "";
+        private static DateTime cachedScoutAt = DateTime.MinValue;
+
+        // The display text the client scouted for a location ("Sent X to Player"),
+        // or "" if unknown. Caches the file text briefly since checks can arrive in
+        // bursts (e.g. clearing a room of field items).
+        public static string GetScoutMessage(long locationId)
+        {
+            if ((DateTime.UtcNow - cachedScoutAt).TotalSeconds > 5.0)
+            {
+                cachedScoutJson = ReadScoutedLocationsJson();
+                cachedScoutAt = DateTime.UtcNow;
+            }
+
+            if (string.IsNullOrEmpty(cachedScoutJson))
+                return "";
+
+            Match match = Regex.Match(
+                cachedScoutJson,
+                "\"" + locationId + "\"\\s*:\\s*\"([^\"]+)\""
+            );
+
+            return match.Success ? match.Groups[1].Value : "";
+        }
+
+        private static string ReadScoutedLocationsJson()
+        {
+            try
+            {
+                if (!HasActiveSession() || !File.Exists(ScoutedLocationsPath))
+                    return "";
+                return File.ReadAllText(ScoutedLocationsPath);
+            }
+            catch
+            {
+                return "";
+            }
         }
 
         public static void FlushPendingChecks()
