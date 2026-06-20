@@ -2696,3 +2696,10 @@ item_name_to_id = {
     name: data.code
     for name, data in item_table.items()
 }
+
+# Filler items used to pad the pool when optional check categories (battlesanity /
+# bestiary) add more locations than the base item pool covers.
+filler_item_names = [
+    name for name, data in item_table.items()
+    if data.classification == ItemClassification.filler
+]

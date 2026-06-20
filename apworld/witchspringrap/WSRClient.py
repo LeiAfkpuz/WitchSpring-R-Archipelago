@@ -49,6 +49,9 @@ class WSRContext(CommonContext):
             self.goal_choice = int(args.get("slot_data", {}).get("goal_choice", 2))
             if self.setup_bridge():
                 self.write_received_items()
+                # Ask the server what item sits at each of our locations so the game
+                # can show "Sent <item> to <player>" when a check fires.
+                asyncio.create_task(self.scout_locations())
                 if self.bridge_loop_task is None or self.bridge_loop_task.done():
                     self.bridge_loop_task = asyncio.create_task(self.check_bridge_loop())
 
@@ -56,6 +59,10 @@ class WSRContext(CommonContext):
             if self.bridge_ready:
                 self.write_received_items()
             asyncio.create_task(self.check_goal())
+
+        elif cmd == "LocationInfo":
+            if self.bridge_ready:
+                self.write_scouted_locations(args.get("locations", []))
 
     def setup_bridge(self) -> bool:
         game_dir = get_game_install_dir()
@@ -91,16 +98,73 @@ class WSRContext(CommonContext):
             item_name = self.item_names.lookup_in_game(network_item.item)
             location_name = self.location_names.lookup_in_game(network_item.location)
             player_name = self.player_names.get(network_item.player, f"Player {network_item.player}")
-            
+
+            # Pre-format the popup text here (we have all the AP name data); the game
+            # plugin just displays it. Own-world items read better without "from".
+            if network_item.player == self.slot:
+                message = f"Received {item_name}"
+            else:
+                message = f"Received {item_name} from {player_name}"
+
             items.append({
                 "index": index,
                 "item": item_name,
                 "location": location_name,
                 "player": player_name,
+                "message": message,
             })
 
         self.received_items_file.write_text(
             json.dumps(items, indent=2),
+            encoding="utf-8"
+        )
+
+    async def scout_locations(self):
+        # Scout every location in our world (checked + still-missing) so the game can
+        # name the item at any check, even one re-fired after a reload. The server
+        # ignores re-scouts, so this is safe to send on every connect.
+        locations = sorted(set(self.missing_locations) | set(self.checked_locations))
+
+        if not locations:
+            return
+
+        await self.send_msgs([{
+            "cmd": "LocationScouts",
+            "locations": locations,
+            "create_as_hint": 0,
+        }])
+
+    def write_scouted_locations(self, network_items):
+        scouted = {}
+
+        if self.scouted_locations_file.exists():
+            try:
+                scouted = json.loads(self.scouted_locations_file.read_text(encoding="utf-8"))
+            except Exception:
+                scouted = {}
+
+        for network_item in network_items:
+            # LocationInfo entries are NetworkItem tuples; fall back to indexing in
+            # case a future AP build hands them over as plain lists.
+            item_id = getattr(network_item, "item", None)
+            location_id = getattr(network_item, "location", None)
+            player = getattr(network_item, "player", None)
+
+            if item_id is None or location_id is None or player is None:
+                item_id, location_id, player = network_item[0], network_item[1], network_item[2]
+
+            item_name = self.item_names.lookup_in_slot(item_id, player)
+            player_name = self.player_names.get(player, f"Player {player}")
+
+            if player == self.slot:
+                message = f"Sent {item_name}"
+            else:
+                message = f"Sent {item_name} to {player_name}"
+
+            scouted[str(location_id)] = message
+
+        self.scouted_locations_file.write_text(
+            json.dumps(scouted, indent=2),
             encoding="utf-8"
         )
         
@@ -195,6 +259,7 @@ class WSRContext(CommonContext):
             for path in [
                 self.checked_locations_file,
                 self.received_items_file,
+                self.scouted_locations_file,
                 self.processed_index_file,
             ]:
                 if path.exists():
@@ -212,6 +277,7 @@ class WSRContext(CommonContext):
 
         self.received_items_file = self.bridge_dir / "received_items.json"
         self.checked_locations_file = self.bridge_dir / "checked_locations.json"
+        self.scouted_locations_file = self.bridge_dir / "scouted_locations.json"
         self.session_file = self.bridge_dir / "bridge_session.json"
         self.processed_index_file = self.bridge_dir / "processed_received_index.txt"
     

@@ -1,7 +1,7 @@
 import typing
 from collections.abc import Mapping
 from typing import Any
-from .options import GoalChoice
+from .options import GoalChoice, Battlesanity, Bestiary, QuestSanity
 from dataclasses import dataclass
 from Options import PerGameCommonOptions
 
@@ -40,6 +40,9 @@ class WSRWeb(WebWorld):
 @dataclass
 class WSROptions(PerGameCommonOptions):
     goal_choice: GoalChoice
+    battlesanity: Battlesanity
+    bestiary: Bestiary
+    questsanity: QuestSanity
 
 class WSRWorld(World):
     """
@@ -63,6 +66,9 @@ class WSRWorld(World):
     def fill_slot_data(self) -> dict[str, Any]:
         return{
             "goal_choice": int(self.options.goal_choice.value),
+            "battlesanity": int(self.options.battlesanity.value),
+            "bestiary": int(self.options.bestiary.value),
+            "questsanity": int(self.options.questsanity.value),
         }
 
     @staticmethod
@@ -75,6 +81,12 @@ class WSRWorld(World):
             slot_data = re_gen_passthrough[self.game]
             if "goal_choice" in slot_data:
                 self.options.goal_choice.value = int(slot_data["goal_choice"])
+            if "battlesanity" in slot_data:
+                self.options.battlesanity.value = int(slot_data["battlesanity"])
+            if "bestiary" in slot_data:
+                self.options.bestiary.value = int(slot_data["bestiary"])
+            if "questsanity" in slot_data:
+                self.options.questsanity.value = int(slot_data["questsanity"])
 
     def create_regions(self) -> None:
         goal_chapter = int(self.options.goal_choice.value)
@@ -146,7 +158,15 @@ class WSRWorld(World):
         if location_name.startswith("Reached Chapter "):
             chapter = int(location_name.replace("Reached Chapter ", ""))
             return chapter <= goal_chapter
-        
+
+        # Optional check categories are only present when their toggle is enabled.
+        if location_data.group == locations.LocationGroup.BATTLE and not self.options.battlesanity.value:
+            return False
+        if location_data.group == locations.LocationGroup.BESTIARY and not self.options.bestiary.value:
+            return False
+        if location_data.group == locations.LocationGroup.QUEST and not self.options.questsanity.value:
+            return False
+
         required_chapter = regions.region_required_chapter.get(location_data.region, 9)
         min_chapter = getattr(location_data, "min_chapter", None)
         if min_chapter is not None:
@@ -165,9 +185,25 @@ class WSRWorld(World):
         data = items.item_table[name]
         return items.WSRItem(name, data.classification, data.code, self.player)
     
+    def get_filler_item_name(self) -> str:
+        return self.random.choice(items.filler_item_names)
+
     def create_items(self) -> None:
+        item_pool = []
         for item_name, data in items.item_table.items():
             if not self.should_include_item(item_name):
                 continue
             for _ in range(data.pool_count):
-                self.multiworld.itempool.append(self.create_item(item_name))
+                item_pool.append(self.create_item(item_name))
+
+        # Optional check categories (battlesanity/bestiary) can add many more locations
+        # than the base pool covers. Pad with filler so every location is fillable; AP
+        # discards any leftover excess on the oversupplied side.
+        unfilled = sum(
+            1 for loc in self.multiworld.get_locations(self.player)
+            if loc.address is not None and loc.item is None
+        )
+        while len(item_pool) < unfilled:
+            item_pool.append(self.create_item(self.get_filler_item_name()))
+
+        self.multiworld.itempool += item_pool

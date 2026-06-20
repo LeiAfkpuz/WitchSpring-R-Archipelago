@@ -15,7 +15,7 @@ class WSRRegionName(str, Enum):
     DUROK_TEMPLE = "Durok Temple"
     AIMHARD_TEMPLE = "Aimhard Temple"
     ELYSION_TEMPLE = "Elysion Temple"
-    BLACKHILL_GOLEM_CAVE = "Blackhill Golem Cave"
+    BLACKHILL_GOLEM_CAVE = "Backhill Golem Cave"
     SWAMP = "Swamp"
     SNOW_FIELD = "Snow Field"
     DEATH_SQUAD = "Death Squad"
@@ -25,10 +25,10 @@ class WSRRegionName(str, Enum):
     LALAQUE_MINE = "Lalaque Mine"
     NORTH_MERCHANT_ROAD = "North Merchant Road"
     VAVELIA_ROAD = "Vavelia Road"
-    BLACKHILL_GOLEM_CAVE_FOX = "Blackhill Golem Cave Fox"
-    BLACKHILL_GOLEM_CAVE_FIRE = "Blackhill Golem Cave Volcano Road"
-    BLACKHILL_GOLEM_CAVE_FIRE_2 = "Blackhill Golem Cave Volcano Road 2"
-    BLACKHILL_GOLEM_CAVE_FIRE_3 = "Blackhill Golem Cave Volcano Road 3"
+    BLACKHILL_GOLEM_CAVE_FOX = "Backhill Golem Cave Fox"
+    BLACKHILL_GOLEM_CAVE_FIRE = "Backhill Golem Cave Volcano Road"
+    BLACKHILL_GOLEM_CAVE_FIRE_2 = "Backhill Golem Cave Volcano Road 2"
+    BLACKHILL_GOLEM_CAVE_FIRE_3 = "Backhill Golem Cave Volcano Road 3"
     PUDDING_CAVE_3 = "Pudding Cave - Royal Pudding"
     BOAR_PLAIN = "Boar Plain"
     REDBEARD_CAVE = "RedBeard's Cave"
@@ -36,6 +36,11 @@ class WSRRegionName(str, Enum):
     LUNA_HOUSE = "Luna's House"
     ICE_CAVE = "Ice Cave"
     FROZEN_ALTAR = "Frozen Altar"
+    # Virtual region holding Bestiary (defeat-each-enemy) checks. Always reachable from
+    # Home; individual checks are gated by each enemy's min_chapter + a Chapter rule.
+    BESTIARY = "Bestiary"
+    # Virtual region holding QuestSanity (quest-complete) checks. Same pattern as Bestiary.
+    QUESTS = "Quests"
 
 
 starting_region = WSRRegionName.HOME
@@ -43,6 +48,8 @@ starting_region = WSRRegionName.HOME
 region_connections = {
     WSRRegionName.HOME: [
         WSRRegionName.BLACK_WITCH_FOREST,
+        WSRRegionName.BESTIARY,
+        WSRRegionName.QUESTS,
     ],
     WSRRegionName.BLACK_WITCH_FOREST: [
         WSRRegionName.PUDDING_CAVE,
@@ -176,6 +183,8 @@ region_connections = {
 
 region_required_chapter = {
     WSRRegionName.HOME: 1,
+    WSRRegionName.BESTIARY: 1,
+    WSRRegionName.QUESTS: 1,
     WSRRegionName.BLACK_WITCH_FOREST: 1,
     WSRRegionName.PUDDING_CAVE: 1,
     WSRRegionName.SWAMP: 1,

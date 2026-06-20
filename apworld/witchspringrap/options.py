@@ -19,3 +19,30 @@ class GoalChoice(Choice):
     option_chapter_7 = 7
     option_chapter_9 = 9
     default = 2
+
+class Battlesanity(Toggle):
+    """
+    Adds a check for clearing each field battle (every set of field enemies). This adds a
+    large number of locations - each battle becomes a check the first time you win it.
+
+    Story/boss battles triggered by events are not included.
+    """
+    display_name = "Battlesanity"
+    default = 0
+
+class Bestiary(Toggle):
+    """
+    Adds a check for defeating each enemy in the game's bestiary (one per unique enemy;
+    any rank/shield variant counts). Like Battlesanity, this adds many locations.
+    """
+    display_name = "Bestiary"
+    default = 0
+
+class QuestSanity(Toggle):
+    """
+    Adds a check for completing each quest (main story quests and request-board quests).
+    Like Battlesanity/Bestiary, this adds many locations. (Chapter 9 quests are deferred
+    until an end-game goal exists.)
+    """
+    display_name = "QuestSanity"
+    default = 0
