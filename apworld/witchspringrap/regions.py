@@ -211,8 +211,8 @@ region_required_chapter = {
     WSRRegionName.ELYSION_PLAIN: 4,
     WSRRegionName.DARKSTONE_CAVE: 4,
     WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_2: 4,
-    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_3: 4,
-    WSRRegionName.PUDDING_CAVE_3: 4,
+    WSRRegionName.BLACKHILL_GOLEM_CAVE_FIRE_3: 5,  # gated behind "To Elysion Temple" (Ch4 notes)
+    WSRRegionName.PUDDING_CAVE_3: 5,  # gated behind "To Elysion Temple" (Ch4 notes)
 
     WSRRegionName.DEATH_SQUAD: 5,
     WSRRegionName.VAVELIA_ROAD: 5,
