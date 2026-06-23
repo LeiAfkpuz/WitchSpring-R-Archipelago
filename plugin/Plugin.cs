@@ -6,7 +6,7 @@ using HarmonyLib;
 
 namespace WitchSpringRTestPlugin
 {
-    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.3.0")]
+    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.3.3")]
     public class Plugin : BasePlugin
     {
         internal static ManualLogSource LogRef;

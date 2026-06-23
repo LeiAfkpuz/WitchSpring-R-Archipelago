@@ -1315,399 +1315,507 @@ namespace WitchSpringRTestPlugin
             },
             new BestiaryCheck
             {
-                EnemyId = "WampleafGiant",
+                EnemyId = "RecoverGolem",
                 LocationId = 203050,
+                DisplayName = "Bestiary - Hedgehog Rock",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Livya1",
+                LocationId = 203051,
+                DisplayName = "Bestiary - Livya",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Livya2",
+                LocationId = 203051,
+                DisplayName = "Bestiary - Livya",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "WampleafGiant",
+                LocationId = 203052,
                 DisplayName = "Bestiary - Giant Wampleaf",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_1Shield",
-                LocationId = 203051,
+                LocationId = 203053,
                 DisplayName = "Bestiary - Defensive Mid-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_1Shield_RankB",
-                LocationId = 203051,
+                LocationId = 203053,
                 DisplayName = "Bestiary - Defensive Mid-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_1Shield_RankA",
-                LocationId = 203051,
+                LocationId = 203053,
                 DisplayName = "Bestiary - Defensive Mid-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
+                EnemyId = "DemonPig",
+                LocationId = 203054,
+                DisplayName = "Bestiary - Demon of Greed",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "DemonPig2",
+                LocationId = 203054,
+                DisplayName = "Bestiary - Demon of Greed",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "UglyBirdBoss",
-                LocationId = 203052,
+                LocationId = 203055,
                 DisplayName = "Bestiary - Ugly Birds Captain",
             },
             new BestiaryCheck
             {
+                EnemyId = "Izon",
+                LocationId = 203056,
+                DisplayName = "Bestiary - Eison",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "SlabStatueFire",
-                LocationId = 203053,
+                LocationId = 203057,
                 DisplayName = "Bestiary - Goat Statue",
             },
             new BestiaryCheck
             {
                 EnemyId = "Tialis",
-                LocationId = 203054,
+                LocationId = 203058,
                 DisplayName = "Bestiary - Tia Reese",
             },
             new BestiaryCheck
             {
                 EnemyId = "Tialit",
-                LocationId = 203055,
+                LocationId = 203059,
                 DisplayName = "Bestiary - Tia Reet",
             },
             new BestiaryCheck
             {
                 EnemyId = "Tialion",
-                LocationId = 203056,
+                LocationId = 203060,
                 DisplayName = "Bestiary - Tia Rion",
             },
             new BestiaryCheck
             {
                 EnemyId = "SteamGolem3",
-                LocationId = 203057,
+                LocationId = 203061,
                 DisplayName = "Bestiary - Steam Golem 003",
             },
             new BestiaryCheck
             {
                 EnemyId = "Balt",
-                LocationId = 203058,
+                LocationId = 203062,
                 DisplayName = "Bestiary - Balt",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkLion",
-                LocationId = 203059,
+                LocationId = 203063,
                 DisplayName = "Bestiary - Dark Lion",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_2",
-                LocationId = 203060,
+                LocationId = 203064,
                 DisplayName = "Bestiary - High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_2_RankA",
-                LocationId = 203060,
+                LocationId = 203064,
                 DisplayName = "Bestiary - High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_2_Event384",
-                LocationId = 203060,
+                LocationId = 203064,
                 DisplayName = "Bestiary - High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkMiniGolem",
-                LocationId = 203061,
+                LocationId = 203065,
                 DisplayName = "Bestiary - Poison Golem",
             },
             new BestiaryCheck
             {
                 EnemyId = "Ruka",
-                LocationId = 203062,
+                LocationId = 203066,
                 DisplayName = "Bestiary - Lucca",
             },
             new BestiaryCheck
             {
                 EnemyId = "BuffaloGorilla",
-                LocationId = 203063,
+                LocationId = 203067,
                 DisplayName = "Bestiary - Buffalo Gorilla",
             },
             new BestiaryCheck
             {
                 EnemyId = "DemonGiantKid",
-                LocationId = 203064,
+                LocationId = 203068,
                 DisplayName = "Bestiary - Tiny Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "SteamGolem2",
-                LocationId = 203065,
+                LocationId = 203069,
                 DisplayName = "Bestiary - Steam Golem 002",
             },
             new BestiaryCheck
             {
                 EnemyId = "LoveDeer",
-                LocationId = 203066,
+                LocationId = 203070,
                 DisplayName = "Bestiary - Horned Deer",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkWarrior_Level_1",
-                LocationId = 203067,
+                LocationId = 203071,
                 DisplayName = "Bestiary - Dark Mid-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
+                EnemyId = "Justice_1",
+                LocationId = 203072,
+                DisplayName = "Bestiary - Justice",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Justice_2",
+                LocationId = 203072,
+                DisplayName = "Bestiary - Justice",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Justice_3",
+                LocationId = 203072,
+                DisplayName = "Bestiary - Justice",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "PuddingQueen",
-                LocationId = 203068,
+                LocationId = 203073,
                 DisplayName = "Bestiary - Pudding Queen",
             },
             new BestiaryCheck
             {
                 EnemyId = "DemonSnake",
-                LocationId = 203069,
+                LocationId = 203074,
                 DisplayName = "Bestiary - Fire Demon",
             },
             new BestiaryCheck
             {
                 EnemyId = "DemonSnake2",
-                LocationId = 203069,
+                LocationId = 203074,
                 DisplayName = "Bestiary - Fire Demon",
             },
             new BestiaryCheck
             {
                 EnemyId = "Necomis",
-                LocationId = 203070,
+                LocationId = 203075,
                 DisplayName = "Bestiary - Nekomis",
             },
             new BestiaryCheck
             {
                 EnemyId = "LightningDragonJunior",
-                LocationId = 203071,
+                LocationId = 203076,
                 DisplayName = "Bestiary - Ancient Lightning Dragon Junior",
             },
             new BestiaryCheck
             {
                 EnemyId = "FrogFire",
-                LocationId = 203072,
+                LocationId = 203077,
                 DisplayName = "Bestiary - Fire Frog",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_Red",
-                LocationId = 203073,
+                LocationId = 203078,
                 DisplayName = "Bestiary - Royal Palace Special Forces Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_Red2",
-                LocationId = 203073,
+                LocationId = 203078,
                 DisplayName = "Bestiary - Royal Palace Special Forces Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "BigCrab",
-                LocationId = 203074,
+                LocationId = 203079,
                 DisplayName = "Bestiary - Big Crab",
             },
             new BestiaryCheck
             {
                 EnemyId = "PuddingKing",
-                LocationId = 203075,
+                LocationId = 203080,
                 DisplayName = "Bestiary - Pudding King",
             },
             new BestiaryCheck
             {
                 EnemyId = "Caric",
-                LocationId = 203076,
+                LocationId = 203081,
                 DisplayName = "Bestiary - Caric",
             },
             new BestiaryCheck
             {
                 EnemyId = "WhiteRhino",
-                LocationId = 203077,
+                LocationId = 203082,
                 DisplayName = "Bestiary - White Rhino",
             },
             new BestiaryCheck
             {
                 EnemyId = "WhiteRhino2",
-                LocationId = 203077,
+                LocationId = 203082,
                 DisplayName = "Bestiary - White Rhino",
             },
             new BestiaryCheck
             {
                 EnemyId = "Brilion",
-                LocationId = 203078,
+                LocationId = 203083,
                 DisplayName = "Bestiary - Brillion",
             },
             new BestiaryCheck
             {
+                EnemyId = "Golem_BigRock",
+                LocationId = 203084,
+                DisplayName = "Bestiary - Big Stone Golem",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "DemonKingSub",
+                LocationId = 203085,
+                DisplayName = "Bestiary - Demon King",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "AngryFireCow",
+                LocationId = 203086,
+                DisplayName = "Bestiary - Angry Fluoride",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "Snowman",
-                LocationId = 203079,
+                LocationId = 203087,
                 DisplayName = "Bestiary - Yeti",
             },
             new BestiaryCheck
             {
                 EnemyId = "BlueFrog",
-                LocationId = 203080,
+                LocationId = 203088,
                 DisplayName = "Bestiary - Water Balloon Frog",
             },
             new BestiaryCheck
             {
                 EnemyId = "Lava",
-                LocationId = 203081,
+                LocationId = 203089,
                 DisplayName = "Bestiary - Lava",
             },
             new BestiaryCheck
             {
+                EnemyId = "DemonKing",
+                LocationId = 203090,
+                DisplayName = "Bestiary - Red Demon King",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "DarkWarrior_Level_2",
-                LocationId = 203082,
+                LocationId = 203091,
                 DisplayName = "Bestiary - Dark High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkWarrior_Level_3",
-                LocationId = 203082,
+                LocationId = 203091,
                 DisplayName = "Bestiary - Dark High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkWarrior_Level_4",
-                LocationId = 203082,
+                LocationId = 203091,
                 DisplayName = "Bestiary - Dark High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_3",
-                LocationId = 203083,
+                LocationId = 203092,
                 DisplayName = "Bestiary - High-Rank Elite Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "CastleGolem_1",
-                LocationId = 203084,
+                LocationId = 203093,
                 DisplayName = "Bestiary - Giant Palace Golem",
             },
             new BestiaryCheck
             {
                 EnemyId = "CastleGolem_1PowerUp",
-                LocationId = 203084,
+                LocationId = 203093,
                 DisplayName = "Bestiary - Giant Palace Golem",
             },
             new BestiaryCheck
             {
                 EnemyId = "ZirconiaDragonJunior",
-                LocationId = 203085,
+                LocationId = 203094,
                 DisplayName = "Bestiary - Zircon Dragon",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_3_RankS",
-                LocationId = 203086,
+                LocationId = 203095,
                 DisplayName = "Bestiary - Supreme Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_4",
-                LocationId = 203086,
+                LocationId = 203095,
                 DisplayName = "Bestiary - Supreme Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "WhiteBigRockGolem",
-                LocationId = 203087,
+                LocationId = 203096,
                 DisplayName = "Bestiary - White Giant",
             },
             new BestiaryCheck
             {
+                EnemyId = "Nuke_Dark",
+                LocationId = 203097,
+                DisplayName = "Bestiary - Tainted Mutated Nuuk",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "Aslan",
-                LocationId = 203088,
+                LocationId = 203098,
                 DisplayName = "Bestiary - Aslan",
             },
             new BestiaryCheck
             {
                 EnemyId = "Aslan2",
-                LocationId = 203088,
+                LocationId = 203098,
                 DisplayName = "Bestiary - Aslan",
             },
             new BestiaryCheck
             {
                 EnemyId = "Aslan3",
-                LocationId = 203088,
+                LocationId = 203098,
                 DisplayName = "Bestiary - Aslan",
             },
             new BestiaryCheck
             {
                 EnemyId = "WampleafWaterWay",
-                LocationId = 203089,
+                LocationId = 203099,
                 DisplayName = "Bestiary - Ancient Garden Wampleaf",
             },
             new BestiaryCheck
             {
                 EnemyId = "GiantIce",
-                LocationId = 203090,
+                LocationId = 203100,
                 DisplayName = "Bestiary - Ice Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "GiantIce2",
-                LocationId = 203090,
+                LocationId = 203100,
                 DisplayName = "Bestiary - Ice Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "SnowOldMan",
-                LocationId = 203091,
+                LocationId = 203101,
                 DisplayName = "Bestiary - Old Yeti",
             },
             new BestiaryCheck
             {
                 EnemyId = "Lectrino",
-                LocationId = 203092,
+                LocationId = 203102,
                 DisplayName = "Bestiary - Lightnoceros",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkGiantGolem",
-                LocationId = 203093,
+                LocationId = 203103,
                 DisplayName = "Bestiary - Tainted Darkstone Cave Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "BerukInShip",
-                LocationId = 203094,
+                LocationId = 203104,
                 DisplayName = "Bestiary - Shipwreck Beruch",
             },
             new BestiaryCheck
             {
                 EnemyId = "LighteningDragon",
-                LocationId = 203095,
+                LocationId = 203105,
                 DisplayName = "Bestiary - Lightning Dragon",
             },
             new BestiaryCheck
             {
+                EnemyId = "WhiteCutter",
+                LocationId = 203106,
+                DisplayName = "Bestiary - Harvest Executor (WhiteCutter)",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "WhiteCutterFinal",
+                LocationId = 203106,
+                DisplayName = "Bestiary - Harvest Executor (WhiteCutter)",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "ZirconiaDragon",
-                LocationId = 203096,
+                LocationId = 203107,
                 DisplayName = "Bestiary - Zirconia Dragon",
             },
             new BestiaryCheck
             {
                 EnemyId = "AcientLighteningDragon",
-                LocationId = 203097,
+                LocationId = 203108,
                 DisplayName = "Bestiary - Ancient Lightning Dragon",
             },
             new BestiaryCheck
             {
                 EnemyId = "Blast",
-                LocationId = 203098,
+                LocationId = 203109,
                 DisplayName = "Bestiary - Blast",
             },
             new BestiaryCheck
             {
                 EnemyId = "Narer",
-                LocationId = 203099,
+                LocationId = 203110,
                 DisplayName = "Bestiary - Narrel",
             },
             new BestiaryCheck
             {
                 EnemyId = "NarerFull",
-                LocationId = 203099,
+                LocationId = 203110,
                 DisplayName = "Bestiary - Narrel",
             },
             new BestiaryCheck
             {
                 EnemyId = "Temar",
-                LocationId = 203100,
+                LocationId = 203111,
                 DisplayName = "Bestiary - Temar",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Jade",
+                LocationId = 203112,
+                DisplayName = "Bestiary - Jade",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Jade2",
+                LocationId = 203112,
+                DisplayName = "Bestiary - Jade",
             },
         };
 
@@ -3907,7 +4015,7 @@ namespace WitchSpringRTestPlugin
                 Scene = "Island_Arua",
                 ObjectName = "ChestItem1 (1)",
                 LocationId = 200128,
-                DisplayName = "South Island - Chest 1",
+                DisplayName = "South Island - Behind Temple",
             },
             new FieldItemCheck
             {

@@ -20,9 +20,9 @@ namespace WitchSpringRTestPlugin
         private static readonly string DumpDir =
             Path.Combine(Paths.GameRootPath, "Archipelago", "Dumps");
 
-        // Dev data-gathering (roster/quest table dumps + unmapped-battle logging). OFF for
+        // Dev data-gathering (roster/quest table dumps + battle discovery log). OFF for
         // release so players don't get dump files written to their game folder. Flip to
-        // true for a dev playthrough (e.g. to catch unmapped battles / re-dump rosters).
+        // true for a dev playthrough pass (naming/logic cleanup).
         private const bool DevDumps = false;
 
         private static bool bestiaryDumped;
@@ -36,6 +36,7 @@ namespace WitchSpringRTestPlugin
 
         private static readonly HashSet<long> sentBestiary = new HashSet<long>();
         private static readonly HashSet<long> sentQuests = new HashSet<long>();
+        private static readonly HashSet<string> unmappedEnemies = new HashSet<string>();
 
         // Poll each mapped quest's cleared state and send when it flips to cleared. This
         // catches every completion path (NPC turn-in, story auto-complete, switch-based)
@@ -92,8 +93,17 @@ namespace WitchSpringRTestPlugin
                     return;
                 }
                 // An enemy with no mapped check (e.g. a special battle variant not in the
-                // table). Debug-only so it's available when chasing stragglers, quiet for players.
+                // table). Debug log for players; dev pass records each once to a file.
                 Plugin.LogRef.LogDebug($"[BESTIARY] no mapping for enemyID='{enemyId}'");
+                if (DevDumps && unmappedEnemies.Add(enemyId))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(DumpDir);
+                        File.AppendAllText(File2("bestiary_unmapped.tsv"), enemyId + "\n");
+                    }
+                    catch { }
+                }
             }
             catch (Exception ex)
             {
@@ -132,26 +142,39 @@ namespace WitchSpringRTestPlugin
                         Plugin.LogRef.LogInfo(
                             $"Sent AP battlesanity check: {check.DisplayName} / {check.LocationId}");
                         BridgeClient.WriteCheckedLocation(check.LocationId);
+                        // Discovery-order log for the naming pass: appends in win order so
+                        // we can renumber battles to match how they're actually found.
+                        DiscoveryLog(battleId, check.DisplayName);
                     }
                     return;
                 }
 
-                // Unmapped battle (won) - a battle not in the table. Debug log always; only
-                // write the discovery file during a dev dump pass.
+                // Unmapped battle (won) - a battle not in the table.
                 if (!seenBattleIds.Add(battleId))
                     return;
                 string scene = SceneManager.GetActiveScene().name;
                 Plugin.LogRef.LogDebug($"[BATTLE] unmapped battle (won): {scene} / {battleId}");
-                if (DevDumps)
-                {
-                    Directory.CreateDirectory(DumpDir);
-                    File.AppendAllText(File2("battle_encounters.tsv"), $"{scene}\t{battleId}\n");
-                }
+                DiscoveryLog(battleId, "*** UNMAPPED ***");
             }
             catch (Exception ex)
             {
                 Plugin.LogRef.LogWarning($"[DUMP] battle resolve failed: {ex.Message}");
             }
+        }
+
+        // Dev only: append each first-won battle to battle_discovery.tsv in win order, so a
+        // playthrough produces the real discovery sequence for the battle-naming pass.
+        private static void DiscoveryLog(string battleId, string name)
+        {
+            if (!DevDumps)
+                return;
+            try
+            {
+                string scene = SceneManager.GetActiveScene().name;
+                Directory.CreateDirectory(DumpDir);
+                File.AppendAllText(File2("battle_discovery.tsv"), $"{scene}\t{battleId}\t{name}\n");
+            }
+            catch { }
         }
 
         private static bool questsDumped;
