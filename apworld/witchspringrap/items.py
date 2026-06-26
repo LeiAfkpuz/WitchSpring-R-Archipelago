@@ -1044,15 +1044,16 @@ item_table = {
         pool_count= 1,
     ),
 
-    # TRAP ITEM - left out of the AP pool on purpose. This key is given inside the Canna
-    # map and is required to EXIT it; randomizing it (blocking the vanilla grant) would trap
-    # the player there until they happened to receive it. Keep the vanilla grant, don't pool it.
-    #"Matt's Garden Passage Key": WSRItemData(
-    #    code=100160,
-    #    classification=ItemClassification.progression,
-    #    game_id="Key_CannaHouseIronDoor",
-    #    pool_count= 1,
-    #),
+    # Matt's Garden Passage Key (game id Key_CannaHouseIronDoor): obtained at event_234 in the
+    # Under Lalaque cave; opens the iron gate to Canna's house -> Aimhard -> Chapter 4. (An
+    # earlier "trap" note here was wrong - the player can leave the map without it, so it's safe
+    # to block the vanilla grant and pool it.)
+    "Matt's Garden Passage Key": WSRItemData(
+        code=100160,
+        classification=ItemClassification.progression,
+        game_id="Key_CannaHouseIronDoor",
+        pool_count=1,
+    ),
 
     "Low-Rank Warrior's Sword": WSRItemData(
         code=100161,
@@ -1361,12 +1362,8 @@ item_table = {
         game_id="KingQueenPudding",
     ),
 
-    "Tarnished Flame Sword": WSRItemData(
-        code=100208,
-        classification=ItemClassification.filler,
-        game_id="Sword_FireOff",
-        pool_count= 1,
-    ),
+    # "Tarnished Flame Sword" (Sword_FireOff, code 100208) REMOVED - it grants the same in-game
+    # item as "Tarnished Soul Sword" (Sword_SoulOff), causing a "Duplicate Equipment" reject.
 
     #"Ancient Weapon Recipe": WSRItemData(
     #    code=100209,
@@ -2163,20 +2160,29 @@ item_table = {
         game_id="WarriorPotionMP",
     ),
 
-    # Removed from pool: the Great Key is a non-blocking field pickup in Vavelia Village
-    # (you always get the vanilla key), and it opens exactly one chest in the same village -
-    # so that chest is always openable and needs no gate. The pickup stays a check.
-    #"Great Key": WSRItemData(
-    #    code=100327,
-    #    classification=ItemClassification.progression,
-    #    game_id="Key_Big",
-    #    pool_count= 1,
-    #),
+    # Great Key opens Vavelia Village Houses Chest 4 & 5. Re-added as progression: the vanilla
+    # grant at "Ground by Bridge" is now blocked (AddItemHook), so the AP Great Key grants the
+    # in-game key (ItemGrant -> Key_Big) and gates those two chests in logic.
+    "Great Key": WSRItemData(
+        code=100327,
+        classification=ItemClassification.progression,
+        game_id="Key_Big",
+        pool_count=1,
+    ),
 
     "Kreytes Berry": WSRItemData(
         code=100328,
         classification=ItemClassification.useful,
         game_id="CreichApple",
+    ),
+    # Synthetic AP-only macguffin (no in-game grant). Stands in for Narrel clearing the
+    # Elysion Plain boulder: receiving it lets event_190 run (SwitchGate) and gates the
+    # Darkstone Cave / Elysion Temple branch in logic, creating a Chapter 4 sphere.
+    "Narrel": WSRItemData(
+        code=100400,
+        classification=ItemClassification.progression,
+        game_id="Narrel",
+        pool_count=1,
     ),
 
     "Magic Stimulant": WSRItemData(
@@ -2204,61 +2210,10 @@ item_table = {
         game_id="ShieldStoneRed2",
     ),
 
-    "Red Berry White": WSRItemData(
-        code=100333,
-        classification=ItemClassification.filler,
-        game_id="RedBerryWhite",
-        pool_count= 1,
-    ),
-
-    "Red Berry Blossom": WSRItemData(
-        code=100334,
-        classification=ItemClassification.filler,
-        game_id="RedBerryBlossom",
-        pool_count= 1,
-    ),
-
-    "Black Pearl Mini": WSRItemData(
-        code=100335,
-        classification=ItemClassification.filler,
-        game_id="BlackPearlMini",
-        pool_count= 1,
-    ),
-
-    "Deep Black Pearl": WSRItemData(
-        code=100336,
-        classification=ItemClassification.filler,
-        game_id="BlackPearlDeep",
-        pool_count= 1,
-    ),
-
-    "Silver Rose Seed": WSRItemData(
-        code=100337,
-        classification=ItemClassification.filler,
-        game_id="RoseIronSeed",
-        pool_count= 1,
-    ),
-
-    "Silver Rose Knight": WSRItemData(
-        code=100338,
-        classification=ItemClassification.filler,
-        game_id="RoseIronKnight",
-        pool_count= 1,
-    ),
-
-    "Shining Dawn Princess": WSRItemData(
-        code=100339,
-        classification=ItemClassification.filler,
-        game_id="ShiningDawnPrincess",
-        pool_count= 1,
-    ),
-
-    "Shining Dawn Angel": WSRItemData(
-        code=100340,
-        classification=ItemClassification.filler,
-        game_id="ShiningDawnAngel",
-        pool_count= 1,
-    ),
+    # --- Paid DLC costumes REMOVED from the pool (ownership/legal - DO NOT re-add). ---
+    # Red Berry White & Blossom set, Black Pearl Mini & Deep set, Silver Rose set, Shining
+    # Dawn set. game_ids: RedBerryWhite/RedBerryBlossom/BlackPearlMini/BlackPearlDeep/
+    # RoseIronSeed/RoseIronKnight/ShiningDawnPrincess/ShiningDawnAngel (codes 100333-100340).
 
     "Strength Amplifier": WSRItemData(
         code=100341,
@@ -2547,19 +2502,8 @@ item_table = {
         game_id="RedJellPortion",
     ),
 
-    "Lambette Peach": WSRItemData(
-        code=100386,
-        classification=ItemClassification.filler,
-        game_id="Lambette",
-        pool_count= 1,
-    ),
-
-    "Sheeplie Peach": WSRItemData(
-        code=100387,
-        classification=ItemClassification.filler,
-        game_id="Sheeplie",
-        pool_count= 1,
-    ),
+    # --- Paid DLC costumes REMOVED (Fluffy Peach Set): Lambette Peach (Lambette, 100386),
+    #     Sheeplie Peach (Sheeplie, 100387). Ownership/legal - DO NOT re-add. ---
 
     "Aimhard Blessing": WSRItemData(
         code=100388,
@@ -2675,10 +2619,11 @@ item_required_chapter = {
     "Aimhard Blessing": 3,
     "Commander's Insignia": 3,
     "Bundle of Teleportation Talismans": 3,
-    #"Matt's Garden Passage Key": 4,  # removed from pool (trap item - see items above)
+    "Matt's Garden Passage Key": 3,  # gates Canna's house -> Aimhard -> Ch4
     "Elision Blessing": 4,
+    "Narrel": 4,  # gates the Darkstone Cave / Elysion Temple branch (Ch4)
     "Secret Trader Key": 5,
-    #"Great Key": 5,  # removed from pool (non-blocking field pickup, see item above)
+    "Great Key": 5,
     #"Red Gem": 5,  # removed from pool (non-blocking check kept instead)
     "Prototype Steam Engine": 5,
     "Matt's Letter": 5,
