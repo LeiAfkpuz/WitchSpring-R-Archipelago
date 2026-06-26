@@ -6,7 +6,7 @@ using HarmonyLib;
 
 namespace WitchSpringRTestPlugin
 {
-    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.3.3")]
+    [BepInPlugin("witchspringr.archipelago", "WitchSpring R Archipelago", "0.3.5")]
     public class Plugin : BasePlugin
     {
         internal static ManualLogSource LogRef;
@@ -38,6 +38,10 @@ namespace WitchSpringRTestPlugin
 
         private void Update()
         {
+            // Drained every frame so queued AP popups emit at a paced rate (prevents the
+            // DOTween "Max Tweens" burst that black-screened scene loads).
+            UIMessage.Pump();
+
             if (Time.time < nextScanTime)
                 return;
 

@@ -18,6 +18,16 @@ namespace WitchSpringRTestPlugin
                 if (ItemGranting.IsGrantingFromArchipelago)
                     return true;
 
+                // Great Key is an AP-controlled key (Vavelia "Ground by Bridge"); block the
+                // vanilla grant so it only arrives via Archipelago and properly gates the
+                // Vavelia Houses Chest 4 & 5 checks. The field-item check still sends via
+                // LocationScanner; the AP item grants Key_Big back through ItemGrant above.
+                if (_id == "Key_Big")
+                {
+                    Plugin.LogRef.LogDebug($"Blocked vanilla Great Key (AP-controlled): {_id} x{_count}");
+                    return false;
+                }
+
                 if (getType == GetItemType.CHEST)
                 {
                     Plugin.LogRef.LogDebug($"Blocked vanilla chest reward: {_id} x{_count}");

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using WS1RCLASS;
 using UnityEngine;
 
@@ -17,7 +18,32 @@ namespace WitchSpringRTestPlugin
         private static int leftUpPanelId = 0;
         private static Vector2 leftUpBasePos;
 
+        // AP messages can arrive in bursts - a backlog of received items plus several checks
+        // the instant you enter an area. Each popup animates via DOTween, so firing a whole
+        // burst in one frame can exhaust the game's tween pool ("Max Tweens" -> the scene-load
+        // fade can't allocate -> black screen). Queue them and emit at most one per MinInterval
+        // so the added tween load stays small and bounded. Pump() is driven from Update().
+        private static readonly Queue<string> queue = new Queue<string>();
+        private const int MaxQueued = 300;       // hard cap so a flood can't grow unbounded
+        private const float MinInterval = 0.3f;  // ~3/sec -> peak ~9 concurrent popups (3s each)
+        private static float nextShowTime;
+
         public static void Show(string text)
+        {
+            if (!string.IsNullOrEmpty(text) && queue.Count < MaxQueued)
+                queue.Enqueue(text);
+        }
+
+        // Call every frame; shows the next queued message once enough time has passed.
+        public static void Pump()
+        {
+            if (queue.Count == 0 || Time.time < nextShowTime)
+                return;
+            nextShowTime = Time.time + MinInterval;
+            ShowNow(queue.Dequeue());
+        }
+
+        private static void ShowNow(string text)
         {
             try
             {

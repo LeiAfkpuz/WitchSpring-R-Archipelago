@@ -115,13 +115,18 @@ namespace WitchSpringRTestPlugin
         // briefly locked by the client, disk hiccup, ...) they are retried every
         // scanner tick instead of being lost.
         private static readonly HashSet<long> pendingChecks = new HashSet<long>();
-        // Show the "Sent X to Player" popup once per location per game session.
+        // Show the "Sent X to Player" popup once per location. Seeded from the persisted
+        // checked-locations ledger on first use, so a check completed in a PREVIOUS session
+        // (re-detected on the first kill after a reload) doesn't pop the message again.
         private static readonly HashSet<long> shownCheckMessages = new HashSet<long>();
+        private static bool seededShownFromDisk = false;
 
         public static void WriteCheckedLocation(long locationId)
         {
             pendingChecks.Add(locationId);
             Plugin.Log.LogInfo($"Sent AP location check: {locationId}");
+
+            SeedShownMessagesFromDisk();
 
             // Pop "Sent <item> to <player>" using the scouted name the client wrote.
             // Falls back silently if the scout data isn't available yet.
@@ -133,6 +138,27 @@ namespace WitchSpringRTestPlugin
             }
 
             FlushPendingChecks();
+        }
+
+        // Pre-load locations already in the permanent checked ledger, so we never re-pop the
+        // "Sent" message for a check that completed in an earlier session (e.g. the first
+        // bestiary kill after a reload, which the in-memory set alone wouldn't catch).
+        private static void SeedShownMessagesFromDisk()
+        {
+            if (seededShownFromDisk)
+                return;
+            seededShownFromDisk = true;
+            try
+            {
+                if (!File.Exists(CheckedLocationsPath))
+                    return;
+                foreach (Match m in Regex.Matches(File.ReadAllText(CheckedLocationsPath), @"\d+"))
+                {
+                    if (long.TryParse(m.Value, out long id))
+                        shownCheckMessages.Add(id);
+                }
+            }
+            catch { }
         }
 
         private static string cachedScoutJson = "";

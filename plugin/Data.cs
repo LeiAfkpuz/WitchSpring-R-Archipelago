@@ -281,662 +281,632 @@ namespace WitchSpringRTestPlugin
             },
             new QuestCheck
             {
-                QuestId = "FindWarrior",
-                LocationId = 204030,
-                DisplayName = "Quest - Find Warrior",
-            },
-            new QuestCheck
-            {
                 QuestId = "FindWayToDurokTempleFromSnowLand",
-                LocationId = 204031,
+                LocationId = 204030,
                 DisplayName = "Quest - Going to Durok Temple",
             },
             new QuestCheck
             {
                 QuestId = "FindingAlfredoInPuddingCave",
-                LocationId = 204032,
+                LocationId = 204031,
                 DisplayName = "Quest - Pie Warrior",
             },
             new QuestCheck
             {
                 QuestId = "FindingBerrys",
-                LocationId = 204033,
+                LocationId = 204032,
                 DisplayName = "Quest - Searching for Strawberries!",
             },
             new QuestCheck
             {
                 QuestId = "FindingWarriorInPuddingCave",
-                LocationId = 204034,
+                LocationId = 204033,
                 DisplayName = "Quest - Warrior Chase",
             },
             new QuestCheck
             {
                 QuestId = "FinishGatheringBless",
-                LocationId = 204035,
+                LocationId = 204034,
                 DisplayName = "Quest - Ready for War",
             },
             new QuestCheck
             {
                 QuestId = "FoundKeyCaptainRoomWeckedShip",
-                LocationId = 204036,
+                LocationId = 204035,
                 DisplayName = "Quest - Shipwreck  Commander's Cabin",
             },
             new QuestCheck
             {
                 QuestId = "GatheringMaterialForRecover",
-                LocationId = 204037,
+                LocationId = 204036,
                 DisplayName = "Quest - Gathering Tool Materials",
             },
             new QuestCheck
             {
                 QuestId = "GatheringRabbitMeat",
-                LocationId = 204038,
+                LocationId = 204037,
                 DisplayName = "Quest - Rabbit Hunting",
             },
             new QuestCheck
             {
                 QuestId = "GoBackHomeAfterFeeding",
-                LocationId = 204039,
+                LocationId = 204038,
                 DisplayName = "Quest - Homeward Bound",
             },
             new QuestCheck
             {
                 QuestId = "GoBackHomeByRiding",
-                LocationId = 204040,
+                LocationId = 204039,
                 DisplayName = "Quest - All Aboard!",
             },
             new QuestCheck
             {
                 QuestId = "GoInsideAimhardTemple",
-                LocationId = 204041,
+                LocationId = 204040,
                 DisplayName = "Quest - Exploring Aimhard Temple",
             },
             new QuestCheck
             {
                 QuestId = "GoIntoSnowFieldWithScarf",
-                LocationId = 204042,
+                LocationId = 204041,
                 DisplayName = "Quest - Entering the Snow Field",
             },
             new QuestCheck
             {
                 QuestId = "GoToCannaHome",
-                LocationId = 204043,
+                LocationId = 204042,
                 DisplayName = "Quest - Visiting Kanna's House",
             },
             new QuestCheck
             {
                 QuestId = "GoToGiantIce",
-                LocationId = 204044,
+                LocationId = 204043,
                 DisplayName = "Quest - Defeating the Ice Giant",
             },
             new QuestCheck
             {
                 QuestId = "GoToGolemCave",
-                LocationId = 204045,
+                LocationId = 204044,
                 DisplayName = "Quest - Exploring Backhill Golem Cave",
             },
             new QuestCheck
             {
                 QuestId = "GoToHomeFromMatchHouse",
-                LocationId = 204046,
+                LocationId = 204045,
                 DisplayName = "Quest - Leaving Matt's Garden",
             },
             new QuestCheck
             {
                 QuestId = "GoToLalaque",
-                LocationId = 204047,
+                LocationId = 204046,
                 DisplayName = "Quest - Finding the Pie Maker!",
             },
             new QuestCheck
             {
                 QuestId = "GoToLunaHouseFirst",
-                LocationId = 204048,
+                LocationId = 204047,
                 DisplayName = "Quest - Finding Luna's House",
             },
             new QuestCheck
             {
                 QuestId = "GoToNukeField",
-                LocationId = 204049,
+                LocationId = 204048,
                 DisplayName = "Quest - Darkstone Cave",
             },
             new QuestCheck
             {
                 QuestId = "GoToRalphAgainAfterSleep",
-                LocationId = 204050,
+                LocationId = 204049,
                 DisplayName = "Quest - Return to Ralph!",
             },
             new QuestCheck
             {
                 QuestId = "GoToRalphaAfterFindingBerrys",
-                LocationId = 204051,
+                LocationId = 204050,
                 DisplayName = "Quest - First Trade with Ralph",
             },
             new QuestCheck
             {
                 QuestId = "GoToSwamp",
-                LocationId = 204052,
+                LocationId = 204051,
                 DisplayName = "Quest - Thief!",
             },
             new QuestCheck
             {
                 QuestId = "GoToUnderThePrison",
-                LocationId = 204053,
+                LocationId = 204052,
                 DisplayName = "Quest - Prison Break",
             },
             new QuestCheck
             {
                 QuestId = "GoToWorld",
-                LocationId = 204054,
+                LocationId = 204053,
                 DisplayName = "Quest - Let's Go Outside!",
             },
             new QuestCheck
             {
                 QuestId = "GoToWorld2",
-                LocationId = 204055,
+                LocationId = 204054,
                 DisplayName = "Quest - Leaving Calzvero Forest",
             },
             new QuestCheck
             {
                 QuestId = "GorrilaGrass",
-                LocationId = 204056,
+                LocationId = 204055,
                 DisplayName = "Quest - Gorrila Grass",
             },
             new QuestCheck
             {
                 QuestId = "HelpDavidInLalaqueForest",
-                LocationId = 204057,
+                LocationId = 204056,
                 DisplayName = "Quest - Finding Sara",
             },
             new QuestCheck
             {
                 QuestId = "HighLevelArmorOre",
-                LocationId = 204058,
+                LocationId = 204057,
                 DisplayName = "Quest - High Level Armor Ore",
             },
             new QuestCheck
             {
                 QuestId = "InformBeshutainAfterCannaEngine",
-                LocationId = 204059,
+                LocationId = 204058,
                 DisplayName = "Quest - Reporting to Verstein",
             },
             new QuestCheck
             {
                 QuestId = "InformToBeshutainAboutCanna",
-                LocationId = 204060,
+                LocationId = 204059,
                 DisplayName = "Quest - Sharing Results with Verstein",
             },
             new QuestCheck
             {
                 QuestId = "InformToCanna",
-                LocationId = 204061,
+                LocationId = 204060,
                 DisplayName = "Quest - Telling Kanna the News",
             },
             new QuestCheck
             {
                 QuestId = "KateAndLivya",
-                LocationId = 204062,
+                LocationId = 204061,
                 DisplayName = "Quest - Kate And Livya",
             },
             new QuestCheck
             {
                 QuestId = "LeftFindPieMakerInTheVillage",
-                LocationId = 204063,
+                LocationId = 204062,
                 DisplayName = "Quest - Finding the Pie Maker in Lalaque Village",
             },
             new QuestCheck
             {
                 QuestId = "LeftsFindCannaInMine",
-                LocationId = 204064,
+                LocationId = 204063,
                 DisplayName = "Quest - Tracking the Bomb Witch",
             },
             new QuestCheck
             {
                 QuestId = "LegendPudding",
-                LocationId = 204065,
+                LocationId = 204064,
                 DisplayName = "Quest - Legend Pudding",
             },
             new QuestCheck
             {
                 QuestId = "LetEstimateDarkGhostInLalaqueVillage",
-                LocationId = 204066,
+                LocationId = 204065,
                 DisplayName = "Quest - Exorcizing the Evil Demons in the Village",
             },
             new QuestCheck
             {
                 QuestId = "LetFindWayForJustice",
-                LocationId = 204067,
+                LocationId = 204066,
                 DisplayName = "Quest - Collapsed Justice",
             },
             new QuestCheck
             {
                 QuestId = "LetNukeFly",
-                LocationId = 204068,
+                LocationId = 204067,
                 DisplayName = "Quest - Riding a Nuuk",
             },
             new QuestCheck
             {
                 QuestId = "LetsActiveWarpZoneInLalaqueMine",
-                LocationId = 204069,
+                LocationId = 204068,
                 DisplayName = "Quest - Connecting the Mine to the House",
             },
             new QuestCheck
             {
                 QuestId = "LetsAskForAimhardTemple",
-                LocationId = 204070,
+                LocationId = 204069,
                 DisplayName = "Quest - Anna's Advice",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindAlfredoInLalaqueForest",
-                LocationId = 204071,
+                LocationId = 204070,
                 DisplayName = "Quest - Following Alfredo!",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindAnnaInLalaqueForest",
-                LocationId = 204072,
+                LocationId = 204071,
                 DisplayName = "Quest - Finding Anna",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindAnnaInlLalaqueForest2",
-                LocationId = 204073,
+                LocationId = 204072,
                 DisplayName = "Quest - Anxious Anna",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindConfuseStone",
-                LocationId = 204074,
+                LocationId = 204073,
                 DisplayName = "Quest - Finding the Chaos Stone",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindEntranceToElicionTemple",
-                LocationId = 204075,
+                LocationId = 204074,
                 DisplayName = "Quest - Entrance to Elysion Temple",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindJusticeInMine",
-                LocationId = 204076,
+                LocationId = 204075,
                 DisplayName = "Quest - Tracking Down Justice",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindKatesBrother",
-                LocationId = 204077,
+                LocationId = 204076,
                 DisplayName = "Quest - Finding Kate's Sibling",
             },
             new QuestCheck
             {
                 QuestId = "LetsFindSealStoneInLalaqueMine",
-                LocationId = 204078,
+                LocationId = 204077,
                 DisplayName = "Quest - Thorough Exorcism",
             },
             new QuestCheck
             {
                 QuestId = "LetsGoToAimardTemple",
-                LocationId = 204079,
+                LocationId = 204078,
                 DisplayName = "Quest - To Aimhard Temple",
             },
             new QuestCheck
             {
                 QuestId = "LetsGoToElicionField",
-                LocationId = 204080,
+                LocationId = 204079,
                 DisplayName = "Quest - To Elysion Temple",
             },
             new QuestCheck
             {
                 QuestId = "LetsGoToElicionFieldWest",
-                LocationId = 204081,
+                LocationId = 204080,
                 DisplayName = "Quest - West of Elysion Plain",
             },
             new QuestCheck
             {
                 QuestId = "LetsGoToSnowFieldEntrance",
-                LocationId = 204082,
+                LocationId = 204081,
                 DisplayName = "Quest - Going to the Snow Field",
             },
             new QuestCheck
             {
                 QuestId = "LetsInformAnnaEstimatingDarkGhost",
-                LocationId = 204083,
+                LocationId = 204082,
                 DisplayName = "Quest - Reassuring Anna",
             },
             new QuestCheck
             {
                 QuestId = "LetsInformAnnaToFixSealStone",
-                LocationId = 204084,
+                LocationId = 204083,
                 DisplayName = "Quest - Informing Anna",
             },
             new QuestCheck
             {
                 QuestId = "LetsOpenArtWall",
-                LocationId = 204085,
+                LocationId = 204084,
                 DisplayName = "Quest - Barrier Wall",
             },
             new QuestCheck
             {
                 QuestId = "LetsTalkMemoryToAnna",
-                LocationId = 204086,
+                LocationId = 204085,
                 DisplayName = "Quest - Discovered Anna",
             },
             new QuestCheck
             {
                 QuestId = "LetsTestFire4",
-                LocationId = 204087,
+                LocationId = 204086,
                 DisplayName = "Quest - Warrior Sweep",
             },
             new QuestCheck
             {
                 QuestId = "LetsTouchShadowDoorToFindMemory",
-                LocationId = 204088,
+                LocationId = 204087,
                 DisplayName = "Quest - Finding Memories",
             },
             new QuestCheck
             {
                 QuestId = "LetsTraining",
-                LocationId = 204089,
+                LocationId = 204088,
                 DisplayName = "Quest - Training Time!",
             },
             new QuestCheck
             {
                 QuestId = "MINDCONTROL",
-                LocationId = 204090,
+                LocationId = 204089,
                 DisplayName = "Quest - Let's Try Mind Control!",
             },
             new QuestCheck
             {
                 QuestId = "Make4thFireAndDouble",
-                LocationId = 204091,
+                LocationId = 204090,
                 DisplayName = "Quest - Even Better Magic!",
             },
             new QuestCheck
             {
                 QuestId = "MakeIceCircle",
-                LocationId = 204092,
-                DisplayName = "Quest - Leaning Ice Magic",
+                LocationId = 204091,
+                DisplayName = "Quest - Learning Ice Magic",
             },
             new QuestCheck
             {
                 QuestId = "MakeRuaret",
-                LocationId = 204093,
+                LocationId = 204092,
                 DisplayName = "Quest - Make Ruaret",
             },
             new QuestCheck
             {
                 QuestId = "NarerRalph",
-                LocationId = 204094,
+                LocationId = 204093,
                 DisplayName = "Quest - Narer Ralph",
             },
             new QuestCheck
             {
                 QuestId = "NewDress",
-                LocationId = 204095,
+                LocationId = 204094,
                 DisplayName = "Quest - New Clothes",
             },
             new QuestCheck
             {
                 QuestId = "PassAruaTest",
-                LocationId = 204096,
+                LocationId = 204095,
                 DisplayName = "Quest - Passing Arua's Test",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_BlueCrabCover",
-                LocationId = 204097,
+                LocationId = 204096,
                 DisplayName = "Quest - Ralph Quest Blue Crab Cover",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_FireStone",
-                LocationId = 204098,
+                LocationId = 204097,
                 DisplayName = "Quest - Ralph Quest Fire Stone",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_IronOre",
-                LocationId = 204099,
+                LocationId = 204098,
                 DisplayName = "Quest - Ralph Quest Iron Ore",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_IronOre2",
-                LocationId = 204100,
+                LocationId = 204099,
                 DisplayName = "Quest - Ralph Quest Iron Ore 2",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_Leaf_MiniGolem",
-                LocationId = 204101,
+                LocationId = 204100,
                 DisplayName = "Quest - Ralph Quest Leaf Mini Golem",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_Pudding",
-                LocationId = 204102,
+                LocationId = 204101,
                 DisplayName = "Quest - Ralph Quest Pudding",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_WarriorsSwordThunderMaterial",
-                LocationId = 204103,
+                LocationId = 204102,
                 DisplayName = "Quest - Ralph Quest Warriors Sword Thunder Material",
             },
             new QuestCheck
             {
                 QuestId = "RalphQuest_WarriorsSwordThunderMaterial2",
-                LocationId = 204104,
+                LocationId = 204103,
                 DisplayName = "Quest - Ralph Quest Warriors Sword Thunder Material 2",
             },
             new QuestCheck
             {
-                QuestId = "ReadBeardGiantDarkStone",
-                LocationId = 204105,
-                DisplayName = "Quest - Read Beard Giant Dark Stone",
-            },
-            new QuestCheck
-            {
                 QuestId = "RealWish",
-                LocationId = 204106,
+                LocationId = 204104,
                 DisplayName = "Quest - Power to Protect",
             },
             new QuestCheck
             {
-                QuestId = "RedBeardIceHead",
-                LocationId = 204107,
-                DisplayName = "Quest - Red Beard Ice Head",
-            },
-            new QuestCheck
-            {
-                QuestId = "RedBeardLavastain",
-                LocationId = 204108,
-                DisplayName = "Quest - Red Beard Lavastain",
-            },
-            new QuestCheck
-            {
-                QuestId = "RedBeardLightningDragonHorn",
-                LocationId = 204109,
-                DisplayName = "Quest - Red Beard Lightning Dragon Horn",
-            },
-            new QuestCheck
-            {
                 QuestId = "RestBesidePrison",
-                LocationId = 204110,
+                LocationId = 204105,
                 DisplayName = "Quest - Behind Bars",
             },
             new QuestCheck
             {
                 QuestId = "ScarfDeliveryOK",
-                LocationId = 204111,
+                LocationId = 204106,
                 DisplayName = "Quest - Red Beards Package Arrives",
             },
             new QuestCheck
             {
                 QuestId = "SendStrawberryToLuna",
-                LocationId = 204112,
+                LocationId = 204107,
                 DisplayName = "Quest - Delivering Strawberries",
             },
             new QuestCheck
             {
                 QuestId = "SleepAndGoOutAgain",
-                LocationId = 204113,
+                LocationId = 204108,
                 DisplayName = "Quest - Get Some Sleep",
             },
             new QuestCheck
             {
                 QuestId = "SleepAndGoToBalt",
-                LocationId = 204114,
+                LocationId = 204109,
                 DisplayName = "Quest - Sleep And Go To Balt",
             },
             new QuestCheck
             {
                 QuestId = "StartWar",
-                LocationId = 204115,
+                LocationId = 204110,
                 DisplayName = "Quest - The War Begins",
             },
             new QuestCheck
             {
                 QuestId = "StoreKeyInWreckedShip",
-                LocationId = 204116,
+                LocationId = 204111,
                 DisplayName = "Quest - Suspicious Shipwreck Key",
             },
             new QuestCheck
             {
                 QuestId = "StrangeLaovaCave",
-                LocationId = 204117,
+                LocationId = 204112,
                 DisplayName = "Quest - Suspicious Cave",
             },
             new QuestCheck
             {
                 QuestId = "StrollVillageWithNewDress",
-                LocationId = 204118,
+                LocationId = 204113,
                 DisplayName = "Quest - Exploring the Village",
             },
             new QuestCheck
             {
                 QuestId = "SuspiciousJustice",
-                LocationId = 204119,
+                LocationId = 204114,
                 DisplayName = "Quest - Suspicious Justice",
             },
             new QuestCheck
             {
                 QuestId = "TalkMemoryToAnna",
-                LocationId = 204120,
+                LocationId = 204115,
                 DisplayName = "Quest - Memories of the Past",
             },
             new QuestCheck
             {
                 QuestId = "TemarTest",
-                LocationId = 204121,
+                LocationId = 204116,
                 DisplayName = "Quest - Temar's Trial",
             },
             new QuestCheck
             {
                 QuestId = "TheifAlfredo",
-                LocationId = 204122,
+                LocationId = 204117,
                 DisplayName = "Quest - Alfredo the Thief",
             },
             new QuestCheck
             {
                 QuestId = "ToAramuteSpring",
-                LocationId = 204123,
+                LocationId = 204118,
                 DisplayName = "Quest - To Aramute Spring",
             },
             new QuestCheck
             {
                 QuestId = "ToElicionTemple",
-                LocationId = 204124,
+                LocationId = 204119,
                 DisplayName = "Quest - Discovering Elysion Temple",
             },
             new QuestCheck
             {
                 QuestId = "ToFatherGrave",
-                LocationId = 204125,
+                LocationId = 204120,
                 DisplayName = "Quest - Father's Grave",
             },
             new QuestCheck
             {
                 QuestId = "TraceCannaGroupInMineCave",
-                LocationId = 204126,
+                LocationId = 204121,
                 DisplayName = "Quest - Tracking the Bandits",
             },
             new QuestCheck
             {
                 QuestId = "TraceHurtedWarrior",
-                LocationId = 204127,
+                LocationId = 204122,
                 DisplayName = "Quest - Tracking Wounded Warrior",
             },
             new QuestCheck
             {
                 QuestId = "WaitLunaOnBoarField",
-                LocationId = 204128,
+                LocationId = 204123,
                 DisplayName = "Quest - Waiting for Luna",
             },
             new QuestCheck
             {
                 QuestId = "WarHorn",
-                LocationId = 204129,
+                LocationId = 204124,
                 DisplayName = "Quest - War Horn",
             },
             new QuestCheck
             {
                 QuestId = "WarriorMagicWeapon",
-                LocationId = 204130,
+                LocationId = 204125,
                 DisplayName = "Quest - Warrior Magic Weapon",
             },
             new QuestCheck
             {
                 QuestId = "WarryForLivya",
-                LocationId = 204131,
+                LocationId = 204126,
                 DisplayName = "Quest - Hurried Review",
             },
             new QuestCheck
             {
                 QuestId = "WatchElicionTemple",
-                LocationId = 204132,
+                LocationId = 204127,
                 DisplayName = "Quest - Exploring Elysion Temple",
             },
             new QuestCheck
             {
                 QuestId = "WatchJusticeInPrison2",
-                LocationId = 204133,
+                LocationId = 204128,
                 DisplayName = "Quest - Checking on Justice 2",
             },
             new QuestCheck
             {
                 QuestId = "WatchJusticeInPrisonFirst",
-                LocationId = 204134,
+                LocationId = 204129,
                 DisplayName = "Quest - Checking on Justice",
             },
             new QuestCheck
             {
                 QuestId = "WatchLalaqueForest",
-                LocationId = 204135,
+                LocationId = 204130,
                 DisplayName = "Quest - Investigate Lalaque Forest",
             },
             new QuestCheck
             {
                 QuestId = "WatchLivyaGroup",
-                LocationId = 204136,
+                LocationId = 204131,
                 DisplayName = "Quest - Spying on Livya",
             },
             new QuestCheck
             {
                 QuestId = "WatchMatchHouse",
-                LocationId = 204137,
+                LocationId = 204132,
                 DisplayName = "Quest - Matt's Garden",
             },
             new QuestCheck
             {
                 QuestId = "WatchWorldFirst",
-                LocationId = 204138,
+                LocationId = 204133,
                 DisplayName = "Quest - Exploring the Outside World",
             },
             new QuestCheck
             {
                 QuestId = "WatchWreckedShip",
-                LocationId = 204139,
+                LocationId = 204134,
                 DisplayName = "Quest - Exploring the Wreck",
             },
         };
@@ -1621,200 +1591,272 @@ namespace WitchSpringRTestPlugin
             },
             new BestiaryCheck
             {
-                EnemyId = "DemonKing",
+                EnemyId = "Luna",
                 LocationId = 203090,
+                DisplayName = "Bestiary - Luna",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "DemonKing",
+                LocationId = 203091,
                 DisplayName = "Bestiary - Red Demon King",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkWarrior_Level_2",
-                LocationId = 203091,
+                LocationId = 203092,
                 DisplayName = "Bestiary - Dark High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkWarrior_Level_3",
-                LocationId = 203091,
+                LocationId = 203092,
                 DisplayName = "Bestiary - Dark High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkWarrior_Level_4",
-                LocationId = 203091,
+                LocationId = 203092,
                 DisplayName = "Bestiary - Dark High-Rank Palace Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_3",
-                LocationId = 203092,
+                LocationId = 203093,
                 DisplayName = "Bestiary - High-Rank Elite Warrior",
             },
             new BestiaryCheck
             {
+                EnemyId = "Beshutain",
+                LocationId = 203094,
+                DisplayName = "Bestiary - Verstein",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "CastleGolem_1",
-                LocationId = 203093,
+                LocationId = 203095,
                 DisplayName = "Bestiary - Giant Palace Golem",
             },
             new BestiaryCheck
             {
                 EnemyId = "CastleGolem_1PowerUp",
-                LocationId = 203093,
+                LocationId = 203095,
                 DisplayName = "Bestiary - Giant Palace Golem",
             },
             new BestiaryCheck
             {
+                EnemyId = "Shubitz",
+                LocationId = 203096,
+                DisplayName = "Bestiary - Schwitz",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "KateDark",
+                LocationId = 203097,
+                DisplayName = "Bestiary - Curse Executor",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "KateDark2",
+                LocationId = 203097,
+                DisplayName = "Bestiary - Curse Executor",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "ZirconiaDragonJunior",
-                LocationId = 203094,
+                LocationId = 203098,
                 DisplayName = "Bestiary - Zircon Dragon",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_3_RankS",
-                LocationId = 203095,
+                LocationId = 203099,
                 DisplayName = "Bestiary - Supreme Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "Warrior_Castle_Level_4",
-                LocationId = 203095,
+                LocationId = 203099,
                 DisplayName = "Bestiary - Supreme Warrior",
             },
             new BestiaryCheck
             {
                 EnemyId = "WhiteBigRockGolem",
-                LocationId = 203096,
+                LocationId = 203100,
                 DisplayName = "Bestiary - White Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "Nuke_Dark",
-                LocationId = 203097,
+                LocationId = 203101,
                 DisplayName = "Bestiary - Tainted Mutated Nuuk",
             },
             new BestiaryCheck
             {
                 EnemyId = "Aslan",
-                LocationId = 203098,
+                LocationId = 203102,
                 DisplayName = "Bestiary - Aslan",
             },
             new BestiaryCheck
             {
                 EnemyId = "Aslan2",
-                LocationId = 203098,
+                LocationId = 203102,
                 DisplayName = "Bestiary - Aslan",
             },
             new BestiaryCheck
             {
                 EnemyId = "Aslan3",
-                LocationId = 203098,
+                LocationId = 203102,
                 DisplayName = "Bestiary - Aslan",
             },
             new BestiaryCheck
             {
+                EnemyId = "Crown",
+                LocationId = 203103,
+                DisplayName = "Bestiary - Crown",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "DurokStatue",
+                LocationId = 203104,
+                DisplayName = "Bestiary - Durok Temple Statue",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "WampleafWaterWay",
-                LocationId = 203099,
+                LocationId = 203105,
                 DisplayName = "Bestiary - Ancient Garden Wampleaf",
             },
             new BestiaryCheck
             {
+                EnemyId = "LivyaDark",
+                LocationId = 203106,
+                DisplayName = "Bestiary - Hunt Executor",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "LivyaDark2",
+                LocationId = 203106,
+                DisplayName = "Bestiary - Hunt Executor",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "GiantIce",
-                LocationId = 203100,
+                LocationId = 203107,
                 DisplayName = "Bestiary - Ice Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "GiantIce2",
-                LocationId = 203100,
+                LocationId = 203107,
                 DisplayName = "Bestiary - Ice Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "SnowOldMan",
-                LocationId = 203101,
+                LocationId = 203108,
                 DisplayName = "Bestiary - Old Yeti",
             },
             new BestiaryCheck
             {
                 EnemyId = "Lectrino",
-                LocationId = 203102,
+                LocationId = 203109,
                 DisplayName = "Bestiary - Lightnoceros",
             },
             new BestiaryCheck
             {
                 EnemyId = "DarkGiantGolem",
-                LocationId = 203103,
+                LocationId = 203110,
                 DisplayName = "Bestiary - Tainted Darkstone Cave Giant",
             },
             new BestiaryCheck
             {
                 EnemyId = "BerukInShip",
-                LocationId = 203104,
+                LocationId = 203111,
                 DisplayName = "Bestiary - Shipwreck Beruch",
             },
             new BestiaryCheck
             {
                 EnemyId = "LighteningDragon",
-                LocationId = 203105,
+                LocationId = 203112,
                 DisplayName = "Bestiary - Lightning Dragon",
             },
             new BestiaryCheck
             {
                 EnemyId = "WhiteCutter",
-                LocationId = 203106,
+                LocationId = 203113,
                 DisplayName = "Bestiary - Harvest Executor (WhiteCutter)",
             },
             new BestiaryCheck
             {
                 EnemyId = "WhiteCutterFinal",
-                LocationId = 203106,
+                LocationId = 203113,
                 DisplayName = "Bestiary - Harvest Executor (WhiteCutter)",
             },
             new BestiaryCheck
             {
                 EnemyId = "ZirconiaDragon",
-                LocationId = 203107,
+                LocationId = 203114,
                 DisplayName = "Bestiary - Zirconia Dragon",
             },
             new BestiaryCheck
             {
+                EnemyId = "SnowManDark",
+                LocationId = 203115,
+                DisplayName = "Bestiary - Black Yeti",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Aris",
+                LocationId = 203116,
+                DisplayName = "Bestiary - Aeris",
+            },
+            new BestiaryCheck
+            {
+                EnemyId = "Aris2",
+                LocationId = 203116,
+                DisplayName = "Bestiary - Aeris",
+            },
+            new BestiaryCheck
+            {
                 EnemyId = "AcientLighteningDragon",
-                LocationId = 203108,
+                LocationId = 203117,
                 DisplayName = "Bestiary - Ancient Lightning Dragon",
             },
             new BestiaryCheck
             {
                 EnemyId = "Blast",
-                LocationId = 203109,
+                LocationId = 203118,
                 DisplayName = "Bestiary - Blast",
             },
             new BestiaryCheck
             {
                 EnemyId = "Narer",
-                LocationId = 203110,
+                LocationId = 203119,
                 DisplayName = "Bestiary - Narrel",
             },
             new BestiaryCheck
             {
                 EnemyId = "NarerFull",
-                LocationId = 203110,
+                LocationId = 203119,
                 DisplayName = "Bestiary - Narrel",
             },
             new BestiaryCheck
             {
                 EnemyId = "Temar",
-                LocationId = 203111,
+                LocationId = 203120,
                 DisplayName = "Bestiary - Temar",
             },
             new BestiaryCheck
             {
                 EnemyId = "Jade",
-                LocationId = 203112,
+                LocationId = 203121,
                 DisplayName = "Bestiary - Jade",
             },
             new BestiaryCheck
             {
                 EnemyId = "Jade2",
-                LocationId = 203112,
+                LocationId = 203121,
                 DisplayName = "Bestiary - Jade",
             },
         };
@@ -1823,819 +1865,1293 @@ namespace WitchSpringRTestPlugin
         {
             new BattleSanityCheck
             {
-                BattleId = "Temple_Arua22794063807",
+                BattleId = "Temple_Aimhard23501173816",
                 LocationId = 202000,
-                DisplayName = "Arua Temple - Battle 1",
+                DisplayName = "Aimhard Temple - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Aimhard23501177830",
+                LocationId = 202001,
+                DisplayName = "Aimhard Temple - Battle 2",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Aimhard_Mid235012115593",
+                LocationId = 202002,
+                DisplayName = "Aimhard Temple - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Aimhard_Spring23151212140",
+                LocationId = 202003,
+                DisplayName = "Aimhard Temple - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Aimhard_UnderPrison31031-7037309",
+                LocationId = 202004,
+                DisplayName = "Aimhard Temple - Battle 5",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Aimhard_UnderPrison21031-7037309",
+                LocationId = 202005,
+                DisplayName = "Aimhard Temple - Battle 6",
             },
             new BattleSanityCheck
             {
                 BattleId = "Temple_Arua37391072184",
-                LocationId = 202001,
-                DisplayName = "Arua Temple - Battle 2",
-            },
-            new BattleSanityCheck
-            {
-                BattleId = "Temple_Arua708993000",
-                LocationId = 202002,
-                DisplayName = "Arua Temple - Battle 3",
+                LocationId = 202006,
+                DisplayName = "Arua Temple - Battle 1",
             },
             new BattleSanityCheck
             {
                 BattleId = "Temple_Arua_Room1179103669",
-                LocationId = 202003,
+                LocationId = 202007,
+                DisplayName = "Arua Temple - Battle 2",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Arua3204145377",
+                LocationId = 202008,
+                DisplayName = "Arua Temple - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Arua708993000",
+                LocationId = 202009,
                 DisplayName = "Arua Temple - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain10831072994",
-                LocationId = 202004,
-                DisplayName = "Backhill Golem Cave - Battle 1",
+                BattleId = "Temple_Arua22794063807",
+                LocationId = 202010,
+                DisplayName = "Arua Temple - Battle 5",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Arua23534146140",
+                LocationId = 202011,
+                DisplayName = "Arua Temple - Battle 6",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Arua37322082842",
+                LocationId = 202012,
+                DisplayName = "Arua Temple - Battle 7",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain14831072327",
-                LocationId = 202005,
+                LocationId = 202013,
+                DisplayName = "Backhill Golem Cave - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Golem_BackMountain10831072994",
+                LocationId = 202014,
                 DisplayName = "Backhill Golem Cave - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain16731054085",
-                LocationId = 202006,
+                BattleId = "Cave_Golem_BackMountain21631073252",
+                LocationId = 202015,
                 DisplayName = "Backhill Golem Cave - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain18173677911",
-                LocationId = 202007,
+                BattleId = "Cave_Golem_BackMountain16731054085",
+                LocationId = 202016,
                 DisplayName = "Backhill Golem Cave - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain21631073252",
-                LocationId = 202008,
+                BattleId = "Cave_Golem_BackMountain37251083663",
+                LocationId = 202017,
                 DisplayName = "Backhill Golem Cave - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain23573494848",
-                LocationId = 202009,
+                BattleId = "Cave_Golem_BackMountain32011105218",
+                LocationId = 202018,
                 DisplayName = "Backhill Golem Cave - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain32011105218",
-                LocationId = 202010,
+                BattleId = "Cave_Golem_BackMountain51401086499",
+                LocationId = 202019,
                 DisplayName = "Backhill Golem Cave - Battle 7",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain37251083663",
-                LocationId = 202011,
+                BattleId = "Cave_Golem_BackMountain19633495039",
+                LocationId = 202020,
                 DisplayName = "Backhill Golem Cave - Battle 8",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain51401086499",
-                LocationId = 202012,
+                BattleId = "Cave_Golem_BackMountain19624008584",
+                LocationId = 202021,
                 DisplayName = "Backhill Golem Cave - Battle 9",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_221883715061",
-                LocationId = 202013,
+                BattleId = "Cave_Golem_BackMountain23573494848",
+                LocationId = 202022,
                 DisplayName = "Backhill Golem Cave - Battle 10",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire_Cow18441075246",
-                LocationId = 202014,
+                BattleId = "Cave_Golem_BackMountain18173677911",
+                LocationId = 202023,
                 DisplayName = "Backhill Golem Cave - Battle 11",
             },
             new BattleSanityCheck
             {
+                BattleId = "Cave_Golem_BackMountain_Fire_Cow18441075246",
+                LocationId = 202024,
+                DisplayName = "Backhill Golem Cave - Battle 12",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Golem_BackMountain_221883715061",
+                LocationId = 202025,
+                DisplayName = "Backhill Golem Cave - Battle 13",
+            },
+            new BattleSanityCheck
+            {
                 BattleId = "Cave_Golem_BackMountain_Fire15751072800",
-                LocationId = 202015,
+                LocationId = 202026,
                 DisplayName = "Backhill Golem Cave Volcano Road - Battle 1",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fire16681074144",
-                LocationId = 202016,
+                LocationId = 202027,
                 DisplayName = "Backhill Golem Cave Volcano Road - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire22221075295",
-                LocationId = 202017,
+                BattleId = "Cave_Golem_BackMountain_Fire32621074465",
+                LocationId = 202028,
                 DisplayName = "Backhill Golem Cave Volcano Road - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire28871056438",
-                LocationId = 202018,
+                BattleId = "Cave_Golem_BackMountain_Fire22221075295",
+                LocationId = 202029,
                 DisplayName = "Backhill Golem Cave Volcano Road - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire32621074465",
-                LocationId = 202019,
+                BattleId = "Cave_Golem_BackMountain_Fire28871056438",
+                LocationId = 202030,
                 DisplayName = "Backhill Golem Cave Volcano Road - Battle 5",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fire_423461075036",
-                LocationId = 202020,
+                LocationId = 202031,
                 DisplayName = "Backhill Golem Cave Volcano Road - Battle 6",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fire_Blast21001074856",
-                LocationId = 202021,
+                LocationId = 202032,
                 DisplayName = "Backhill Golem Cave Volcano Road - Battle 7",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fire_214721072754",
-                LocationId = 202022,
+                LocationId = 202033,
                 DisplayName = "Backhill Golem Cave Volcano Road 2 - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire_216961074175",
-                LocationId = 202023,
+                BattleId = "Cave_Golem_BackMountain_Fire_227131072988",
+                LocationId = 202034,
                 DisplayName = "Backhill Golem Cave Volcano Road 2 - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire_227131072988",
-                LocationId = 202024,
+                BattleId = "Cave_Golem_BackMountain_Fire_216961074175",
+                LocationId = 202035,
                 DisplayName = "Backhill Golem Cave Volcano Road 2 - Battle 3",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fire_233861074629",
-                LocationId = 202025,
+                LocationId = 202036,
                 DisplayName = "Backhill Golem Cave Volcano Road 2 - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire_315881073909",
-                LocationId = 202026,
+                BattleId = "Cave_Golem_BackMountain_Fire_327041073196",
+                LocationId = 202037,
                 DisplayName = "Backhill Golem Cave Volcano Road 3 - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fire_327041073196",
-                LocationId = 202027,
+                BattleId = "Cave_Golem_BackMountain_Fire_315881073909",
+                LocationId = 202038,
                 DisplayName = "Backhill Golem Cave Volcano Road 3 - Battle 2",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fire_333371074394",
-                LocationId = 202028,
+                LocationId = 202039,
                 DisplayName = "Backhill Golem Cave Volcano Road 3 - Battle 3",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fire_3431610710226",
-                LocationId = 202029,
+                LocationId = 202040,
                 DisplayName = "Backhill Golem Cave Volcano Road 3 - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fox12873575466",
-                LocationId = 202030,
+                BattleId = "Cave_Golem_BackMountain_Fox18223574888",
+                LocationId = 202041,
                 DisplayName = "Backhill Golem Cave Fox - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fox18223574888",
-                LocationId = 202031,
+                BattleId = "Cave_Golem_BackMountain_Fox26053575177",
+                LocationId = 202042,
                 DisplayName = "Backhill Golem Cave Fox - Battle 2",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Golem_BackMountain_Fox21443576347",
-                LocationId = 202032,
+                LocationId = 202043,
                 DisplayName = "Backhill Golem Cave Fox - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fox2423574893",
-                LocationId = 202033,
+                BattleId = "Cave_Golem_BackMountain_Fox12873575466",
+                LocationId = 202044,
                 DisplayName = "Backhill Golem Cave Fox - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fox26053575177",
-                LocationId = 202034,
+                BattleId = "Cave_Golem_BackMountain_Fox7923574131",
+                LocationId = 202045,
                 DisplayName = "Backhill Golem Cave Fox - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Golem_BackMountain_Fox7923574131",
-                LocationId = 202035,
+                BattleId = "Cave_Golem_BackMountain_Fox2423574893",
+                LocationId = 202046,
                 DisplayName = "Backhill Golem Cave Fox - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Boar10117555142",
-                LocationId = 202036,
-                DisplayName = "Boar Plain - Battle 1",
+                BattleId = "Forest_BlackWitch000",
+                LocationId = 202047,
+                DisplayName = "Black Witch Forest - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch30344063129",
+                LocationId = 202048,
+                DisplayName = "Black Witch Forest - Battle 2",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch19694092391",
+                LocationId = 202049,
+                DisplayName = "Black Witch Forest - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch20105063272",
+                LocationId = 202050,
+                DisplayName = "Black Witch Forest - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch3421741594",
+                LocationId = 202051,
+                DisplayName = "Black Witch Forest - Battle 5",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch37643863562",
+                LocationId = 202052,
+                DisplayName = "Black Witch Forest - Battle 6",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch9343743635",
+                LocationId = 202053,
+                DisplayName = "Black Witch Forest - Battle 7",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch14823743111",
+                LocationId = 202054,
+                DisplayName = "Black Witch Forest - Battle 8",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_BlackWitch19965093517",
+                LocationId = 202055,
+                DisplayName = "Black Witch Forest - Battle 9",
             },
             new BattleSanityCheck
             {
                 BattleId = "Forest_Boar22017553478",
-                LocationId = 202037,
+                LocationId = 202056,
+                DisplayName = "Boar Plain - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Boar7987552444",
+                LocationId = 202057,
                 DisplayName = "Boar Plain - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Boar25917554825",
-                LocationId = 202038,
+                BattleId = "Forest_Boar417554027",
+                LocationId = 202058,
                 DisplayName = "Boar Plain - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Boar8347542422",
-                LocationId = 202039,
+                BattleId = "Forest_Boar25917554825",
+                LocationId = 202059,
                 DisplayName = "Boar Plain - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Dark1531074001",
-                LocationId = 202040,
-                DisplayName = "Darkstone Cave - Battle 1",
+                BattleId = "Forest_Boar10117555142",
+                LocationId = 202060,
+                DisplayName = "Boar Plain - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Dark21681076686",
-                LocationId = 202041,
-                DisplayName = "Darkstone Cave - Battle 2",
+                BattleId = "Forest_Boar-24769155517",
+                LocationId = 202061,
+                DisplayName = "Boar Plain - Battle 6",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Boar8347542422",
+                LocationId = 202062,
+                DisplayName = "Boar Plain - Battle 7",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Boar-24879265483",
+                LocationId = 202063,
+                DisplayName = "Boar Plain - Battle 8",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Dark26871073948",
-                LocationId = 202042,
+                LocationId = 202064,
+                DisplayName = "Darkstone Cave - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Dark1531074001",
+                LocationId = 202065,
+                DisplayName = "Darkstone Cave - Battle 2",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_NukeField-37814876216",
+                LocationId = 202066,
                 DisplayName = "Darkstone Cave - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion-14609513104",
-                LocationId = 202043,
-                DisplayName = "Elysion Plain - Battle 1",
+                BattleId = "Cave_Dark21681076686",
+                LocationId = 202067,
+                DisplayName = "Darkstone Cave - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_BoarMountain-63879635420",
+                LocationId = 202068,
+                DisplayName = "Death Squad - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Castle_Mine27652865672",
+                LocationId = 202069,
+                DisplayName = "Death Squad - Battle 2",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Castle_Mine14742745882",
+                LocationId = 202070,
+                DisplayName = "Death Squad - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Castle_Mine3732987789",
+                LocationId = 202071,
+                DisplayName = "Death Squad - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Castle_Mine218512765279",
+                LocationId = 202072,
+                DisplayName = "Death Squad - Battle 5",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_BoarMountain-1262211348135",
+                LocationId = 202073,
+                DisplayName = "Death Squad - Battle 6",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Durok23421034200",
+                LocationId = 202074,
+                DisplayName = "Durok Temple - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Durok_23041065899",
+                LocationId = 202075,
+                DisplayName = "Durok Temple - Battle 2",
             },
             new BattleSanityCheck
             {
                 BattleId = "Forest_Elicion-19749514583",
-                LocationId = 202044,
+                LocationId = 202076,
+                DisplayName = "Elysion Plain - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Elicion-14609513104",
+                LocationId = 202077,
                 DisplayName = "Elysion Plain - Battle 2",
             },
             new BattleSanityCheck
             {
                 BattleId = "Forest_Elicion-25389512498",
-                LocationId = 202045,
+                LocationId = 202078,
                 DisplayName = "Elysion Plain - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_1-206011967000",
-                LocationId = 202046,
+                BattleId = "Forest_Elicion_111639513275",
+                LocationId = 202079,
                 DisplayName = "Elysion Plain - Battle 4",
             },
             new BattleSanityCheck
             {
                 BattleId = "Forest_Elicion_1-7229514881",
-                LocationId = 202047,
+                LocationId = 202080,
                 DisplayName = "Elysion Plain - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_1-7319513123",
-                LocationId = 202048,
+                BattleId = "Forest_Elicion_1-206011967000",
+                LocationId = 202081,
                 DisplayName = "Elysion Plain - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_111639513275",
-                LocationId = 202049,
+                BattleId = "Forest_Elicion-305212135551",
+                LocationId = 202082,
                 DisplayName = "Elysion Plain - Battle 7",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_17239515533",
-                LocationId = 202050,
+                BattleId = "Forest_Elicion_1-7319513123",
+                LocationId = 202083,
                 DisplayName = "Elysion Plain - Battle 8",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_2-28909662944",
-                LocationId = 202051,
+                BattleId = "Forest_Elicion_Rhino-8059514818",
+                LocationId = 202084,
                 DisplayName = "Elysion Plain - Battle 9",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_Lectrino18441075246",
-                LocationId = 202052,
+                BattleId = "Forest_Elicion_Rhino-26439513423",
+                LocationId = 202085,
                 DisplayName = "Elysion Plain - Battle 10",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_Rhino-23818071850",
-                LocationId = 202053,
+                BattleId = "Forest_Elicion_Rhino1329513754",
+                LocationId = 202086,
                 DisplayName = "Elysion Plain - Battle 11",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_Rhino-26439513423",
-                LocationId = 202054,
+                BattleId = "Forest_Elicion_Rhino-23818071850",
+                LocationId = 202087,
                 DisplayName = "Elysion Plain - Battle 12",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_Rhino-8059514818",
-                LocationId = 202055,
+                BattleId = "Forest_Elicion_Rhino9496602202",
+                LocationId = 202088,
                 DisplayName = "Elysion Plain - Battle 13",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_Rhino1329513754",
-                LocationId = 202056,
+                BattleId = "Forest_Elicion_17239515533",
+                LocationId = 202089,
                 DisplayName = "Elysion Plain - Battle 14",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Elicion_Rhino9496602202",
-                LocationId = 202057,
+                BattleId = "Forest_Elicion_Lectrino18441075246",
+                LocationId = 202090,
                 DisplayName = "Elysion Plain - Battle 15",
             },
             new BattleSanityCheck
             {
+                BattleId = "Forest_Elicion_27509586669",
+                LocationId = 202091,
+                DisplayName = "Elysion Plain - Battle 16",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Elicion_2-28909662944",
+                LocationId = 202092,
+                DisplayName = "Elysion Plain - Battle 17",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Temple_Elicion23451134081",
+                LocationId = 202093,
+                DisplayName = "Elysion Temple - Battle 1",
+            },
+            new BattleSanityCheck
+            {
                 BattleId = "Forest_Lalaque14857534256",
-                LocationId = 202058,
+                LocationId = 202094,
                 DisplayName = "Lalaque Forest - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Lalaque1787481220",
-                LocationId = 202059,
+                BattleId = "Forest_Lalaque18027505035",
+                LocationId = 202095,
                 DisplayName = "Lalaque Forest - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Lalaque18027505035",
-                LocationId = 202060,
+                BattleId = "Forest_Lalaque4737672567",
+                LocationId = 202096,
                 DisplayName = "Lalaque Forest - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Lalaque4737672567",
-                LocationId = 202061,
+                BattleId = "Forest_Lalaque_EastSouth17867672091",
+                LocationId = 202097,
                 DisplayName = "Lalaque Forest - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Lalaque_NorthEast11397637125",
-                LocationId = 202062,
+                BattleId = "Forest_Lalaque_WestSouth20787671646",
+                LocationId = 202098,
                 DisplayName = "Lalaque Forest - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Lalaque_NorthWest4797677022",
-                LocationId = 202063,
+                BattleId = "Forest_Lalaque1787481220",
+                LocationId = 202099,
                 DisplayName = "Lalaque Forest - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Lalaque_WestSouth20787671646",
-                LocationId = 202064,
+                BattleId = "Forest_Lalaque21887574254",
+                LocationId = 202100,
                 DisplayName = "Lalaque Forest - Battle 7",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine-11151075807",
-                LocationId = 202065,
+                BattleId = "Forest_Lalaque15827575049",
+                LocationId = 202101,
+                DisplayName = "Lalaque Forest - Battle 8",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Lalaque_NorthEast11397637125",
+                LocationId = 202102,
+                DisplayName = "Lalaque Forest - Battle 9",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Lalaque34667583934",
+                LocationId = 202103,
+                DisplayName = "Lalaque Forest - Battle 10",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Lalaque16637613975",
+                LocationId = 202104,
+                DisplayName = "Lalaque Forest - Battle 11",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Lalaque3947572554",
+                LocationId = 202105,
+                DisplayName = "Lalaque Forest - Battle 12",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Lalaque_NorthEast11397637128",
+                LocationId = 202106,
+                DisplayName = "Lalaque Forest - Battle 13",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Lalaque13597465119",
+                LocationId = 202107,
+                DisplayName = "Lalaque Forest - Battle 14",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Lalaque_NorthWest4797677022",
+                LocationId = 202108,
+                DisplayName = "Lalaque Forest - Battle 15",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine32631074309",
+                LocationId = 202109,
                 DisplayName = "Lalaque Mine - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine-9371077085",
-                LocationId = 202066,
+                BattleId = "Cave_Lalaque_Mine34971073584",
+                LocationId = 202110,
                 DisplayName = "Lalaque Mine - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine2299-2526088",
-                LocationId = 202067,
+                BattleId = "Cave_Lalaque_Mine1371084163",
+                LocationId = 202111,
                 DisplayName = "Lalaque Mine - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine32541074301",
-                LocationId = 202068,
+                BattleId = "Cave_Lalaque_Mine1551075584",
+                LocationId = 202112,
                 DisplayName = "Lalaque Mine - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine34971073571",
-                LocationId = 202069,
+                BattleId = "Cave_Lalaque_Mine-11151075807",
+                LocationId = 202113,
                 DisplayName = "Lalaque Mine - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_12108-891068",
-                LocationId = 202070,
+                BattleId = "Cave_Lalaque_Mine-9371077085",
+                LocationId = 202114,
                 DisplayName = "Lalaque Mine - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_130431071800",
-                LocationId = 202071,
+                BattleId = "Cave_Lalaque_Mine1421077553",
+                LocationId = 202115,
                 DisplayName = "Lalaque Mine - Battle 7",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_13207107622",
-                LocationId = 202072,
+                BattleId = "Cave_Lalaque_Mine1300-2545662",
+                LocationId = 202116,
                 DisplayName = "Lalaque Mine - Battle 8",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_13897-68921",
-                LocationId = 202073,
+                BattleId = "Cave_Lalaque_Mine465-2546847",
+                LocationId = 202117,
                 DisplayName = "Lalaque Mine - Battle 9",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_237111114897",
-                LocationId = 202074,
+                BattleId = "Cave_Lalaque_Mine1658-848092",
+                LocationId = 202118,
                 DisplayName = "Lalaque Mine - Battle 10",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_329381072225",
-                LocationId = 202075,
+                BattleId = "Cave_Lalaque_Mine_CannaArea_13207107622",
+                LocationId = 202119,
                 DisplayName = "Lalaque Mine - Battle 11",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_334701073173",
-                LocationId = 202076,
+                BattleId = "Cave_Lalaque_Mine_CannaArea_13897-68921",
+                LocationId = 202120,
                 DisplayName = "Lalaque Mine - Battle 12",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_35121111980",
-                LocationId = 202077,
+                BattleId = "Cave_Lalaque_Mine_CannaArea_12108-891068",
+                LocationId = 202121,
                 DisplayName = "Lalaque Mine - Battle 13",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Lalaque_Mine_CannaArea_35141073064",
-                LocationId = 202078,
+                BattleId = "Cave_Lalaque_Mine_CannaArea_130431071800",
+                LocationId = 202122,
                 DisplayName = "Lalaque Mine - Battle 14",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Boar212297554443",
-                LocationId = 202079,
+                BattleId = "Cave_Lalaque_Mine_CannaArea_329381072225",
+                LocationId = 202123,
+                DisplayName = "Lalaque Mine - Battle 15",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_CannaArea_35141073064",
+                LocationId = 202124,
+                DisplayName = "Lalaque Mine - Battle 16",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_CannaArea_35121111980",
+                LocationId = 202125,
+                DisplayName = "Lalaque Mine - Battle 17",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_CannaArea_237111114897",
+                LocationId = 202126,
+                DisplayName = "Lalaque Mine - Battle 18",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_CannaArea_334701073173",
+                LocationId = 202127,
+                DisplayName = "Lalaque Mine - Battle 19",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_CannaArea_319062774334",
+                LocationId = 202128,
+                DisplayName = "Lalaque Mine - Battle 20",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_CannaArea_419653087383",
+                LocationId = 202129,
+                DisplayName = "Lalaque Mine - Battle 21",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_Caric24481113437",
+                LocationId = 202130,
+                DisplayName = "Lalaque Mine - Battle 22",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine_CannaArea_Store21152948435",
+                LocationId = 202131,
+                DisplayName = "Lalaque Mine - Battle 23",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine2298-2336813",
+                LocationId = 202132,
+                DisplayName = "Lalaque Mine - Battle 24",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine34971073571",
+                LocationId = 202133,
+                DisplayName = "Lalaque Mine - Battle 25",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine32541074301",
+                LocationId = 202134,
+                DisplayName = "Lalaque Mine - Battle 26",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine2299-2526088",
+                LocationId = 202135,
+                DisplayName = "Lalaque Mine - Battle 27",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Lalaque_Mine2299-2436325",
+                LocationId = 202136,
+                DisplayName = "Lalaque Mine - Battle 28",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Village_Lalaque000",
+                LocationId = 202137,
+                DisplayName = "Lalaque Village - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_Boar22967552457",
+                LocationId = 202138,
                 DisplayName = "Laoba Mountain - Battle 1",
             },
             new BattleSanityCheck
             {
                 BattleId = "Forest_Boar227267553117",
-                LocationId = 202080,
+                LocationId = 202139,
                 DisplayName = "Laoba Mountain - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_Boar22967552457",
-                LocationId = 202081,
+                BattleId = "Forest_Boar212297554443",
+                LocationId = 202140,
                 DisplayName = "Laoba Mountain - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_LionField-14497765175",
-                LocationId = 202082,
+                BattleId = "Forest_LionField_Mid-27117768051",
+                LocationId = 202141,
                 DisplayName = "Lions Plain - Battle 1",
             },
             new BattleSanityCheck
             {
                 BattleId = "Forest_LionField-4557765140",
-                LocationId = 202083,
+                LocationId = 202142,
                 DisplayName = "Lions Plain - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Forest_LionField_Mid-27117768051",
-                LocationId = 202084,
+                BattleId = "Forest_LionField-14497765175",
+                LocationId = 202143,
                 DisplayName = "Lions Plain - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding-1741045052",
-                LocationId = 202085,
+                BattleId = "Forest_LionField-3126796934",
+                LocationId = 202144,
+                DisplayName = "Lions Plain - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Forest_LionField-15787966799",
+                LocationId = 202145,
+                DisplayName = "Lions Plain - Battle 5",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_NorthHill27027814066",
+                LocationId = 202146,
+                DisplayName = "North Merchant Road - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_NorthHill557011064390",
+                LocationId = 202147,
+                DisplayName = "North Merchant Road - Battle 2",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Pudding28131122738",
+                LocationId = 202148,
                 DisplayName = "Pudding Cave - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding13131123768",
-                LocationId = 202086,
+                BattleId = "Cave_Pudding25251123579",
+                LocationId = 202149,
                 DisplayName = "Pudding Cave - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding14501124714",
-                LocationId = 202087,
+                BattleId = "Cave_Pudding32081123962",
+                LocationId = 202150,
                 DisplayName = "Pudding Cave - Battle 3",
             },
             new BattleSanityCheck
             {
                 BattleId = "Cave_Pudding22931124504",
-                LocationId = 202088,
+                LocationId = 202151,
                 DisplayName = "Pudding Cave - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding25251123579",
-                LocationId = 202089,
+                BattleId = "Cave_Pudding13131123768",
+                LocationId = 202152,
                 DisplayName = "Pudding Cave - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding2811043934",
-                LocationId = 202090,
+                BattleId = "Cave_Pudding14501124714",
+                LocationId = 202153,
                 DisplayName = "Pudding Cave - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding28131122738",
-                LocationId = 202091,
+                BattleId = "Cave_Pudding-1741045052",
+                LocationId = 202154,
                 DisplayName = "Pudding Cave - Battle 7",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding32081123962",
-                LocationId = 202092,
+                BattleId = "Cave_Pudding2811043934",
+                LocationId = 202155,
                 DisplayName = "Pudding Cave - Battle 8",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding_2-3211123384",
-                LocationId = 202093,
+                BattleId = "Cave_Pudding_220271093596",
+                LocationId = 202156,
                 DisplayName = "Pudding Cave 2 - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Cave_Pudding_23101235120",
-                LocationId = 202094,
+                BattleId = "Cave_Pudding_24271093987",
+                LocationId = 202157,
                 DisplayName = "Pudding Cave 2 - Battle 2",
             },
             new BattleSanityCheck
             {
+                BattleId = "Cave_Pudding_2-3211123384",
+                LocationId = 202158,
+                DisplayName = "Pudding Cave 2 - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Cave_Pudding_23101235120",
+                LocationId = 202159,
+                DisplayName = "Pudding Cave 2 - Battle 4",
+            },
+            new BattleSanityCheck
+            {
                 BattleId = "Cave_Pudding_319551108344",
-                LocationId = 202095,
+                LocationId = 202160,
                 DisplayName = "Pudding Cave - Royal Pudding - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "ShipWrecked_Cannon23287702261",
-                LocationId = 202096,
-                DisplayName = "Shipwreck - Battle 1",
-            },
-            new BattleSanityCheck
-            {
-                BattleId = "ShipWrecked_Cannon57704583",
-                LocationId = 202097,
-                DisplayName = "Shipwreck - Battle 2",
-            },
-            new BattleSanityCheck
-            {
-                BattleId = "ShipWrecked_Prison11527893190",
-                LocationId = 202098,
-                DisplayName = "Shipwreck - Battle 3",
+                BattleId = "Cave_RedBeard-505815376223",
+                LocationId = 202161,
+                DisplayName = "RedBeard's Cave - Battle 1",
             },
             new BattleSanityCheck
             {
                 BattleId = "ShipWrecked_Top23937702525",
-                LocationId = 202099,
-                DisplayName = "Shipwreck - Battle 4",
+                LocationId = 202162,
+                DisplayName = "Shipwreck - Battle 1",
             },
             new BattleSanityCheck
             {
                 BattleId = "ShipWrecked_Top27417701844",
-                LocationId = 202100,
+                LocationId = 202163,
+                DisplayName = "Shipwreck - Battle 2",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "ShipWrecked_Cannon23287702261",
+                LocationId = 202164,
+                DisplayName = "Shipwreck - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "ShipWrecked_Prison11527893190",
+                LocationId = 202165,
+                DisplayName = "Shipwreck - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "ShipWrecked_Cannon-117754624",
+                LocationId = 202166,
                 DisplayName = "Shipwreck - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand15782402166",
-                LocationId = 202101,
-                DisplayName = "Snow Field - Battle 1",
+                BattleId = "ShipWrecked_Cannon57704583",
+                LocationId = 202167,
+                DisplayName = "Shipwreck - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand17798077265",
-                LocationId = 202102,
-                DisplayName = "Snow Field - Battle 2",
+                BattleId = "ShipWrecked_Top7887773862",
+                LocationId = 202168,
+                DisplayName = "Shipwreck - Battle 7",
             },
             new BattleSanityCheck
             {
                 BattleId = "SnowLand33572401218",
-                LocationId = 202103,
-                DisplayName = "Snow Field - Battle 3",
+                LocationId = 202169,
+                DisplayName = "Snow Field - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand4938075451",
-                LocationId = 202104,
-                DisplayName = "Snow Field - Battle 4",
+                BattleId = "SnowLand15782402166",
+                LocationId = 202170,
+                DisplayName = "Snow Field - Battle 2",
             },
             new BattleSanityCheck
             {
                 BattleId = "SnowLand7462403680",
-                LocationId = 202105,
+                LocationId = 202171,
+                DisplayName = "Snow Field - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "SnowLand-1891-5724803",
+                LocationId = 202172,
+                DisplayName = "Snow Field - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "SnowLand32385305418",
+                LocationId = 202173,
                 DisplayName = "Snow Field - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand_Cave20855967931",
-                LocationId = 202106,
+                BattleId = "SnowLand4938075451",
+                LocationId = 202174,
                 DisplayName = "Snow Field - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand_Cave23312195070",
-                LocationId = 202107,
+                BattleId = "SnowLand17798077265",
+                LocationId = 202175,
                 DisplayName = "Snow Field - Battle 7",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand_Cave25952193963",
-                LocationId = 202108,
+                BattleId = "SnowLand167211939988",
+                LocationId = 202176,
                 DisplayName = "Snow Field - Battle 8",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand_Cave40342196359",
-                LocationId = 202109,
+                BattleId = "SnowLand_Cave25952193963",
+                LocationId = 202177,
                 DisplayName = "Snow Field - Battle 9",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand_Cave41042195190",
-                LocationId = 202110,
+                BattleId = "SnowLand_Cave23312195070",
+                LocationId = 202178,
                 DisplayName = "Snow Field - Battle 10",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand_Cave50212194346",
-                LocationId = 202111,
+                BattleId = "SnowLand_Cave41042195190",
+                LocationId = 202179,
                 DisplayName = "Snow Field - Battle 11",
             },
             new BattleSanityCheck
             {
                 BattleId = "SnowLand_Cave55622193155",
-                LocationId = 202112,
+                LocationId = 202180,
                 DisplayName = "Snow Field - Battle 12",
             },
             new BattleSanityCheck
             {
-                BattleId = "SnowLand_Cave224985897375",
-                LocationId = 202113,
+                BattleId = "SnowLand_Cave50212194346",
+                LocationId = 202181,
                 DisplayName = "Snow Field - Battle 13",
             },
             new BattleSanityCheck
             {
-                BattleId = "Island_Arua16272221635",
-                LocationId = 202114,
+                BattleId = "SnowLand_Cave222167188143",
+                LocationId = 202182,
+                DisplayName = "Snow Field - Battle 14",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "SnowLand_Cave40342196359",
+                LocationId = 202183,
+                DisplayName = "Snow Field - Battle 15",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "SnowLand_Cave4_Tialion19596008156",
+                LocationId = 202184,
+                DisplayName = "Snow Field - Battle 16",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "SnowLand_Cave20855967931",
+                LocationId = 202185,
+                DisplayName = "Snow Field - Battle 17",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "SnowLand_Cave224985897375",
+                LocationId = 202186,
+                DisplayName = "Snow Field - Battle 18",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Island_Arua783155382",
+                LocationId = 202187,
                 DisplayName = "South Island - Battle 1",
             },
             new BattleSanityCheck
             {
                 BattleId = "Island_Arua1771222680",
-                LocationId = 202115,
+                LocationId = 202188,
                 DisplayName = "South Island - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Island_Arua5988222775",
-                LocationId = 202116,
+                BattleId = "Island_Arua16272221635",
+                LocationId = 202189,
                 DisplayName = "South Island - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Island_Arua783155382",
-                LocationId = 202117,
+                BattleId = "Island_Arua22671725083",
+                LocationId = 202190,
                 DisplayName = "South Island - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Island_Arua_2-14732827868",
-                LocationId = 202118,
+                BattleId = "Island_Arua_29392937514",
+                LocationId = 202191,
                 DisplayName = "South Island - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Island_Arua_29392937514",
-                LocationId = 202119,
+                BattleId = "Island_Arua5988222775",
+                LocationId = 202192,
                 DisplayName = "South Island - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_122702902317",
-                LocationId = 202120,
+                BattleId = "Island_Arua_2-14732827868",
+                LocationId = 202193,
+                DisplayName = "South Island - Battle 7",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Swamp_122272871827",
+                LocationId = 202194,
                 DisplayName = "Swamp - Battle 1",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_129472872388",
-                LocationId = 202121,
+                BattleId = "Swamp_122702902317",
+                LocationId = 202195,
                 DisplayName = "Swamp - Battle 2",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_13158287-399",
-                LocationId = 202122,
+                BattleId = "Swamp_129472872388",
+                LocationId = 202196,
                 DisplayName = "Swamp - Battle 3",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_14032267730",
-                LocationId = 202123,
+                BattleId = "Swamp_140912961892",
+                LocationId = 202197,
                 DisplayName = "Swamp - Battle 4",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_240983192126",
-                LocationId = 202124,
+                BattleId = "Swamp_14032267730",
+                LocationId = 202198,
                 DisplayName = "Swamp - Battle 5",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_242523263173",
-                LocationId = 202125,
+                BattleId = "Swamp_13158287-399",
+                LocationId = 202199,
                 DisplayName = "Swamp - Battle 6",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_249272723075",
-                LocationId = 202126,
+                BattleId = "Swamp_249793192463",
+                LocationId = 202200,
                 DisplayName = "Swamp - Battle 7",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_249793192463",
-                LocationId = 202127,
+                BattleId = "Swamp_249272723075",
+                LocationId = 202201,
                 DisplayName = "Swamp - Battle 8",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_Pool47652954701",
-                LocationId = 202128,
+                BattleId = "Swamp_256822832909",
+                LocationId = 202202,
                 DisplayName = "Swamp - Battle 9",
             },
             new BattleSanityCheck
             {
-                BattleId = "Swamp_Pool263832753553",
-                LocationId = 202129,
+                BattleId = "Swamp_240983192126",
+                LocationId = 202203,
                 DisplayName = "Swamp - Battle 10",
             },
             new BattleSanityCheck
             {
-                BattleId = "Road_Babellia13987523779",
-                LocationId = 202130,
-                DisplayName = "Vavelia Road - Battle 1",
+                BattleId = "Swamp_242523263173",
+                LocationId = 202204,
+                DisplayName = "Swamp - Battle 11",
             },
             new BattleSanityCheck
             {
-                BattleId = "Road_Babellia_WarriorCamp-122511426093",
-                LocationId = 202131,
-                DisplayName = "Vavelia Road - Battle 2",
+                BattleId = "Swamp_Pool47652954701",
+                LocationId = 202205,
+                DisplayName = "Swamp - Battle 12",
             },
             new BattleSanityCheck
             {
-                BattleId = "Road_Babellia_WarriorCamp14728846883",
-                LocationId = 202132,
-                DisplayName = "Vavelia Road - Battle 3",
-            },
-            new BattleSanityCheck
-            {
-                BattleId = "Road_Babellia_WarriorCamp15037552333",
-                LocationId = 202133,
-                DisplayName = "Vavelia Road - Battle 4",
+                BattleId = "Swamp_Pool263832753553",
+                LocationId = 202206,
+                DisplayName = "Swamp - Battle 13",
             },
             new BattleSanityCheck
             {
                 BattleId = "Road_Babellia_WarriorCamp21817554853",
-                LocationId = 202134,
-                DisplayName = "Vavelia Road - Battle 5",
+                LocationId = 202207,
+                DisplayName = "Vavelia Road - Battle 1",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_Babellia_WarriorCamp15037552333",
+                LocationId = 202208,
+                DisplayName = "Vavelia Road - Battle 2",
             },
             new BattleSanityCheck
             {
                 BattleId = "Road_Babellia_WarriorCamp2597553438",
-                LocationId = 202135,
+                LocationId = 202209,
+                DisplayName = "Vavelia Road - Battle 3",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_Babellia_WarriorCamp14728846883",
+                LocationId = 202210,
+                DisplayName = "Vavelia Road - Battle 4",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_Babellia_WarriorCamp-122511426093",
+                LocationId = 202211,
+                DisplayName = "Vavelia Road - Battle 5",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_Babellia44467513130",
+                LocationId = 202212,
                 DisplayName = "Vavelia Road - Battle 6",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_Babellia13987523779",
+                LocationId = 202213,
+                DisplayName = "Vavelia Road - Battle 7",
+            },
+            new BattleSanityCheck
+            {
+                BattleId = "Road_Babellia4_DurokHill-8847504038",
+                LocationId = 202214,
+                DisplayName = "Vavelia Road - Battle 8",
             },
         };
 
@@ -2692,9 +3208,64 @@ namespace WitchSpringRTestPlugin
                 RequiredItem = "Mind Control Circle",
                 DisplayName = "Boar_Junior / Mind Control tutorial (gates South Island)",
             },
+            // event_108 "Giving Anna the Chaos Stone" - m1 consumes ConfuseStone, so it must
+            // not start until the player actually has the (AP) Chaos Stone. Its start is gated
+            // by switch "안나_혼마석주기" (switchToStart_If_OneOn), i.e. it routes through
+            // CheckSwitch, so masking it here is safe and never hardlocks a running cutscene.
+            new SwitchGate
+            {
+                EventId = "event_108",
+                RequiredItem = "Chaos Stone",
+                DisplayName = "Giving Anna the Chaos Stone (gates until AP Chaos Stone received)",
+            },
+            // event_190 "Narrel clears the Elysion Plain boulder" (m47 Destroy:SceneObject).
+            // Starts via switch "엘리시온평원_나르에르바위치우기" (CheckSwitch-routed), so masking
+            // it keeps the boulder until the synthetic AP "Narrel" item is received - gating
+            // the Darkstone Cave / Elysion Temple branch (matching apworld entrance rule).
+            new SwitchGate
+            {
+                EventId = "event_190",
+                RequiredItem = "Narrel",
+                DisplayName = "Narrel clears the boulder (gates Darkstone Cave)",
+            },
+            // event_290 "Giving Kanna the Engine" (m25 GiveItem:FirstSteamEngine consumes it).
+            // Best-effort gate so the handover can't run before the AP Prototype Steam Engine
+            // is received. NOTE: event_290 is NOT in events_switches.csv, so it may not route
+            // through CheckSwitch - in that case this is a harmless no-op and the real safeguard
+            // is the blocked vanilla engine grant (#75). Verify in-game.
+            new SwitchGate
+            {
+                EventId = "event_290",
+                RequiredItem = "Prototype Steam Engine",
+                DisplayName = "Giving Kanna the Engine (gates until AP Steam Engine received)",
+            },
         };
-        public static readonly EventRewardCheck[] EventRewardChecks = 
+        public static readonly EventRewardCheck[] EventRewardChecks =
         {
+            // Prototype Steam Engine: granted by Red Beard (event_289 m170, right after you
+            // hand him the Red Gem). Block the vanilla grant so the AP item gates Chapter 6.
+            new EventRewardCheck
+            {
+                EventId = "event_289",
+                MethodIndex = 170,
+                VanillaItem = "FirstSteamEngine",
+                VanillaQuantity = 1,
+                LocationId = 201034,
+                DisplayName = "Prototype Steam Engine",
+                BlockVanilla = true,
+            },
+            // Matt's Garden Passage Key (event_234 m55, Under Lalaque). Block the vanilla grant
+            // so the AP key gates Canna's house -> Aimhard -> Ch4. ItemGrant -> Key_CannaHouseIronDoor.
+            new EventRewardCheck
+            {
+                EventId = "event_234",
+                MethodIndex = 55,
+                VanillaItem = "Key_CannaHouseIronDoor",
+                VanillaQuantity = 1,
+                LocationId = 201035,
+                DisplayName = "Matt's Garden Passage Key",
+                BlockVanilla = true,
+            },
             new EventRewardCheck
             {
                 EventId = "event_9",
@@ -2752,12 +3323,17 @@ namespace WitchSpringRTestPlugin
             },
             new EventRewardCheck
             {
+                // Wagon ambush (event_264) is an if/else: no Shoes_Leather -> m61
+                // Shield_Wood; has Shoes_Leather -> m62 Shoes_Leather. Both methods
+                // point at the SAME location so whichever branch fires sends the one
+                // "Boar Plains - Wagon Protection" check (sentEventLocations dedupes
+                // if both ever fire).
                 EventId = "event_264",
                 MethodIndex = 61,
                 VanillaItem = "Shield_Wood",
                 VanillaQuantity = 1,
                 LocationId = 200163,
-                DisplayName = "event_264 - Wooden Shield",
+                DisplayName = "Boar Plains - Wagon Protection",
             },
             new EventRewardCheck
             {
@@ -2765,8 +3341,8 @@ namespace WitchSpringRTestPlugin
                 MethodIndex = 62,
                 VanillaItem = "Shoes_Leather",
                 VanillaQuantity = 1,
-                LocationId = 200164,
-                DisplayName = "event_264 - Leather Shoes",
+                LocationId = 200163,
+                DisplayName = "Boar Plains - Wagon Protection",
             },
             new EventRewardCheck
             {
@@ -2883,7 +3459,7 @@ namespace WitchSpringRTestPlugin
                 VanillaItem = "GolemBlueprintInfo",
                 VanillaQuantity = 1,
                 LocationId = 200177,
-                DisplayName = "Death Squad - Matt's Letter",
+                DisplayName = "Pope's Dungeon - Matt's Letter",
             },
             new EventRewardCheck
             {
@@ -3147,6 +3723,19 @@ namespace WitchSpringRTestPlugin
                 VanillaQuantity = 1,
                 LocationId = 201032,
                 DisplayName = "Durok's Blessing",
+                BlockVanilla = false,
+            },
+            new EventRewardCheck
+            {
+                // Ch3 Arua Statue Trial (AuraStatueTest) - the second/"Lightning Bolt" Arua
+                // blessing. NewBless command, matched by (EventId, MethodIndex). Distinct from
+                // the Ch1 Arua's Arrow (event_84 m14) - leave that one alone.
+                EventId = "event_226",
+                MethodIndex = 105,
+                VanillaItem = "Bless_AruaThunder",
+                VanillaQuantity = 1,
+                LocationId = 201033,
+                DisplayName = "Arua Thunder Blessing",
                 BlockVanilla = false,
             },
         };
@@ -5429,12 +6018,8 @@ namespace WitchSpringRTestPlugin
                 GameItemId = "KingQueenPudding",
                 Quantity = 1,
             },
-            new ItemGrant
-            {
-                ApItemName = "Tarnished Flame Sword",
-                GameItemId = "Sword_FireOff",
-                Quantity = 1,
-            },
+            // "Tarnished Flame Sword" grant removed - Sword_FireOff is the same item as the
+            // Tarnished Soul Sword (Sword_SoulOff), so it caused a duplicate-equipment reject.
             new ItemGrant
             {
                 ApItemName = "Ancient Weapon Recipe",
@@ -6173,54 +6758,8 @@ namespace WitchSpringRTestPlugin
                 GameItemId = "ShieldStoneRed2",
                 Quantity = 1,
             },
-            new ItemGrant
-            {
-                ApItemName = "Red Berry White",
-                GameItemId = "RedBerryWhite",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Red Berry Blossom",
-                GameItemId = "RedBerryBlossom",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Black Pearl Mini",
-                GameItemId = "BlackPearlMini",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Deep Black Pearl",
-                GameItemId = "BlackPearlDeep",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Silver Rose Seed",
-                GameItemId = "RoseIronSeed",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Silver Rose Knight",
-                GameItemId = "RoseIronKnight",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Shining Dawn Princess",
-                GameItemId = "ShiningDawnPrincess",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Shining Dawn Angel",
-                GameItemId = "ShiningDawnAngel",
-                Quantity = 1,
-            },
+            // Paid DLC costume grants removed (Red Berry / Black Pearl / Silver Rose / Shining
+            // Dawn sets) - the AP items are out of the pool, so these can never be received.
             new ItemGrant
             {
                 ApItemName = "Strength Amplifier",
@@ -6473,18 +7012,7 @@ namespace WitchSpringRTestPlugin
                 GameItemId = "RedJellPortion",
                 Quantity = 1,
             },
-            new ItemGrant
-            {
-                ApItemName = "Lambette Peach",
-                GameItemId = "Lambette",
-                Quantity = 1,
-            },
-            new ItemGrant
-            {
-                ApItemName = "Sheeplie Peach",
-                GameItemId = "Sheeplie",
-                Quantity = 1,
-            },
+            // Paid DLC costume grants removed (Fluffy Peach Set: Lambette / Sheeplie Peach).
             new ItemGrant
             {
                 ApItemName = "Aimhard Blessing",
