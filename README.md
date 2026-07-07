@@ -25,6 +25,7 @@ All chapters should currently function. It is largely untested beyond Chapter 2(
 - You still receive regular blessings at the normal part of the story, so you will end up with duplicate blessings for use, they do not share a timer, enjoy the extra power!<br>
 - Overworld item checks give you a check for the multiworld on the first pickup, every subsequent pickup is the vanilla item.<br>
 - Chests are randomized, and should not be granting their vanilla reward.<br>
+- Questsanity where every quest is a check, Bestiary where every new enemy killed is a check and Battlesanity where (nearly)every battle in the game is a check exist as options.
 
 ## Known Bugs
 - Game may hard-lock if you attempt to initiate a convo when they are expecting you to have a certain item. IE; If you are supposed to have the Prototype Steam Engine and initiate the conversation to hand it over, the game will lock up forcing you to Alt+F4
