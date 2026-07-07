@@ -9,7 +9,7 @@ namespace WitchSpringRTestPlugin
     {
         private static readonly System.Collections.Generic.HashSet<long> sentBlessLocations = new();
 
-        public static bool Prefix(EventOperator __instance, string mathodInfo)
+        public static bool Prefix(EventOperator __instance, ref string mathodInfo)
         {
             try
             {
@@ -30,6 +30,22 @@ namespace WitchSpringRTestPlugin
                 int methodIndex = FindMethodIndex(info, eventId, mathodInfo);
 
                 EventContext.Set(eventId, methodIndex, mathodInfo);
+
+                // Tutorial commands inside a skipped quest's Endevent crash (no tutorial
+                // UI context) and, even with the exception suppressed, never register the
+                // "tutorial done -> continue" callback, so the event runner waits forever
+                // (confirmed freeze, 2026-07-06). Rewrite the command into a harmless
+                // self-advancing wait BEFORE the game parses it - the event then proceeds
+                // to its remaining commands natively.
+                if (QuestSkipHook.Enabled && QuestSkipHook.NeutralizeTutorialEvents.Contains(eventId))
+                {
+                    Plugin.LogRef.LogInfo($"[AP] {eventId} command m{methodIndex}: {mathodInfo}");
+                    if (!string.IsNullOrEmpty(mathodInfo) && mathodInfo.Contains(":Tutorial:"))
+                    {
+                        Plugin.LogRef.LogInfo($"[AP] Neutralized {eventId} Tutorial command -> WaitSecond 0.1");
+                        mathodInfo = ":WaitSecond:0.1";
+                    }
+                }
 
                 foreach (EventGate gate in Data.EventGates)
                 {
