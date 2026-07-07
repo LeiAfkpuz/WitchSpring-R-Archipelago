@@ -60,7 +60,9 @@ def set_location_rules(world) -> None:
     # Lalaque Forest (needs Boar Captain's Tooth). Without the Tooth requirement the fill can
     # mark Chapter 3 reachable as soon as it hands you the Mine Key - before you can enter the
     # Lalaque area at all (which is why the tracker showed Reached Chapter 3 but no mine checks).
-    safe_set_location_rule(world, "Reached Chapter 3", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player) and state.has("Lalaque Mine Key", world.player))
+    # Chaos Stone added (player report, 2026-07): the Ch2->3 story path runs through the
+    # Chaos Stone beats in Lalaque, so Chapter 3 can't happen without it.
+    safe_set_location_rule(world, "Reached Chapter 3", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player) and state.has("Lalaque Mine Key", world.player) and state.has("Chaos Stone", world.player))
     # Chapter 3 main story (in order): Shipwreck then Aimhard. The Rusty Commander's Cabin
     # Key opens the Shipwreck boss; beating it continues the story to Aimhard / Chapter 4.
     # (Cannonball is NOT in this chain - it only opens the Armory loot.)
@@ -142,10 +144,12 @@ def set_location_rules(world) -> None:
     # alone would cover it.)
     safe_set_entrance_rule(world, "Snow Field to Ice Cave", has(world, "Ice Magic Spellbook"))
     safe_set_entrance_rule(world, "Snow Field to Durok Temple", has(world, "Ice Magic Spellbook"))
-    # The Laoba Mountain Warrior Camp opens up once you've beaten the Boar Captain (i.e. have
-    # the Boar Captain's Tooth), so gate it on the Tooth rather than Chapter 3 - it's reachable
-    # in Chapter 2 in practice. (Deeper Laoba->Vavelia content stays gated at Chapter 5 below.)
-    safe_set_entrance_rule(world, "Boar Plain to Laoba Mountain", has(world, "Boar Captain's Tooth"))
+    # The Laoba Mountain Warrior Camp physically opens with the Boar Captain's Tooth, but
+    # players reported it's brutally hard at that power level - so logic also expects the
+    # Chaos Stone (the mid-Chapter-2 milestone), landing it in the second half of Ch2.
+    # Gates ALL Laoba checks transitively via the entrance; the three battles keep their
+    # stricter individual Chapter 3 rules. (Deeper Laoba->Vavelia stays Chapter 5 below.)
+    safe_set_entrance_rule(world, "Boar Plain to Laoba Mountain", lambda state: state.has("Boar Captain's Tooth", world.player) and state.has("Chaos Stone", world.player))
     # The Fire Cave / Volcano Road branch can't be entered until the Mind Control Circle quest
     # is done (UT-confirmed); this also covers the deeper Volcano Road 2/3 beyond it.
     safe_set_entrance_rule(world, "Backhill Golem Cave to Backhill Golem Cave Volcano Road", has(world, "Mind Control Circle"))
@@ -183,7 +187,6 @@ def set_location_rules(world) -> None:
     safe_set_location_rule(world, "Blast – Sun Sword", lambda state: state.has('Chapter 6', world.player))
     safe_set_location_rule(world, "Kanna – Peanut Shark", lambda state: state.has('Chapter 3', world.player) and state.has("Rusty Commander's Cabin Key", world.player))
     safe_set_location_rule(world, "Livya – Commander's Insignia", lambda state: state.has('Chapter 3', world.player))
-    safe_set_location_rule(world, "Sarah – Sera's Dress", lambda state: state.has('Chapter 2', world.player))
     safe_set_location_rule(world, "Ralph – Gem Payment", lambda state: state.has('Chapter 2', world.player))
     safe_set_location_rule(world, "Kanna's House – Chaos Stone", lambda state: state.has('Chapter 2', world.player))
     safe_set_location_rule(world, "Ralph - Boar Captain's Tooth Reward 2", lambda state: state.has('Chapter 2', world.player))
@@ -277,14 +280,14 @@ def set_location_rules(world) -> None:
     safe_set_location_rule(world, "Lalaque Forest - Battle 3", has(world, "Chapter 2"))
     safe_set_location_rule(world, "Lalaque Forest - Battle 5", has(world, "Chapter 2"))
     safe_set_location_rule(world, "Lalaque Forest - Battle 6", has(world, "Chapter 2"))
-    safe_set_location_rule(world, "Lalaque Forest - Battle 7", has(world, "Chapter 2"))
-    safe_set_location_rule(world, "Lalaque Forest - Battle 8", has(world, "Chapter 2"))
+    safe_set_location_rule(world, "Lalaque Forest - Battle 7", lambda state: state.has("Chapter 2", world.player) and state.has("Chaos Stone", world.player))
+    safe_set_location_rule(world, "Lalaque Forest - Battle 8", lambda state: state.has("Chapter 2", world.player) and state.has("Chaos Stone", world.player))
     safe_set_location_rule(world, "Lalaque Forest - Battle 9", has(world, "Chapter 4"))
-    safe_set_location_rule(world, "Lalaque Forest - Battle 10", has(world, "Chapter 2"))
-    safe_set_location_rule(world, "Lalaque Forest - Battle 11", has(world, "Chapter 2"))
-    safe_set_location_rule(world, "Lalaque Forest - Battle 12", has(world, "Chapter 2"))
+    safe_set_location_rule(world, "Lalaque Forest - Battle 10", lambda state: state.has("Chapter 2", world.player) and state.has("Chaos Stone", world.player))
+    safe_set_location_rule(world, "Lalaque Forest - Battle 11", lambda state: state.has("Chapter 2", world.player) and state.has("Chaos Stone", world.player))
+    safe_set_location_rule(world, "Lalaque Forest - Battle 12", lambda state: state.has("Chapter 2", world.player) and state.has("Chaos Stone", world.player))
     safe_set_location_rule(world, "Lalaque Forest - Battle 13", has(world, "Chapter 4"))
-    safe_set_location_rule(world, "Lalaque Forest - Battle 14", has(world, "Chapter 2"))
+    safe_set_location_rule(world, "Lalaque Forest - Battle 14", lambda state: state.has("Chapter 2", world.player) and state.has("Chaos Stone", world.player))
     safe_set_location_rule(world, "Lalaque Forest - Battle 15", lambda state: state.has("Chapter 6", world.player) and state.has("Soul Sword", world.player))
     safe_set_location_rule(world, "Lalaque Mine - Battle 5", has(world, "Chapter 2"))
     safe_set_location_rule(world, "Lalaque Mine - Battle 6", has(world, "Chapter 2"))
@@ -298,9 +301,11 @@ def set_location_rules(world) -> None:
     safe_set_location_rule(world, "Lalaque Mine - Battle 18", has(world, "Chapter 2"))
     safe_set_location_rule(world, "Lalaque Mine - Battle 19", has(world, "Chapter 2"))
     safe_set_location_rule(world, "Lalaque Mine - Battle 20", has(world, "Chapter 2"))
+    safe_set_location_rule(world, "Lalaque Mine - Battle 24", has(world, "Chaos Stone"))
     safe_set_location_rule(world, "Lalaque Mine - Battle 25", has(world, "Chapter 3"))
     safe_set_location_rule(world, "Lalaque Mine - Battle 26", has(world, "Chapter 3"))
     safe_set_location_rule(world, "Lalaque Mine - Battle 27", has(world, "Chapter 3"))
+    safe_set_location_rule(world, "Lalaque Mine - Battle 28", has(world, "Chaos Stone"))
     safe_set_location_rule(world, "Laoba Mountain - Battle 1", has(world, "Chapter 3"))
     safe_set_location_rule(world, "Laoba Mountain - Battle 2", has(world, "Chapter 3"))
     safe_set_location_rule(world, "Laoba Mountain - Battle 3", has(world, "Chapter 3"))
@@ -551,7 +556,7 @@ def set_location_rules(world) -> None:
     safe_set_location_rule(world, "Quest - Entrance to Elysion Temple", lambda state: state.has("Chapter 4", world.player))
     safe_set_location_rule(world, "Quest - Tracking Down Justice", lambda state: state.has("Chapter 5", world.player) and state.has("Secret Trader Key", world.player))
     safe_set_location_rule(world, "Quest - Finding Kate's Sibling", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player))
-    safe_set_location_rule(world, "Quest - Thorough Exorcism", lambda state: state.has("Chapter 2", world.player) and state.has("Lalaque Mine Key", world.player))
+    safe_set_location_rule(world, "Quest - Thorough Exorcism", lambda state: state.has("Chapter 2", world.player) and state.has("Lalaque Mine Key", world.player) and state.has("Chaos Stone", world.player))
     safe_set_location_rule(world, "Quest - To Aimhard Temple", lambda state: state.has("Chapter 3", world.player) and state.has("Shipwreck Hold Key", world.player) and state.has("Rusty Commander's Cabin Key", world.player) and state.has("Matt's Garden Passage Key", world.player))
     safe_set_location_rule(world, "Quest - To Elysion Temple", lambda state: state.has("Chapter 4", world.player))
     safe_set_location_rule(world, "Quest - West of Elysion Plain", lambda state: state.has("Chapter 4", world.player))

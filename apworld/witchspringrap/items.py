@@ -2633,7 +2633,10 @@ item_required_chapter = {
     "Ice Witch Scarf": 6,
     "Frozen Heart": 6,
     "Durok Blessing": 6,
-    "Dispelling Stone": 6,
+    # Chapter 3, not 6: "Quest - Barrier Wall" (min_chapter=3) requires Dispelling
+    # Stone x4, so the stones must be in the pool whenever the quest is - otherwise
+    # goal-4/5/6 seeds include an unreachable quest and fail full accessibility.
+    "Dispelling Stone": 3,
 
 }
 
