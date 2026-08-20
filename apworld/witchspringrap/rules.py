@@ -101,9 +101,9 @@ def set_location_rules(world) -> None:
     safe_set_entrance_rule(world, "Black Witch Forest to South Island", lambda state: state.has("Mind Control Circle", world.player) and state.has("Fire Magic Spellbook", world.player))
     safe_set_entrance_rule(world, "South Island to Shipwreck", has(world, "Chapter 3"))
     # --- Ch1+2 playthrough logic fixes (field-item / event / NPC-reward checks) ---
-    safe_set_location_rule(world, "Lalaque Village - Farm 1", has(world, "Chapter 3"))
-    safe_set_location_rule(world, "Lalaque Village - Farm 2", has(world, "Chapter 3"))
-    safe_set_location_rule(world, "Lalaque Village - Farm 3", has(world, "Chapter 3"))
+    safe_set_location_rule(world, "Lalaque Village - Farm 1", has(world, "Chapter 2"))
+    safe_set_location_rule(world, "Lalaque Village - Farm 2", has(world, "Chapter 2"))
+    safe_set_location_rule(world, "Lalaque Village - Farm 3", has(world, "Chapter 2"))
     safe_set_location_rule(world, "Lalaque Village - Anna's House", has(world, "Chaos Stone"))
     # Big Crab Island chest is in South Island (already behind MCC+Fire via the region); held
     # to Chapter 2 so players get some buffer before it's expected in logic.
@@ -566,7 +566,7 @@ def set_location_rules(world) -> None:
     safe_set_location_rule(world, "Quest - Reassuring Anna", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player) and state.has("Chaos Stone", world.player))
     safe_set_location_rule(world, "Quest - Informing Anna", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player) and state.has("Chaos Stone", world.player) and state.has("Lalaque Mine Key", world.player))
     safe_set_location_rule(world, "Quest - Barrier Wall", lambda state: state.has("Chapter 3", world.player) and state.has("Dispelling Stone", world.player, 4) and state.has("Matt's Garden Passage Key", world.player))
-    safe_set_location_rule(world, "Quest - Discovered Anna", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player) and state.has("Chaos Stone", world.player) and state.has("Lalaque Mine Key", world.player) and state.has("Chapter 3", world.player))
+    safe_set_location_rule(world, "Quest - Discovered Anna", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player) and state.has("Chaos Stone", world.player) and state.has("Lalaque Mine Key", world.player))
     safe_set_location_rule(world, "Quest - Warrior Sweep", lambda state: state.has("Mind Control Circle", world.player) and state.has("Fire Magic Spellbook", world.player))
     safe_set_location_rule(world, "Quest - Finding Memories", lambda state: state.has("Chapter 2", world.player) and state.has("Boar Captain's Tooth", world.player) and state.has("Chaos Stone", world.player) and state.has("Lalaque Mine Key", world.player))
     safe_set_location_rule(world, "Quest - Let's Try Mind Control!", lambda state: state.has("Mind Control Circle", world.player))

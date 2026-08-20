@@ -44,6 +44,32 @@ class WSROptions(PerGameCommonOptions):
     bestiary: Bestiary
     questsanity: QuestSanity
 
+# Per-location overrides applied on top of the normal chapter/min_chapter inclusion, keyed
+# by location name. Kept here (not in the generated tables) so it survives regeneration and
+# doesn't touch the datapackage/codes (removal of a check is deferred to 0.4.0).
+#   min_chapter: force a higher inclusion floor. required_chapter < goal_chapter is the rule,
+#                and goals are {2,3,4,5,6,7,9} (no 8), so min_chapter=8 means "goal-9 only"
+#                (8 < any real goal 2-7 is False; 8 < 9 is True). This is an INCLUSION gate
+#                only - it does NOT add a "Chapter 8" item to the reachability rule (that
+#                item doesn't exist), so where it IS included it stays reachable normally.
+#   excluded:    never place progression here (so a phantom check can't strand the seed).
+#
+# "Bestiary - Leaf Golem": the LeafGolem enemy is unused/placeholder content - its name is an
+# untranslated transliteration (리프골렘, vs the game's real word for leaf, 나뭇잎, used by
+# Leaf Pudding), it has no Rank/JobGroup, and it never appears in the in-game Bestiary even on
+# a fully-catalogued Epilogue save, so the check can't be earned. Gated to the (not-yet-
+# recommended) Chapter 9 goal only, and excluded there so even goal-9 players can't strand
+# progression on it. Goal <=7 players never see it.
+#
+# "Bestiary - Ancient Garden Wampleaf" (WampleafWaterWay, 500 EXP): an Epilogue (post-game)
+# fight, reachable only AFTER the Chapter 9 goal. Same treatment - goal-9 only so most players
+# never get it, and excluded so a goal-9 player who stops at the goal (before the epilogue)
+# isn't blocked, while epilogue completionists can still earn the check.
+LOCATION_OVERRIDES = {
+    "Bestiary - Leaf Golem": {"min_chapter": 8, "excluded": True},
+    "Bestiary - Ancient Garden Wampleaf": {"min_chapter": 8, "excluded": True},
+}
+
 class WSRWorld(World):
     """
     Witchspring R is an RPG split into chapters where you are a witch, Pieberry, exploring the world after being hidden away in your corner of the forest away from the Witch Hunt of the human world
@@ -111,7 +137,7 @@ class WSRWorld(World):
                 location_data.code,
                 region,
             )
-            if getattr(location_data, "excluded", False):
+            if getattr(location_data, "excluded", False) or LOCATION_OVERRIDES.get(location_name, {}).get("excluded"):
                 location.progress_type = LocationProgressType.EXCLUDED
             region.locations.append(location)
         
@@ -171,6 +197,9 @@ class WSRWorld(World):
         min_chapter = getattr(location_data, "min_chapter", None)
         if min_chapter is not None:
             required_chapter = max(required_chapter, min_chapter)
+        override_min = LOCATION_OVERRIDES.get(location_name, {}).get("min_chapter")
+        if override_min is not None:
+            required_chapter = max(required_chapter, override_min)
         return required_chapter < goal_chapter
 
     def should_include_item(self, item_name: str) -> bool:
