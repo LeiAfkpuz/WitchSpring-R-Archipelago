@@ -118,9 +118,11 @@ def set_location_rules(world) -> None:
     safe_set_location_rule(world, "Aimhard Temple - Prison - Chest 1", lambda state: state.has("Chapter 3", world.player) and state.has("Rusty Commander's Cabin Key", world.player))
     # (Prison Chest 2 & 3 removed from the pool - couldn't be found, assumed NG+ for now.)
     safe_set_location_rule(world, "Aimhard Temple - Prison - Chest 4", lambda state: state.has("Chapter 3", world.player) and state.has("Rusty Commander's Cabin Key", world.player))
-    # Lions Plain -> Aimhard Temple is the Chapter 3 branch off Lalaque Forest.
-    safe_set_entrance_rule(world, "Lalaque Forest to Lions Plain", has(world, "Chapter 3"))
-    # The Shipwreck boss (opened by the Cabin Key) must be beaten to reach Aimhard.
+    # Key inside Lions Plain (circular lock). Gating the entrance covers all Lions Plain
+    # content + Aimhard transitively.
+    safe_set_entrance_rule(world, "Lalaque Forest to Lions Plain", lambda state: state.has("Chapter 3", world.player) and state.has("Rusty Commander's Cabin Key", world.player))
+    # Aimhard additionally needs Matt's Garden Passage Key (Cabin Key already covered by
+    # the Lions Plain entrance above, kept here for clarity).
     safe_set_entrance_rule(world, "Lions Plain to Aimhard Temple", lambda state: state.has("Rusty Commander's Cabin Key", world.player) and state.has("Matt's Garden Passage Key", world.player))
     # Pudding Cave - Royal Pudding is behind the "To Elysion Temple" quest (modeled Ch5).
     safe_set_entrance_rule(world, "Pudding Cave 2 to Pudding Cave - Royal Pudding", has(world, "Chapter 5"))
