@@ -2574,7 +2574,9 @@ item_table = {
     #    pool_count=0,
     #),
     "Chapter 7": WSRItemData(
-        code=100400,
+        code=100398,  # was 100400 - COLLIDED with Narrel (also 100400). The shared code made
+                      # a received Narrel resolve to the name "Chapter 7", so the Narrel boulder
+                      # gate (checks received item named "Narrel") never fired -> hardlock.
         classification=ItemClassification.progression,
         game_id="",
         pool_count=0,

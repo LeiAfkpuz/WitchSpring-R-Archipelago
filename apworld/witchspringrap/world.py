@@ -89,6 +89,23 @@ class WSRWorld(World):
     # slot data and triggers a regeneration where generate_early applies the real goal.
     ut_can_gen_without_yaml = True
 
+    @classmethod
+    def stage_assert_generate(cls, multiworld) -> None:
+        # Datapackage sanity, run once per generation. No two items (or locations) may
+        # share a code - a duplicate code makes a received item resolve to the WRONG name
+        # (e.g. Narrel and Chapter 7 both sat at 100400 before 0.4.0, so a received Narrel
+        # arrived labelled "Chapter 7" and the Narrel boulder gate never fired -> hardlock).
+        # Fail generation loudly here instead of ever shipping a silent collision again.
+        import collections
+        for label, table in (("item", items.item_name_to_id),
+                             ("location", locations.location_name_to_id)):
+            by_code = collections.defaultdict(list)
+            for name, code in table.items():
+                by_code[code].append(name)
+            dupes = {code: names for code, names in by_code.items() if len(names) > 1}
+            if dupes:
+                raise Exception(f"Witchspring R: duplicate {label} codes (must be unique): {dupes}")
+
     def fill_slot_data(self) -> dict[str, Any]:
         return{
             "goal_choice": int(self.options.goal_choice.value),
