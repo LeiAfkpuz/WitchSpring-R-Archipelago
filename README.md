@@ -1,4 +1,4 @@
-# Removed from the AP discord due to tightening of the rules regarding dev conduct/AI/etc. I do not plan to make this repo private as this is still a functional randomizer and if people would like to continue to enjoy it, they should be able to.
+# This is a functional apworld/randomizer. Removed from the AP discord due to tightening of the rules regarding dev conduct/AI/etc. I plan to continue development on this mod and will actively monitor this github for comments/etc
 
 # WitchSpring-R-Archipelago
 Repository for my attempt at the WitchSpring R [Archipelago](https://archipelago.gg/) randomizer!<br>
